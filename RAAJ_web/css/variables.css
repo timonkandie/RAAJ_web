@@ -1,0 +1,100 @@
+/* =======RAAJ studios Design Tokens v1.0 ======*/
+:root{
+/*Brand colors*/
+--primary-color:#33B8FF;
+    --primary-dark:#0F6EA9;
+    --primary-light:#EAF8FF;
+
+    --white:#FFFFFF;
+
+    --background:#F8FCFF;
+
+    --surface:#F3F5F7;
+
+    --text-primary:#222222;
+    --text-secondary:#666666;
+    --text-muted:#999999;
+
+    --success:#28C76F;
+    --warning:#FFB020;
+    --danger:#EA5455;
+
+/*Fonts*/
+
+--heading-font:"Orbitron", sans-serif;
+
+--body-font:"Poppins", sans-serif;
+
+/*Font Sizes*/
+
+--fs-xs:12px;
+--fs-sm:14px;
+--fs-md:16px;
+--fs-lg:18px;
+--fs-xl:24px;
+--fs-2xl:32px;
+--fs-3xl:48px;
+--fs-4xl:64px;
+--fs-5xl:80px;
+
+  /*Font Weights*/
+
+  --fw-light:300;
+--fw-regular:400;
+--fw-medium:500;
+--fw-semibold:600;
+--fw-bold:700;
+--fw-black:900;
+
+/* Spacing */
+
+--space-xs:4px;
+--space-sm:8px;
+--space-md:16px;
+--space-lg:24px;
+--space-xl:32px;
+--space-2xl:48px;
+--space-3xl:64px;
+--space-4xl:96px;
+
+  /* Rounded Corners */
+
+--radius-sm:6px;
+--radius-md:10px;
+--radius-lg:18px;
+--radius-xl:24px;
+--radius-full:999px;
+
+  /* Shadows */
+
+--shadow-sm:0 2px 8px rgba(0,0,0,.08);
+
+--shadow-md:0 8px 20px rgba(0,0,0,.10);
+
+--shadow-lg:0 18px 40px rgba(0,0,0,.15);
+
+ /* Animation */
+
+--transition-fast:.2s ease;
+
+--transition-normal:.3s ease;
+
+--transition-slow:.5s ease;
+
+ /* Containers */
+
+--container-width:1200px;
+
+--container-padding:24px;
+
+  /* Layers */
+
+--z-dropdown:100;
+
+--z-navbar:500;
+
+--z-modal:900;
+
+--z-loader:1000;
+  
+}

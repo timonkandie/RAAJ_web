@@ -1,0 +1,269 @@
+/* ==========================================
+   Hero Section
+========================================== */
+
+.hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    overflow:hidden;
+
+}
+
+.hero-background{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:0;
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:80px;
+
+    min-height:85vh;
+
+}
+
+.hero-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:24px;
+
+}
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/*==========================
+    workspace 
+=====================*/
+
+.creative-workspace{
+
+    width:100%;
+
+    max-width:650px;
+
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.workspace-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:16px 24px;
+
+}
+
+/*===workspace body===*/
+
+.workspace-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/*===service tabs===*/
+
+.service-tabs{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    padding:20px;
+
+}
+
+/*=====project dispaly===*/
+.project-display{
+
+    display:grid;
+
+    grid-template-columns:1.3fr .7fr;
+
+    gap:24px;
+
+    padding:24px;
+
+}
+
+.project-image{
+
+    aspect-ratio:16/10;
+
+    border-radius:var(--radius-md);
+
+    overflow:hidden;
+
+}
+
+.project-information{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/*=== workspace footer ===*/
+
+.workspace-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 24px;
+
+}
+
+/*==== client carousel ===*/
+
+.client-carousel{
+
+    position:relative;
+
+    margin-top:40px;
+
+    overflow:hidden;
+
+}
+
+/*=== visual wireframe ===*/
+
+.hero-left,
+.hero-right,
+.creative-workspace,
+.project-display{
+
+    border:2px dashed royalblue;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:10px 18px;
+
+    width:fit-content;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+    font-size:.8rem;
+
+}
+
+.hero-heading h1{
+
+    font-size:clamp(3rem,7vw,5rem);
+
+    line-height:1.05;
+
+    font-weight:800;
+
+}
+
+.hero-description p{
+
+    max-width:600px;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.workspace-controls{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.workspace-controls span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+}

@@ -1,0 +1,71 @@
+/* ==========================================
+   RAAJ Studios
+   Responsive Styles
+   Version 1.0
+========================================== */
+
+/* ==========================
+   TABLETS
+========================== */
+
+@media (min-width:768px){
+
+}
+
+/* ==========================
+   LAPTOPS
+========================== */
+
+@media (min-width:992px){
+
+}
+
+/* ==========================
+   DESKTOP
+========================== */
+
+@media (min-width:1200px){
+
+  .menu-toggle{
+
+    display:none;
+
+  }
+}
+
+@media (max-width:991px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .menu-toggle{
+
+        display:block;
+
+    }
+
+}
+
+
+/* ==========================
+   LARGE DESKTOPS
+========================== */
+
+@media (min-width:1400px){
+
+}
+
+/*============================
+  IMAGES
+=========================*/
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
