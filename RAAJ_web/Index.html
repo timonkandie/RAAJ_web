@@ -3,79 +3,206 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <!-- =============================================
+       RAAJ Studios — Base Template v1.0
+       Every page on the site is built from this
+       structure. To create a new page:
+       1. Copy this file
+       2. Change <title> and meta description
+       3. Add page-specific CSS after the base links
+       4. Add page content inside #page-content
+       5. Add page-specific JS before closing </body>
+  ============================================= -->
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RAAJ Studios</title>
+  <!-- ── Primary Meta ── -->
+  <title>RAAJ Studios — Creative Graphic Design Agency</title>
+  <meta name="description"
+    content="RAAJ Studios is a creative graphic design agency offering logo design, poster design, flyer design, business cards, and packaging design for businesses across Kenya.">
+  <meta name="keywords"
+    content="graphic design, logo design, poster design, flyer design, business cards, packaging design, Nairobi, Kenya, RAAJ Studios">
+  <meta name="author" content="RAAJ Studios">
+  <meta name="theme-color" content="#33B8FF">
 
-<link rel="stylesheet" href="css/variables.css">
+  <!-- ── Open Graph (WhatsApp / Facebook previews) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://raajstudios.com/">
+  <meta property="og:title"       content="RAAJ Studios — Creative Graphic Design Agency">
+  <meta property="og:description" content="We craft memorable visual identities, marketing materials, and creative assets that help businesses stand out.">
+  <meta property="og:image"       content="assets/og-image.png">
 
-<link rel="stylesheet" href="css/style.css">
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="RAAJ Studios — Creative Graphic Design Agency">
+  <meta name="twitter:description" content="We craft memorable visual identities that help businesses stand out.">
+  <meta name="twitter:image"       content="assets/og-image.png">
 
-<link rel="stylesheet" href="css/hero.css">
+  <!-- ── PWA Manifest ── -->
+  <link rel="manifest" href="manifest.json">
 
-<link rel="stylesheet" href="css/animations.css">
+  <!-- ── Favicon ── -->
+  <link rel="icon"             href="assets/icons/favicon.ico"        type="image/x-icon">
+  <link rel="icon"             href="assets/icons/icon-32x32.png"     type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
 
-<link rel="stylesheet" href="css/responsive.css">
+  <!-- ── Font Preconnect (start DNS early) ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ── Fonts ── -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap">
+
+  <!-- ── Base CSS (load order matters) ── -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/transitions.css">
+  <link rel="stylesheet" href="css/fluid-typography.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/reduced-motion.css">
+
+  <!-- ── Page-specific CSS ── -->
+  <link rel="stylesheet" href="css/hero.css">
+
+  <!-- ── Prefetch likely next pages ── -->
+  <link rel="prefetch" href="services.html">
+  <link rel="prefetch" href="portfolio.html">
+  <link rel="prefetch" href="hire.html">
 
 </head>
 
 <body>
 
-<div id="navbar"></div>
-  <!-- ==========================
-     Mobile Navigation
-=========================== -->
+  <!-- =============================================
+       NAVBAR SLOT
+       Filled by components.js → navbar.html
+       Skeleton shown immediately by skeleton.js
+  ============================================= -->
+  <div id="navbar"></div>
 
-<div class="mobile-menu">
+  <!-- =============================================
+       MOBILE MENU
+       Controlled by navigation.js
+  ============================================= -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
 
-    <button class="close-menu" aria-label="Close Menu">
-
-        ✕
-
-    </button>
+    <button class="close-menu" aria-label="Close Menu">✕</button>
 
     <ul class="mobile-links">
-
-        <li><a href="index.html">Home</a></li>
-
-        <li><a href="about.html">About</a></li>
-
-        <li><a href="services.html">Services</a></li>
-
-        <li><a href="portfolio.html">Portfolio</a></li>
-
-        <li><a href="pricing.html">Pricing</a></li>
-
-        <li><a href="blog.html">Blog</a></li>
-
-        <li><a href="recruitment.html">Recruitment</a></li>
-
-        <li><a href="contact.html">Contact</a></li>
-
+      <li><a href="Index.html"       class="mobile-link">Home</a></li>
+      <li><a href="about.html"       class="mobile-link">About</a></li>
+      <li><a href="services.html"    class="mobile-link">Services</a></li>
+      <li><a href="portfolio.html"   class="mobile-link">Portfolio</a></li>
+      <li><a href="pricing.html"     class="mobile-link">Pricing</a></li>
+      <li><a href="blog.html"        class="mobile-link">Blog</a></li>
+      <li><a href="recruitment.html" class="mobile-link">Recruitment</a></li>
+      <li><a href="contact.html"     class="mobile-link">Contact</a></li>
     </ul>
 
-    <a href="hire.html" class="btn btn-primary">
+    <a href="hire.html" class="btn btn-primary">Hire Us</a>
 
-        Hire Us
+  </div>
 
-    </a>
+  <!-- =============================================
+       PAGE TRANSITION OVERLAY
+       Controlled by transitions.js
+  ============================================= -->
+  <div class="page-transition-overlay" id="transition-overlay" aria-hidden="true"></div>
 
-</div>
+  <!-- =============================================
+       MAIN PAGE CONTENT
+       Replace everything inside here per page.
+       On the homepage this contains the hero slot.
+       On inner pages this contains page sections.
+  ============================================= -->
+  <main id="page-content">
 
-<script src="js/navigation.js"></script>
+    <!-- HOMEPAGE ONLY: Hero component slot -->
+    <!-- Remove this on all other pages -->
+    <div id="hero"></div>
 
-<script src="js/animations.js"></script>
+  </main>
 
-<script src="js/forms.js"></script>
+  <!-- =============================================
+       FOOTER SLOT
+       Filled by components.js → footer.html
+       Skeleton shown immediately by skeleton.js
+  ============================================= -->
+  <div id="footer"></div>
 
-<script src="js/portfolio.js"></script>
+  <!-- =============================================
+       TOAST NOTIFICATION
+       Controlled by toast.js
+  ============================================= -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
-<script src="js/components.js"></script>
+  <!-- =============================================
+       MODAL WINDOW
+       Controlled by modal.js
+  ============================================= -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+  </div>
 
-<script src="js/app.js"></script>
+  <!-- =============================================
+       CUSTOM CURSOR
+       Injected by cursor.js — desktop only
+  ============================================= -->
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- =============================================
+       SCRIPTS — load order is important
+       1. skeleton.js    show placeholders immediately
+       2. performance.js detect device capability
+       3. components.js  fetch navbar + footer HTML
+       4. navigation.js  hamburger + scroll effects
+       5. enhancements   deferred, non-blocking
+       6. page scripts   page-specific logic
+       7. app.js         initialise everything, last
+  ============================================= -->
+
+  <script src="js/skeleton.js"></script>
+  <script src="js/performance.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <script src="js/transitions.js"          defer></script>
+  <script src="js/scroll.js"               defer></script>
+  <script src="js/counter.js"              defer></script>
+  <script src="js/cursor.js"               defer></script>
+  <script src="js/toast.js"                defer></script>
+  <script src="js/modal.js"                defer></script>
+  <script src="js/animations.js"           defer></script>
+  <script src="js/forms.js"                defer></script>
+
+  <script src="js/engine/renderPipeline.js"  defer></script>
+  <script src="js/engine/animationengine.js" defer></script>
+  <script src="js/data/Portfolio.js"         defer></script>
+  <script src="js/hero.js"                   defer></script>
+  <script src="js/portfolio.js"              defer></script>
+
+  <script src="js/app.js" defer></script>
+
+  <!-- ── Service Worker Registration ── -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then(reg  => console.log('[RAAJ] SW registered:', reg.scope))
+          .catch(err => console.warn('[RAAJ] SW failed:', err));
+      });
+    }
+  </script>
 
 </body>
 
