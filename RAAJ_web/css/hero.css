@@ -187,13 +187,9 @@
 
 /*=== visual wireframe ===*/
 
-.hero-left,
-.hero-right,
-.creative-workspace,
-.project-display{
-
-    border:2px dashed royalblue;
-
+.creative-workspace {
+  background: var(--white);
+  border: 1px solid rgba(51, 184, 255, 0.2);
 }
 
 .hero-badge{

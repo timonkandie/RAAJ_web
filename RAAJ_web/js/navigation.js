@@ -1,38 +1,37 @@
-function initializeNavigation(){
-
-    // Navigation code goes here
+/**
+ * Mobile Navigation & Header Scroll Controller
+ */
+function initializeNavigation() {
   const menuToggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeMenu = document.querySelector(".close-menu");
 
-const mobileMenu = document.querySelector(".mobile-menu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+  }
 
-const closeMenu = document.querySelector(".close-menu");
-
-  menuToggle.addEventListener("click", () => {
-
-    mobileMenu.classList.add("active");
-
-});
-
-  closeMenu.addEventListener("click", () => {
-
-    mobileMenu.classList.remove("active");
-
-});
+  if (closeMenu && mobileMenu) {
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  }
 
   window.addEventListener("scroll", () => {
-
     const navbar = document.querySelector(".navbar");
-
-    if(window.scrollY > 50){
-
+    if (navbar) {
+      if (window.scrollY > 50) {
         navbar.classList.add("scrolled");
-
-    }else{
-
+      } else {
         navbar.classList.remove("scrolled");
-
+      }
     }
+  });
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+  initializeNavigation();
 });
 
-}
+window.initializeNavigation = initializeNavigation;
