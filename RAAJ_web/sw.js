@@ -1,8 +1,17 @@
-const CACHE_NAME = 'raaj-studios-v1';
+const CACHE_NAME = 'raaj-studios-v2';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
   './Index.html',
+  './about.html',
+  './services.html',
+  './portfolio.html',
+  './pricing.html',
+  './blog.html',
+  './contact.html',
+  './hire.html',
+  './recruitment.html',
+  './testimonials.html',
   './css/variables.css',
   './css/style.css',
   './css/hero.css',
@@ -11,6 +20,7 @@ const PRECACHE_ASSETS = [
   './css/skeleton.css',
   './css/components.css',
   './js/components.js',
+  './js/forms.js',
   './js/modal.js',
   './js/gallery.js',
   './js/navigation.js',
@@ -27,21 +37,21 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('[Service Worker] Pre-caching offline core assets');
+        console.log('[Service Worker v2] Pre-caching offline core assets');
         return cache.addAll(PRECACHE_ASSETS);
       })
       .then(() => self.skipWaiting())
   );
 });
 
-// Activate Event - Clean Up Old Caches
+// Activate Event - Purge Old Caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
-            console.log('[Service Worker] Deleting old cache:', cache);
+            console.log('[Service Worker] Purging stale cache:', cache);
             return caches.delete(cache);
           }
         })
@@ -50,27 +60,39 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch Event - Stale-While-Revalidate Strategy
+// Fetch Event - Network-First Strategy for HTML / Components, Stale-While-Revalidate for Assets
 self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests and browser extension requests
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) return;
 
-  event.respondWith(
-    caches.open(CACHE_NAME).then(async (cache) => {
-      const cachedResponse = await cache.match(event.request);
-      
-      const fetchPromise = fetch(event.request)
-        .then((networkResponse) => {
+  const url = new URL(event.request.url);
+  const isHTML = event.request.headers.get('accept')?.includes('text/html') || url.pathname.endsWith('.html');
+
+  if (isHTML) {
+    // Network-First for HTML pages to ensure latest content
+    event.respondWith(
+      fetch(event.request)
+        .then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseClone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+  } else {
+    // Stale-While-Revalidate for static assets
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cachedResponse = await cache.match(event.request);
+        const fetchPromise = fetch(event.request).then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             cache.put(event.request, networkResponse.clone());
           }
           return networkResponse;
-        })
-        .catch((err) => {
-          console.warn('[Service Worker] Fetch failed; returning offline cache if available.', err);
-        });
-
-      return cachedResponse || fetchPromise;
-    })
-  );
+        }).catch(() => {});
+        return cachedResponse || fetchPromise;
+      })
+    );
+  }
 });

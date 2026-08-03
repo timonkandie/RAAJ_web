@@ -4,13 +4,6 @@
 
 /**
  * Section Title Component Generator
- * @param {Object} options
- * @param {string} [options.badge] - Optional badge text
- * @param {string} options.title - Main heading title text
- * @param {string} [options.highlightText] - Specific word/phrase within title to highlight with gradient
- * @param {string} [options.subtitle] - Subtitle descriptive paragraph
- * @param {string} [options.align='center'] - Alignment ('center', 'left', 'right')
- * @returns {string} Generated HTML string for section header
  */
 function createSectionTitle({ badge, title = '', highlightText = '', subtitle = '', align = 'center' }) {
   const alignClass = align === 'left' ? 'text-left' : align === 'right' ? 'text-right' : 'text-center';
@@ -40,9 +33,6 @@ function createSectionTitle({ badge, title = '', highlightText = '', subtitle = 
   `.trim();
 }
 
-/**
- * Auto-initialize Section Header components present in DOM
- */
 function initSectionHeaderComponents() {
   const containers = document.querySelectorAll('[data-component="section-title"]');
   containers.forEach(container => {
@@ -60,14 +50,6 @@ function initSectionHeaderComponents() {
 
 /**
  * Service Card Component Generator
- * @param {Object} options
- * @param {string} options.icon - Emoji or icon character
- * @param {string} options.title - Service title name
- * @param {string} options.description - Service short description
- * @param {string[]} [options.software] - Array of design tools (e.g. ['Illustrator', 'Figma'])
- * @param {string} [options.linkUrl='services.html'] - Target CTA page URL
- * @param {string} [options.ctaText='Learn More'] - Button text label
- * @returns {string} Generated HTML string for Service Card
  */
 function createServiceCard({ icon = '🎨', title = '', description = '', software = [], linkUrl = 'services.html', ctaText = 'Learn More' }) {
   const tagsHTML = software.length > 0
@@ -87,20 +69,12 @@ function createServiceCard({ icon = '🎨', title = '', description = '', softwa
   `.trim();
 }
 
-/**
- * Service Grid Component Generator
- * @param {Array<Object>} servicesList - Array of service data objects
- * @returns {string} Generated HTML grid string
- */
 function createServiceGrid(servicesList = []) {
   if (!Array.isArray(servicesList) || servicesList.length === 0) return '';
   const cardsHTML = servicesList.map(service => createServiceCard(service)).join('');
   return `<div class="grid grid-3-col">${cardsHTML}</div>`;
 }
 
-/**
- * Auto-initialize Service Card components present in DOM
- */
 function initServiceCardComponents() {
   const cardContainers = document.querySelectorAll('[data-component="service-card"]');
   cardContainers.forEach(container => {
@@ -118,9 +92,7 @@ function initServiceCardComponents() {
 }
 
 /**
- * Portfolio Card Component Generator (Task 9)
- * @param {Object} project - Project object from Portfolio.js
- * @returns {string} Generated HTML string for Portfolio Card
+ * Portfolio Card Component Generator
  */
 function createPortfolioCard(project = {}) {
   const {
@@ -155,20 +127,12 @@ function createPortfolioCard(project = {}) {
   `.trim();
 }
 
-/**
- * Portfolio Grid Component Generator (Task 9)
- * @param {Array<Object>} projectsList - Array of project objects
- * @returns {string} Generated HTML grid string
- */
 function createPortfolioGrid(projectsList = []) {
   if (!Array.isArray(projectsList) || projectsList.length === 0) return '';
   const cardsHTML = projectsList.map(project => createPortfolioCard(project)).join('');
   return `<div class="grid grid-3-col portfolio-grid">${cardsHTML}</div>`;
 }
 
-/**
- * Auto-initialize Portfolio Card components present in DOM
- */
 function initPortfolioCardComponents() {
   const cardContainers = document.querySelectorAll('[data-component="portfolio-card"]');
   cardContainers.forEach(container => {
@@ -193,15 +157,7 @@ function initPortfolioCardComponents() {
 }
 
 /**
- * Testimonial Card Component Generator (Task 10)
- * @param {Object} options
- * @param {string} options.quote - Client testimonial quote text
- * @param {string} options.name - Client name
- * @param {string} [options.role='Client'] - Client role/title
- * @param {string} [options.company=''] - Company/Organization name
- * @param {string} [options.avatarUrl] - Avatar photo URL
- * @param {number} [options.rating=5] - Rating out of 5 stars
- * @returns {string} Generated HTML string for Testimonial Card
+ * Testimonial Card Component Generator
  */
 function createTestimonialCard({ quote = '', name = '', role = 'Client', company = '', avatarUrl = '', rating = 5 }) {
   const starsHTML = '★'.repeat(Math.min(5, Math.max(1, rating))) + '☆'.repeat(5 - Math.min(5, Math.max(1, rating)));
@@ -225,20 +181,12 @@ function createTestimonialCard({ quote = '', name = '', role = 'Client', company
   `.trim();
 }
 
-/**
- * Testimonial Grid Component Generator (Task 10)
- * @param {Array<Object>} testimonialsList - Array of testimonial data objects
- * @returns {string} Generated HTML grid string
- */
 function createTestimonialGrid(testimonialsList = []) {
   if (!Array.isArray(testimonialsList) || testimonialsList.length === 0) return '';
   const cardsHTML = testimonialsList.map(item => createTestimonialCard(item)).join('');
   return `<div class="grid grid-3-col testimonial-grid">${cardsHTML}</div>`;
 }
 
-/**
- * Auto-initialize Testimonial Card components present in DOM
- */
 function initTestimonialCardComponents() {
   const containers = document.querySelectorAll('[data-component="testimonial-card"]');
   containers.forEach(container => {
@@ -256,19 +204,9 @@ function initTestimonialCardComponents() {
 }
 
 /**
- * Pricing Card Component Generator (Task 11)
- * @param {Object} options
- * @param {string} options.title - Package plan title
- * @param {string} options.price - Package price amount
- * @param {string} [options.period='/ project'] - Billing frequency/unit
- * @param {string} [options.description] - Plan summary
- * @param {string[]} [options.features] - Included feature list
- * @param {boolean} [options.isPopular=false] - Highlight popular tier
- * @param {string} [options.ctaText='Get Started'] - Button label
- * @param {string} [options.ctaUrl='hire.html'] - Button link target
- * @returns {string} Generated HTML string for Pricing Card
+ * Pricing Card Component Generator
  */
-function createPricingCard({ title = '', price = '', period = '/ project', description = '', features = [], isPopular = false, ctaText = 'Get Started', ctaUrl = 'hire.html' }) {
+function createPricingCard({ title = '', price = '', period = '/ project', description = '', features = [], isPopular = false, ctaText = 'Contact Studio', ctaUrl = 'contact.html' }) {
   const popularTag = isPopular ? '<span class="pricing-popular-tag">Most Popular</span>' : '';
   const popularClass = isPopular ? 'popular' : '';
 
@@ -295,20 +233,12 @@ function createPricingCard({ title = '', price = '', period = '/ project', descr
   `.trim();
 }
 
-/**
- * Pricing Grid Component Generator (Task 11)
- * @param {Array<Object>} pricingList - Array of pricing plan objects
- * @returns {string} Generated HTML grid string
- */
 function createPricingGrid(pricingList = []) {
   if (!Array.isArray(pricingList) || pricingList.length === 0) return '';
   const cardsHTML = pricingList.map(plan => createPricingCard(plan)).join('');
   return `<div class="grid grid-3-col pricing-grid">${cardsHTML}</div>`;
 }
 
-/**
- * Auto-initialize Pricing Card components present in DOM
- */
 function initPricingCardComponents() {
   const containers = document.querySelectorAll('[data-component="pricing-card"]');
   containers.forEach(container => {
@@ -318,8 +248,8 @@ function initPricingCardComponents() {
     const description = container.dataset.description || '';
     const features = container.dataset.features ? container.dataset.features.split(',').map(f => f.trim()) : [];
     const isPopular = container.dataset.popular === 'true';
-    const ctaText = container.dataset.cta || 'Get Started';
-    const ctaUrl = container.dataset.url || 'hire.html';
+    const ctaText = container.dataset.cta || 'Contact Studio';
+    const ctaUrl = container.dataset.url || 'contact.html';
 
     if (title && price) {
       container.innerHTML = createPricingCard({ title, price, period, description, features, isPopular, ctaText, ctaUrl });
@@ -328,16 +258,7 @@ function initPricingCardComponents() {
 }
 
 /**
- * Blog Card Component Generator (Task 12)
- * @param {Object} options
- * @param {string} options.title - Blog post title
- * @param {string} options.excerpt - Short article summary
- * @param {string} [options.date] - Date string
- * @param {string} [options.category='Design Insights'] - Article category
- * @param {string} [options.imageUrl] - Cover image URL
- * @param {string} [options.slug=''] - Post URL slug
- * @param {string} [options.readTime='5 min read'] - Estimated read time
- * @returns {string} Generated HTML string for Blog Card
+ * Blog Card Component Generator
  */
 function createBlogCard({ title = '', excerpt = '', date = '2026-08-01', category = 'Design Insights', imageUrl = '', slug = '', readTime = '5 min read' }) {
   const cover = imageUrl || 'https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop';
@@ -360,20 +281,12 @@ function createBlogCard({ title = '', excerpt = '', date = '2026-08-01', categor
   `.trim();
 }
 
-/**
- * Blog Grid Component Generator (Task 12)
- * @param {Array<Object>} postsList - Array of blog post objects
- * @returns {string} Generated HTML grid string
- */
 function createBlogGrid(postsList = []) {
   if (!Array.isArray(postsList) || postsList.length === 0) return '';
   const cardsHTML = postsList.map(post => createBlogCard(post)).join('');
   return `<div class="grid grid-3-col blog-grid">${cardsHTML}</div>`;
 }
 
-/**
- * Auto-initialize Blog Card components present in DOM
- */
 function initBlogCardComponents() {
   const containers = document.querySelectorAll('[data-component="blog-card"]');
   containers.forEach(container => {
@@ -397,6 +310,7 @@ function initBlogCardComponents() {
 async function loadComponent(id, file) {
   const container = document.getElementById(id);
   if (!container) return false;
+  if (container.children.length > 0) return true; // Keep inline fallback if present
 
   try {
     const response = await fetch(file);
@@ -405,15 +319,23 @@ async function loadComponent(id, file) {
     container.innerHTML = html;
     return true;
   } catch (err) {
-    console.warn(`[Components] Could not load component ${file} into #${id}:`, err);
+    console.warn(`[Components] Could not fetch ${file} into #${id}, fallback used:`, err);
     return false;
   }
 }
 
 async function initializePageComponents() {
-  await loadComponent("navbar", "components/navbar.html");
-  await loadComponent("footer", "components/footer.html");
-  const heroLoaded = await loadComponent("hero-component", "components/hero.html");
+  try {
+    await loadComponent("navbar", "components/navbar.html");
+    await loadComponent("footer", "components/footer.html");
+    const heroLoaded = await loadComponent("hero-component", "components/hero.html");
+
+    if (heroLoaded && typeof initializeHero === 'function') {
+      initializeHero();
+    }
+  } catch (e) {
+    console.warn("[Components] Partial component fetch error, continuing inline render...", e);
+  }
 
   initSectionHeaderComponents();
   initServiceCardComponents();
@@ -424,10 +346,6 @@ async function initializePageComponents() {
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
-  }
-
-  if (heroLoaded && typeof initializeHero === 'function') {
-    initializeHero();
   }
 }
 

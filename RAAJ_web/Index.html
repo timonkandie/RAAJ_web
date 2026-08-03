@@ -16,7 +16,7 @@
   <!-- Resource Hints & Font Preloading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
@@ -64,7 +64,6 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="recruitment.html">Recruitment</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -185,7 +184,7 @@
           </div>
         </div>
 
-        <div class="text-center margin-top-lg">
+        <div class="text-center margin-top-lg" style="margin-top: 2rem;">
           <a href="portfolio.html" class="btn btn-secondary">View All Projects →</a>
         </div>
       </div>
@@ -229,50 +228,18 @@
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="section pricing-section" id="pricing">
-      <div class="container">
-        <div data-component="section-title"
-             data-badge="TRANSPARENT PRICING"
-             data-title="Simple & Flexible Packages"
-             data-highlight="Flexible Packages"
-             data-subtitle="Clear, upfront pricing with no hidden costs. Tailored packages for every business stage.">
+    <!-- Flexible Custom Quote Banner Section -->
+    <section class="section quote-banner-section" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: var(--white); padding: 4rem 0;">
+      <div class="container text-center">
+        <div class="section-badge" style="background: rgba(51, 184, 255, 0.15); color: var(--primary-color); display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem;">
+          <span class="section-badge-dot" style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%;"></span>
+          TAILORED PRICING
         </div>
-
-        <div class="grid grid-3-col">
-          <div data-component="pricing-card"
-               data-title="Starter Identity"
-               data-price="KES 15,000"
-               data-period="/ project"
-               data-description="Ideal for new startups and small businesses needing a professional brand foundation."
-               data-features="Primary Vector Logo, Secondary Mark, Color Palette, Typography Hierarchy, High-Res PNG/SVG Files"
-               data-popular="false"
-               data-cta="Choose Starter"
-               data-url="hire.html?package=starter">
-          </div>
-
-          <div data-component="pricing-card"
-               data-title="Pro Brand Identity"
-               data-price="KES 35,000"
-               data-period="/ project"
-               data-description="Complete brand suite with packaging, stationery, and social media artwork templates."
-               data-features="Everything in Starter, Brand Style Guide PDF, Business Card Artwork, Packaging / Label Art, 3D Rendered Mockups, Source Files (AI/PSD)"
-               data-popular="true"
-               data-cta="Choose Pro"
-               data-url="hire.html?package=pro">
-          </div>
-
-          <div data-component="pricing-card"
-               data-title="Custom Studio Retainer"
-               data-price="KES 60,000"
-               data-period="/ month"
-               data-description="Dedicated monthly creative team for ongoing marketing collateral, posters, and collateral."
-               data-features="Unlimited Graphic Requests, Priority 24-48h Delivery, Posters / Flyers / Banners, Social Media Campaigns, Dedicated Account Lead"
-               data-popular="false"
-               data-cta="Contact for Retainer"
-               data-url="contact.html">
-          </div>
-        </div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white); margin-bottom: 1rem;">Flexible Pricing Tailored to Your Project</h2>
+        <p style="max-width: 680px; margin: 0 auto 2rem; font-size: 1.1rem; color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+          Every creative project has unique requirements. Contact our studio directly to discuss your scope, vision, and timeline for a customized proposal.
+        </p>
+        <a href="contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">Contact Studio for Quote →</a>
       </div>
     </section>
 
