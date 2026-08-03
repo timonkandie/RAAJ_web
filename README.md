@@ -94,10 +94,10 @@ RAAJ_web/
 │   ├── performance.js      ← Device/connection detection [TO BUILD]
 │   ├── components.js       ← Loads navbar + footer HTML
 │   ├── navigation.js       ← Hamburger menu + scroll effects
-│   ├── app.js              ← Main app initialiser [TO BUILD]
-│   ├── animations.js       ← Scroll animation triggers [TO BUILD]
-│   ├── forms.js            ← Form validation + submission [TO BUILD]
-│   ├── portfolio.js        ← Portfolio page filter logic [TO BUILD]
+│   ├── app.js              ← Main app initialiser [DONE]
+│   ├── animations.js       ← Scroll animation triggers [DONE]
+│   ├── forms.js            ← Form validation + submission [DONE]
+│   ├── portfolio.js        ← Portfolio page filter logic [DONE]
 │   ├── scroll.js           ← Intersection Observer reveals [TO BUILD]
 │   ├── counter.js          ← Animated stats counter [TO BUILD]
 │   ├── loader.js           ← Page loading screen [TO BUILD]
@@ -108,11 +108,11 @@ RAAJ_web/
 │   ├── cursor.js           ← Custom cursor (desktop) [TO BUILD]
 │   │
 │   ├── engine/
-│   │   ├── renderPipeline.js   ← Hero workspace renderer [BROKEN - TO FIX]
-│   │   └── animationengine.js  ← Animation controller [BROKEN - TO FIX]
+│   │   ├── renderPipeline.js   ← Hero workspace renderer [DONE]
+│   │   └── animationengine.js  ← Animation controller [DONE]
 │   │
 │   └── data/
-│       └── Portfolio.js        ← Project data [EMPTY - TO FILL]
+│       └── Portfolio.js        ← Project data [DONE]
 │
 └── assets/
     ├── icons/              ← PWA icons (all sizes) [NEEDED]
@@ -136,11 +136,11 @@ RAAJ_web/
 ### PHASE 1 — Fix What's Broken
 | # | Task | File | Status |
 |---|------|------|--------|
-| 1 | Fix render engine | `js/engine/renderPipeline.js` | 🔴 To Do |
-| 2 | Fix animation engine | `js/engine/animationengine.js` | 🔴 To Do |
-| 3 | Fix hero controller | `js/hero.js` | 🔴 To Do |
-| 4 | Fill portfolio data | `js/data/Portfolio.js` | 🔴 To Do |
-| 5 | Create missing JS files | `animations.js`, `forms.js`, `portfolio.js`, `app.js` | 🔴 To Do |
+| 1 | Fix render engine | `js/engine/renderPipeline.js` | ✅ Done |
+| 2 | Fix animation engine | `js/engine/animationengine.js` | ✅ Done |
+| 3 | Fix hero controller | `js/hero.js` | ✅ Done |
+| 4 | Fill portfolio data | `js/data/Portfolio.js` | ✅ Done |
+| 5 | Create missing JS files | `animations.js`, `forms.js`, `portfolio.js`, `app.js` | ✅ Done |
 
 ### PHASE 2 — Build the Component Library
 | # | Task | File | Status |
