@@ -477,6 +477,26 @@ textarea.form-control {
   resize: vertical;
 }
 
+.form-card-title {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-xs);
+}
+
+.form-card-subtitle {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+.form-control.is-invalid {
+  border-color: var(--danger);
+  background: rgba(234, 84, 85, 0.05);
+}
+
+.form-control.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(234, 84, 85, 0.15);
+}
+
 .form-hint {
   font-size: var(--fs-xs);
   color: var(--text-muted);
@@ -485,6 +505,21 @@ textarea.form-control {
 .form-error {
   font-size: var(--fs-xs);
   color: var(--danger);
+  margin-top: 2px;
+}
+
+.form-status-message {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-lg);
+}
+
+.form-status-message.success {
+  background: rgba(40, 199, 111, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(40, 199, 111, 0.3);
 }
 
 /* ==========================================
