@@ -145,7 +145,7 @@ RAAJ_web/
 ### PHASE 2 — Build the Component Library
 | # | Task | File | Status |
 |---|------|------|--------|
-| 6 | Component styles | `css/components.css` | 🔴 To Do |
+| 6 | Component styles | `css/components.css` | ✅ Done |
 | 7 | Section Title component | inside `components.css` + `components.js` | 🔴 To Do |
 | 8 | Service Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 9 | Portfolio Card component | inside `components.css` + `components.js` | 🔴 To Do |

@@ -9,6 +9,7 @@ const PRECACHE_ASSETS = [
   './css/animations.css',
   './css/responsive.css',
   './css/skeleton.css',
+  './css/components.css',
   './js/components.js',
   './js/navigation.js',
   './js/hero.js',
