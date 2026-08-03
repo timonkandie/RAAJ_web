@@ -338,11 +338,35 @@
   margin-bottom: var(--space-xs);
 }
 
+.pricing-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.pricing-price-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
 .pricing-price {
   font-size: var(--fs-4xl);
   font-weight: var(--fw-black);
   color: var(--primary-color);
-  margin-bottom: var(--space-xs);
+}
+
+.pricing-period {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+}
 }
 
 .pricing-features {

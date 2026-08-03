@@ -150,7 +150,7 @@ RAAJ_web/
 | 8 | Service Card component | inside `components.css` + `components.js` | ✅ Done |
 | 9 | Portfolio Card component | inside `components.css` + `components.js` | ✅ Done |
 | 10 | Testimonial Card component | inside `components.css` + `components.js` | ✅ Done |
-| 11 | Pricing Card component | inside `components.css` + `components.js` | 🔴 To Do |
+| 11 | Pricing Card component | inside `components.css` + `components.js` | ✅ Done |
 | 12 | Blog Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 13 | Contact Form component | inside `components.css` + `forms.js` | 🔴 To Do |
 | 14 | Recruitment Form component | inside `components.css` + `forms.js` | 🔴 To Do |

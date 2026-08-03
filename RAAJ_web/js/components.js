@@ -256,6 +256,78 @@ function initTestimonialCardComponents() {
 }
 
 /**
+ * Pricing Card Component Generator (Task 11)
+ * @param {Object} options
+ * @param {string} options.title - Package plan title
+ * @param {string} options.price - Package price amount
+ * @param {string} [options.period='/ project'] - Billing frequency/unit
+ * @param {string} [options.description] - Plan summary
+ * @param {string[]} [options.features] - Included feature list
+ * @param {boolean} [options.isPopular=false] - Highlight popular tier
+ * @param {string} [options.ctaText='Get Started'] - Button label
+ * @param {string} [options.ctaUrl='hire.html'] - Button link target
+ * @returns {string} Generated HTML string for Pricing Card
+ */
+function createPricingCard({ title = '', price = '', period = '/ project', description = '', features = [], isPopular = false, ctaText = 'Get Started', ctaUrl = 'hire.html' }) {
+  const popularTag = isPopular ? '<span class="pricing-popular-tag">Most Popular</span>' : '';
+  const popularClass = isPopular ? 'popular' : '';
+
+  const featuresHTML = features.length > 0
+    ? `<ul class="pricing-features">${features.map(f => `<li class="pricing-feature">${f}</li>`).join('')}</ul>`
+    : '';
+
+  return `
+    <div class="card pricing-card ${popularClass}">
+      ${popularTag}
+      <div class="pricing-header">
+        <h3 class="pricing-title">${title}</h3>
+        <p class="pricing-desc">${description}</p>
+        <div class="pricing-price-container">
+          <span class="pricing-price">${price}</span>
+          <span class="pricing-period">${period}</span>
+        </div>
+      </div>
+      ${featuresHTML}
+      <div class="pricing-footer">
+        <a href="${ctaUrl}" class="btn ${isPopular ? 'btn-primary' : 'btn-secondary'} btn-block">${ctaText}</a>
+      </div>
+    </div>
+  `.trim();
+}
+
+/**
+ * Pricing Grid Component Generator (Task 11)
+ * @param {Array<Object>} pricingList - Array of pricing plan objects
+ * @returns {string} Generated HTML grid string
+ */
+function createPricingGrid(pricingList = []) {
+  if (!Array.isArray(pricingList) || pricingList.length === 0) return '';
+  const cardsHTML = pricingList.map(plan => createPricingCard(plan)).join('');
+  return `<div class="grid grid-3-col pricing-grid">${cardsHTML}</div>`;
+}
+
+/**
+ * Auto-initialize Pricing Card components present in DOM
+ */
+function initPricingCardComponents() {
+  const containers = document.querySelectorAll('[data-component="pricing-card"]');
+  containers.forEach(container => {
+    const title = container.dataset.title || '';
+    const price = container.dataset.price || '';
+    const period = container.dataset.period || '/ project';
+    const description = container.dataset.description || '';
+    const features = container.dataset.features ? container.dataset.features.split(',').map(f => f.trim()) : [];
+    const isPopular = container.dataset.popular === 'true';
+    const ctaText = container.dataset.cta || 'Get Started';
+    const ctaUrl = container.dataset.url || 'hire.html';
+
+    if (title && price) {
+      container.innerHTML = createPricingCard({ title, price, period, description, features, isPopular, ctaText, ctaUrl });
+    }
+  });
+}
+
+/**
  * Dynamic Component Fetch Loader
  */
 async function loadComponent(id, file) {
@@ -283,6 +355,7 @@ async function initializePageComponents() {
   initServiceCardComponents();
   initPortfolioCardComponents();
   initTestimonialCardComponents();
+  initPricingCardComponents();
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
@@ -306,3 +379,6 @@ window.initPortfolioCardComponents = initPortfolioCardComponents;
 window.createTestimonialCard = createTestimonialCard;
 window.createTestimonialGrid = createTestimonialGrid;
 window.initTestimonialCardComponents = initTestimonialCardComponents;
+window.createPricingCard = createPricingCard;
+window.createPricingGrid = createPricingGrid;
+window.initPricingCardComponents = initPricingCardComponents;
