@@ -152,6 +152,37 @@ function initPortfolioCardComponents() {
         images: { hero: image },
         tags
       });
+
+      const card = container.querySelector('.portfolio-card');
+      if (card) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+          if (window.ModalEngine) {
+            ModalEngine.open({
+              title: `${title} — Project Case Study`,
+              size: 'lg',
+              content: `
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start;">
+                  <img src="${image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop'}" alt="${title}" style="width: 100%; border-radius: 12px; object-fit: cover;">
+                  <div>
+                    <span class="badge badge-primary" style="margin-bottom: 12px; display: inline-block;">${category}</span>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 8px;">${title}</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 16px;"><strong>Client:</strong> ${client}</p>
+                    <div style="margin-bottom: 20px; line-height: 1.6;">
+                      <h4 style="font-size: 1rem; margin-bottom: 4px;">Project Overview</h4>
+                      <p>Custom graphic design solution engineered by RAAJ Studios to elevate ${client}'s brand positioning and market presence.</p>
+                    </div>
+                    <div class="tag-group" style="margin-bottom: 24px;">
+                      ${tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                    </div>
+                    <a href="contact.html" class="btn btn-primary btn-block">Inquire Similar Project →</a>
+                  </div>
+                </div>
+              `
+            });
+          }
+        });
+      }
     }
   });
 }

@@ -23,6 +23,7 @@ const PRECACHE_ASSETS = [
   './js/forms.js',
   './js/modal.js',
   './js/gallery.js',
+  './js/toast.js',
   './js/navigation.js',
   './js/hero.js',
   './js/skeleton.js',
