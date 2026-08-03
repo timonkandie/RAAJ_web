@@ -75,13 +75,13 @@ RAAJ_web/
 ├── components/
 │   ├── navbar.html         ← Navigation bar (reusable)
 │   ├── hero.html           ← Hero section (homepage only)
-│   └── footer.html         ← Footer (reusable) [TO BUILD]
+│   └── footer.html         ← Footer (reusable) [DONE]
 │
 ├── css/
 │   ├── variables.css       ← Design tokens (colors, fonts, spacing)
 │   ├── skeleton.css        ← Shimmer loading placeholders
 │   ├── style.css           ← Global styles and resets
-│   ├── components.css      ← Card and UI component styles [TO BUILD]
+│   ├── components.css      ← Card and UI component styles [DONE]
 │   ├── hero.css            ← Hero section styles
 │   ├── animations.css      ← Keyframe animations
 │   ├── transitions.css     ← Page transition styles [TO BUILD]
@@ -103,8 +103,8 @@ RAAJ_web/
 │   ├── loader.js           ← Page loading screen [TO BUILD]
 │   ├── toast.js            ← Notification toasts [TO BUILD]
 │   ├── transitions.js      ← Page-to-page transitions [TO BUILD]
-│   ├── modal.js            ← Portfolio modal window [TO BUILD]
-│   ├── gallery.js          ← Image gallery + lightbox [TO BUILD]
+│   ├── modal.js            ← Portfolio modal window [DONE]
+│   ├── gallery.js          ← Image gallery + lightbox [DONE]
 │   ├── cursor.js           ← Custom cursor (desktop) [TO BUILD]
 │   │
 │   ├── engine/
@@ -156,7 +156,7 @@ RAAJ_web/
 | 14 | Recruitment Form component | inside `components.css` + `forms.js` | ✅ Done |
 | 15 | Footer component | `components/footer.html` | ✅ Done |
 | 16 | Modal Window | `js/modal.js` + `css/components.css` | ✅ Done |
-| 17 | Image Gallery + Lightbox | `js/gallery.js` + `css/components.css` | 🔴 To Do |
+| 17 | Image Gallery + Lightbox | `js/gallery.js` + `css/components.css` | ✅ Done |
 
 ### PHASE 3 — Performance & Responsiveness
 | # | Task | File | Status |
