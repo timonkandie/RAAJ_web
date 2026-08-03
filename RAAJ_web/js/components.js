@@ -133,7 +133,6 @@ function createPortfolioCard(project = {}) {
   } = project;
 
   const heroImage = images.hero || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop';
-  const targetUrl = slug ? `portfolio.html?project=${slug}` : 'portfolio.html';
 
   const tagsHTML = tags.length > 0
     ? `<div class="tag-group">${tags.slice(0, 3).map(tag => `<span class="tag tag-light">${tag}</span>`).join('')}</div>`
@@ -194,6 +193,69 @@ function initPortfolioCardComponents() {
 }
 
 /**
+ * Testimonial Card Component Generator (Task 10)
+ * @param {Object} options
+ * @param {string} options.quote - Client testimonial quote text
+ * @param {string} options.name - Client name
+ * @param {string} [options.role='Client'] - Client role/title
+ * @param {string} [options.company=''] - Company/Organization name
+ * @param {string} [options.avatarUrl] - Avatar photo URL
+ * @param {number} [options.rating=5] - Rating out of 5 stars
+ * @returns {string} Generated HTML string for Testimonial Card
+ */
+function createTestimonialCard({ quote = '', name = '', role = 'Client', company = '', avatarUrl = '', rating = 5 }) {
+  const starsHTML = '★'.repeat(Math.min(5, Math.max(1, rating))) + '☆'.repeat(5 - Math.min(5, Math.max(1, rating)));
+  const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Client')}&background=EAF8FF&color=33B8FF`;
+  const avatar = avatarUrl || defaultAvatar;
+
+  const roleCompany = company ? `${role}, ${company}` : role;
+
+  return `
+    <div class="card testimonial-card">
+      <div class="testimonial-stars">${starsHTML}</div>
+      <p class="testimonial-quote">"${quote}"</p>
+      <div class="testimonial-author">
+        <img src="${avatar}" alt="${name}" class="testimonial-avatar" loading="lazy">
+        <div class="testimonial-info">
+          <h4>${name}</h4>
+          <p>${roleCompany}</p>
+        </div>
+      </div>
+    </div>
+  `.trim();
+}
+
+/**
+ * Testimonial Grid Component Generator (Task 10)
+ * @param {Array<Object>} testimonialsList - Array of testimonial data objects
+ * @returns {string} Generated HTML grid string
+ */
+function createTestimonialGrid(testimonialsList = []) {
+  if (!Array.isArray(testimonialsList) || testimonialsList.length === 0) return '';
+  const cardsHTML = testimonialsList.map(item => createTestimonialCard(item)).join('');
+  return `<div class="grid grid-3-col testimonial-grid">${cardsHTML}</div>`;
+}
+
+/**
+ * Auto-initialize Testimonial Card components present in DOM
+ */
+function initTestimonialCardComponents() {
+  const containers = document.querySelectorAll('[data-component="testimonial-card"]');
+  containers.forEach(container => {
+    const quote = container.dataset.quote || '';
+    const name = container.dataset.name || '';
+    const role = container.dataset.role || 'Client';
+    const company = container.dataset.company || '';
+    const avatarUrl = container.dataset.avatar || '';
+    const rating = parseInt(container.dataset.rating || '5', 10);
+
+    if (quote && name) {
+      container.innerHTML = createTestimonialCard({ quote, name, role, company, avatarUrl, rating });
+    }
+  });
+}
+
+/**
  * Dynamic Component Fetch Loader
  */
 async function loadComponent(id, file) {
@@ -220,6 +282,7 @@ async function initializePageComponents() {
   initSectionHeaderComponents();
   initServiceCardComponents();
   initPortfolioCardComponents();
+  initTestimonialCardComponents();
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
@@ -240,3 +303,6 @@ window.initServiceCardComponents = initServiceCardComponents;
 window.createPortfolioCard = createPortfolioCard;
 window.createPortfolioGrid = createPortfolioGrid;
 window.initPortfolioCardComponents = initPortfolioCardComponents;
+window.createTestimonialCard = createTestimonialCard;
+window.createTestimonialGrid = createTestimonialGrid;
+window.initTestimonialCardComponents = initTestimonialCardComponents;
