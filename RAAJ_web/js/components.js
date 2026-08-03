@@ -328,6 +328,70 @@ function initPricingCardComponents() {
 }
 
 /**
+ * Blog Card Component Generator (Task 12)
+ * @param {Object} options
+ * @param {string} options.title - Blog post title
+ * @param {string} options.excerpt - Short article summary
+ * @param {string} [options.date] - Date string
+ * @param {string} [options.category='Design Insights'] - Article category
+ * @param {string} [options.imageUrl] - Cover image URL
+ * @param {string} [options.slug=''] - Post URL slug
+ * @param {string} [options.readTime='5 min read'] - Estimated read time
+ * @returns {string} Generated HTML string for Blog Card
+ */
+function createBlogCard({ title = '', excerpt = '', date = '2026-08-01', category = 'Design Insights', imageUrl = '', slug = '', readTime = '5 min read' }) {
+  const cover = imageUrl || 'https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop';
+  const postUrl = slug ? `blog.html?post=${slug}` : 'blog.html';
+
+  return `
+    <div class="card blog-card">
+      <img src="${cover}" alt="${title}" class="blog-card-image" loading="lazy">
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span class="badge badge-primary">${category}</span>
+          <span>${date}</span>
+          <span>• ${readTime}</span>
+        </div>
+        <h3 class="blog-card-title">${title}</h3>
+        <p class="blog-card-excerpt">${excerpt}</p>
+        <a href="${postUrl}" class="service-card-link">Read Article →</a>
+      </div>
+    </div>
+  `.trim();
+}
+
+/**
+ * Blog Grid Component Generator (Task 12)
+ * @param {Array<Object>} postsList - Array of blog post objects
+ * @returns {string} Generated HTML grid string
+ */
+function createBlogGrid(postsList = []) {
+  if (!Array.isArray(postsList) || postsList.length === 0) return '';
+  const cardsHTML = postsList.map(post => createBlogCard(post)).join('');
+  return `<div class="grid grid-3-col blog-grid">${cardsHTML}</div>`;
+}
+
+/**
+ * Auto-initialize Blog Card components present in DOM
+ */
+function initBlogCardComponents() {
+  const containers = document.querySelectorAll('[data-component="blog-card"]');
+  containers.forEach(container => {
+    const title = container.dataset.title || '';
+    const excerpt = container.dataset.excerpt || '';
+    const date = container.dataset.date || '';
+    const category = container.dataset.category || 'Design Insights';
+    const imageUrl = container.dataset.image || '';
+    const slug = container.dataset.slug || '';
+    const readTime = container.dataset.readtime || '5 min read';
+
+    if (title) {
+      container.innerHTML = createBlogCard({ title, excerpt, date, category, imageUrl, slug, readTime });
+    }
+  });
+}
+
+/**
  * Dynamic Component Fetch Loader
  */
 async function loadComponent(id, file) {
@@ -356,6 +420,7 @@ async function initializePageComponents() {
   initPortfolioCardComponents();
   initTestimonialCardComponents();
   initPricingCardComponents();
+  initBlogCardComponents();
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
@@ -382,3 +447,6 @@ window.initTestimonialCardComponents = initTestimonialCardComponents;
 window.createPricingCard = createPricingCard;
 window.createPricingGrid = createPricingGrid;
 window.initPricingCardComponents = initPricingCardComponents;
+window.createBlogCard = createBlogCard;
+window.createBlogGrid = createBlogGrid;
+window.initBlogCardComponents = initBlogCardComponents;

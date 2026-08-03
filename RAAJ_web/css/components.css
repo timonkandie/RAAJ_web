@@ -367,7 +367,6 @@
   width: 100%;
   text-align: center;
 }
-}
 
 .pricing-features {
   text-align: left;
@@ -396,12 +395,18 @@
 ========================================== */
 .blog-card {
   padding: 0;
+  overflow: hidden;
 }
 
 .blog-card-image {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.blog-card:hover .blog-card-image {
+  transform: scale(1.05);
 }
 
 .blog-card-content {
