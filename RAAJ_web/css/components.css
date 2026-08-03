@@ -149,7 +149,23 @@
   align-items: center;
   justify-content: space-between;
   padding-top: var(--space-md);
+  margin-top: var(--space-sm);
   border-top: 1px solid var(--surface);
+}
+
+.service-card-link {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--primary-color);
+  transition: color var(--transition-normal), transform var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.service-card:hover .service-card-link {
+  color: var(--primary-dark);
+  transform: translateX(4px);
 }
 
 /* ==========================================

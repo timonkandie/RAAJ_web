@@ -59,6 +59,65 @@ function initSectionHeaderComponents() {
 }
 
 /**
+ * Service Card Component Generator
+ * @param {Object} options
+ * @param {string} options.icon - Emoji or icon character
+ * @param {string} options.title - Service title name
+ * @param {string} options.description - Service short description
+ * @param {string[]} [options.software] - Array of design tools (e.g. ['Illustrator', 'Figma'])
+ * @param {string} [options.linkUrl='services.html'] - Target CTA page URL
+ * @param {string} [options.ctaText='Learn More'] - Button text label
+ * @returns {string} Generated HTML string for Service Card
+ */
+function createServiceCard({ icon = '🎨', title = '', description = '', software = [], linkUrl = 'services.html', ctaText = 'Learn More' }) {
+  const tagsHTML = software.length > 0
+    ? `<div class="tag-group">${software.map(tool => `<span class="tag">${tool}</span>`).join('')}</div>`
+    : '';
+
+  return `
+    <div class="card service-card">
+      <div class="service-card-icon">${icon}</div>
+      <h3 class="service-card-title">${title}</h3>
+      <p class="service-card-desc">${description}</p>
+      ${tagsHTML}
+      <div class="service-card-footer">
+        <a href="${linkUrl}" class="service-card-link">${ctaText} →</a>
+      </div>
+    </div>
+  `.trim();
+}
+
+/**
+ * Service Grid Component Generator
+ * @param {Array<Object>} servicesList - Array of service data objects
+ * @returns {string} Generated HTML grid string
+ */
+function createServiceGrid(servicesList = []) {
+  if (!Array.isArray(servicesList) || servicesList.length === 0) return '';
+  const cardsHTML = servicesList.map(service => createServiceCard(service)).join('');
+  return `<div class="grid grid-3-col">${cardsHTML}</div>`;
+}
+
+/**
+ * Auto-initialize Service Card components present in DOM
+ */
+function initServiceCardComponents() {
+  const cardContainers = document.querySelectorAll('[data-component="service-card"]');
+  cardContainers.forEach(container => {
+    const icon = container.dataset.icon || '🎨';
+    const title = container.dataset.title || '';
+    const description = container.dataset.description || '';
+    const software = container.dataset.software ? container.dataset.software.split(',').map(s => s.trim()) : [];
+    const linkUrl = container.dataset.url || 'services.html';
+    const ctaText = container.dataset.cta || 'Learn More';
+
+    if (title) {
+      container.innerHTML = createServiceCard({ icon, title, description, software, linkUrl, ctaText });
+    }
+  });
+}
+
+/**
  * Dynamic Component Fetch Loader
  */
 async function loadComponent(id, file) {
@@ -83,6 +142,7 @@ async function initializePageComponents() {
   const heroLoaded = await loadComponent("hero-component", "components/hero.html");
 
   initSectionHeaderComponents();
+  initServiceCardComponents();
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
@@ -97,3 +157,6 @@ document.addEventListener('DOMContentLoaded', initializePageComponents);
 
 window.createSectionTitle = createSectionTitle;
 window.initSectionHeaderComponents = initSectionHeaderComponents;
+window.createServiceCard = createServiceCard;
+window.createServiceGrid = createServiceGrid;
+window.initServiceCardComponents = initServiceCardComponents;
