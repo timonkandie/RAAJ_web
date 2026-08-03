@@ -146,7 +146,7 @@ RAAJ_web/
 | # | Task | File | Status |
 |---|------|------|--------|
 | 6 | Component styles | `css/components.css` | ✅ Done |
-| 7 | Section Title component | inside `components.css` + `components.js` | 🔴 To Do |
+| 7 | Section Title component | inside `components.css` + `components.js` | ✅ Done |
 | 8 | Service Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 9 | Portfolio Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 10 | Testimonial Card component | inside `components.css` + `components.js` | 🔴 To Do |

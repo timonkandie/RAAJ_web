@@ -19,7 +19,7 @@
 .section-badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   padding: 6px 16px;
   background: var(--primary-light);
   color: var(--primary-color);
@@ -30,6 +30,30 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: var(--space-md);
+}
+
+.section-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 0 0 rgba(51, 184, 255, 0.6);
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 184, 255, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(51, 184, 255, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 184, 255, 0);
+  }
 }
 
 .section-title {
