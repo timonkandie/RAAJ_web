@@ -1,179 +1,354 @@
-/**
- * Form Handling & Validation Engine (Task 13)
- */
+/* ============================================
+   RAAJ Studios — Forms v1.0
+   Handles validation and submission for:
+   - Contact form
+   - Hire Us form
+   - Recruitment form
+   ============================================ */
 
 /**
- * Contact Form HTML Component Generator
+ * Recruitment Form HTML Generator (Task 14)
  * @param {Object} options
- * @param {string} [options.formId='contact-form'] - Unique form element ID
- * @param {string} [options.title='Get In Touch'] - Form card heading
- * @param {string} [options.subtitle] - Form subtext
- * @param {string} [options.submitText='Send Message'] - Submit button label
- * @returns {string} Generated HTML string for Contact Form
+ * @param {string} [options.formId='recruitment-form'] - Unique form ID
+ * @param {string} [options.title='Join Our Creative Team'] - Heading title
+ * @param {string} [options.subtitle='Apply to collaborate with RAAJ Studios as a designer or specialist.'] - Heading subtitle
+ * @returns {string} Generated HTML string for Recruitment Form
  */
-function createContactForm({ formId = 'contact-form', title = 'Get In Touch', subtitle = 'Fill out the form below and our team will get back to you within 24 hours.', submitText = 'Send Message' } = {}) {
+function createRecruitmentForm({ formId = 'recruitment-form', title = 'Join Our Creative Team', subtitle = 'Apply to collaborate with RAAJ Studios as a designer, illustrator, or creative specialist.' } = {}) {
   return `
     <div class="card form-card">
       ${title ? `<h3 class="form-card-title">${title}</h3>` : ''}
       ${subtitle ? `<p class="form-card-subtitle">${subtitle}</p>` : ''}
-      
-      <form id="${formId}" class="contact-form" novalidate>
-        <div class="form-group">
-          <label for="${formId}-name" class="form-label">Full Name <span class="required">*</span></label>
-          <input type="text" id="${formId}-name" name="name" class="form-control" placeholder="e.g. Jane Doe" required>
-          <span class="form-error" id="${formId}-name-error"></span>
+
+      <form id="${formId}" class="recruitment-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="${formId}-name" class="form-label">Full Name <span class="required">*</span></label>
+            <input type="text" id="${formId}-name" name="name" class="form-control" data-validate="name" placeholder="e.g. Alex Kimani" required>
+            <span class="field-error-msg"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="${formId}-email" class="form-label">Email Address <span class="required">*</span></label>
+            <input type="email" id="${formId}-email" name="email" class="form-control" data-validate="email" placeholder="e.g. alex@design.co.ke" required>
+            <span class="field-error-msg"></span>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="${formId}-email" class="form-label">Email Address <span class="required">*</span></label>
-          <input type="email" id="${formId}-email" name="email" class="form-control" placeholder="e.g. jane@example.com" required>
-          <span class="form-error" id="${formId}-email-error"></span>
+          <label for="${formId}-portfolio" class="form-label">Portfolio / Behance / Dribbble Link <span class="required">*</span></label>
+          <input type="url" id="${formId}-portfolio" name="portfolio" class="form-control" data-validate="portfolio" placeholder="https://behance.net/yourprofile" required>
+          <span class="field-error-msg"></span>
         </div>
 
         <div class="form-group">
-          <label for="${formId}-service" class="form-label">Service Required <span class="required">*</span></label>
-          <select id="${formId}-service" name="service" class="form-control" required>
-            <option value="" disabled selected>Select a Service</option>
-            <option value="logoDesign">Logo Design & Branding</option>
-            <option value="posters">Poster Design</option>
-            <option value="flyers">Flyer Design</option>
-            <option value="packaging">Packaging Design</option>
-            <option value="businessCards">Business Cards</option>
-            <option value="other">Other / Custom Query</option>
+          <label class="form-label">Primary Design Specialties (Select at least 1) <span class="required">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Logo Design"> Logo Design</label>
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Posters"> Posters</label>
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Flyers"> Flyers</label>
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Packaging"> Packaging</label>
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Business Cards"> Business Cards</label>
+            <label class="checkbox-label"><input type="checkbox" name="specialty" value="3D/Motion"> 3D / Motion</label>
+          </div>
+          <span class="field-error-msg" id="${formId}-specialty-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="${formId}-experience" class="form-label">Experience Level <span class="required">*</span></label>
+          <select id="${formId}-experience" name="experience" class="form-control" data-validate="service" required>
+            <option value="" disabled selected>Select Experience Level</option>
+            <option value="Junior (1-2 years)">Junior (1-2 years)</option>
+            <option value="Mid-Level (3-5 years)">Mid-Level (3-5 years)</option>
+            <option value="Senior (5+ years)">Senior (5+ years)</option>
+            <option value="Freelancer / Contractor">Freelancer / Contractor</option>
           </select>
-          <span class="form-error" id="${formId}-service-error"></span>
+          <span class="field-error-msg"></span>
         </div>
 
         <div class="form-group">
-          <label for="${formId}-message" class="form-label">Project Details <span class="required">*</span></label>
-          <textarea id="${formId}-message" name="message" class="form-control" placeholder="Describe your project, vision, timeline, and requirements..." required></textarea>
-          <span class="form-error" id="${formId}-message-error"></span>
+          <label for="${formId}-bio" class="form-label">Tell Us About Yourself & Tools Used <span class="required">*</span></label>
+          <textarea id="${formId}-bio" name="bio" class="form-control" data-validate="message" placeholder="Share a short bio, tools you master (Photoshop, Illustrator, Figma, Blender), and notable projects..." required></textarea>
+          <span class="field-error-msg"></span>
         </div>
 
         <div class="form-status-message hidden" id="${formId}-status"></div>
 
-        <button type="submit" class="btn btn-primary btn-block">${submitText}</button>
+        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
       </form>
     </div>
   `.trim();
 }
 
-/**
- * Validate Contact Form Inputs
- * @param {HTMLFormElement} form
- * @returns {boolean} True if all fields valid
- */
-function validateContactForm(form) {
-  if (!form) return false;
-  let isValid = true;
+const Forms = {
 
-  const nameInput = form.querySelector('[name="name"]');
-  const emailInput = form.querySelector('[name="email"]');
-  const serviceInput = form.querySelector('[name="service"]');
-  const messageInput = form.querySelector('[name="message"]');
+  WHATSAPP_NUMBER: '254754748388',
 
-  // Helper to set error
-  const setError = (input, message) => {
-    if (!input) return;
-    input.classList.add('is-invalid');
-    const errorSpan = form.querySelector(`#${input.id}-error`);
-    if (errorSpan) errorSpan.textContent = message;
-    isValid = false;
-  };
+  /* ============================================
+     VALIDATION RULES
+  ============================================ */
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      message: 'Please enter your full name.',
+    },
+    email: {
+      required: true,
+      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message: 'Please enter a valid email address.',
+    },
+    phone: {
+      required: false,
+      pattern: /^[\d\s\+\-]{7,15}$/,
+      message: 'Please enter a valid phone number.',
+    },
+    portfolio: {
+      required: true,
+      pattern: /^(https?:\/\/)?([\w\d\-]+\.)+[\w\d\-]+(\/.*)?$/i,
+      message: 'Please enter a valid portfolio link (e.g. https://behance.net/yourname).',
+    },
+    message: {
+      required: true,
+      minLength: 10,
+      message: 'Please enter details (at least 10 characters).',
+    },
+    service: {
+      required: true,
+      message: 'Please select an option.',
+    },
+  },
 
-  // Helper to clear error
-  const clearError = (input) => {
-    if (!input) return;
-    input.classList.remove('is-invalid');
-    const errorSpan = form.querySelector(`#${input.id}-error`);
-    if (errorSpan) errorSpan.textContent = '';
-  };
+  /* ============================================
+     VALIDATE A SINGLE FIELD
+  ============================================ */
+  validateField(name, value) {
+    const rule = this.rules[name];
+    if (!rule) return { valid: true };
 
-  // Name check
-  if (nameInput) {
-    if (!nameInput.value.trim()) {
-      setError(nameInput, 'Please enter your name');
-    } else {
-      clearError(nameInput);
+    const trimmed = value.trim();
+
+    if (rule.required && !trimmed) {
+      return { valid: false, message: rule.message };
     }
-  }
 
-  // Email check
-  if (emailInput) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailInput.value.trim()) {
-      setError(emailInput, 'Please enter your email address');
-    } else if (!emailRegex.test(emailInput.value.trim())) {
-      setError(emailInput, 'Please enter a valid email address');
-    } else {
-      clearError(emailInput);
+    if (trimmed && rule.minLength && trimmed.length < rule.minLength) {
+      return { valid: false, message: rule.message };
     }
-  }
 
-  // Service check
-  if (serviceInput) {
-    if (!serviceInput.value) {
-      setError(serviceInput, 'Please select a service option');
-    } else {
-      clearError(serviceInput);
+    if (trimmed && rule.pattern && !rule.pattern.test(trimmed)) {
+      return { valid: false, message: rule.message };
     }
-  }
 
-  // Message check
-  if (messageInput) {
-    if (!messageInput.value.trim()) {
-      setError(messageInput, 'Please describe your project details');
-    } else if (messageInput.value.trim().length < 10) {
-      setError(messageInput, 'Message must be at least 10 characters long');
-    } else {
-      clearError(messageInput);
+    return { valid: true };
+  },
+
+  /* ============================================
+     SHOW / CLEAR FIELD ERROR
+  ============================================ */
+  showError(field, message) {
+    field.classList.add('field-error');
+    field.classList.remove('field-success');
+
+    let errorEl = field.parentElement.querySelector('.field-error-msg');
+    if (!errorEl) {
+      errorEl = document.createElement('span');
+      errorEl.className = 'field-error-msg';
+      field.parentElement.appendChild(errorEl);
     }
-  }
+    errorEl.textContent = message;
+  },
 
-  return isValid;
-}
+  clearError(field) {
+    field.classList.remove('field-error');
+    field.classList.add('field-success');
 
-/**
- * Initialize all form validation and submission handlers
- */
-function initForms() {
-  const contactForms = document.querySelectorAll('.contact-form, form[id*="contact"]');
+    const errorEl = field.parentElement.querySelector('.field-error-msg');
+    if (errorEl) errorEl.textContent = '';
+  },
 
-  contactForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+  /* ============================================
+     VALIDATE FORM
+  ============================================ */
+  validateForm(form) {
+    let isValid = true;
+    const fields = form.querySelectorAll('[data-validate]');
 
-      if (!validateContactForm(form)) return;
+    fields.forEach(field => {
+      const name   = field.dataset.validate;
+      const result = this.validateField(name, field.value);
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const statusDiv = form.querySelector('.form-status-message');
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+      if (!result.valid) {
+        this.showError(field, result.message);
+        isValid = false;
+      } else {
+        this.clearError(field);
       }
-
-      // Simulate submission handling
-      setTimeout(() => {
-        if (statusDiv) {
-          statusDiv.className = 'form-status-message success';
-          statusDiv.textContent = 'Thank you! Your message has been sent successfully. We will get back to you shortly.';
-          statusDiv.classList.remove('hidden');
-        }
-
-        form.reset();
-
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
-        }
-      }, 1200);
     });
-  });
-}
 
-document.addEventListener('DOMContentLoaded', initForms);
+    // Checkbox check for recruitment forms
+    const checkboxes = form.querySelectorAll('input[name="specialty"]');
+    if (checkboxes.length > 0) {
+      const checked = Array.from(checkboxes).some(cb => cb.checked);
+      const specError = form.querySelector('[id*="specialty-error"]');
+      if (!checked) {
+        if (specError) specError.textContent = 'Please select at least 1 specialty.';
+        isValid = false;
+      } else {
+        if (specError) specError.textContent = '';
+      }
+    }
 
-window.createContactForm = createContactForm;
-window.validateContactForm = validateContactForm;
-window.initForms = initForms;
+    return isValid;
+  },
+
+  /* ============================================
+     BUILD WHATSAPP MESSAGE
+  ============================================ */
+  buildWhatsAppMessage(formData, formType) {
+    const lines = [`*RAAJ Studios — ${formType}*`, ''];
+
+    for (const [key, value] of Object.entries(formData)) {
+      if (value) {
+        const label = key.charAt(0).toUpperCase() + key.slice(1);
+        lines.push(`*${label}:* ${value}`);
+      }
+    }
+
+    lines.push('', '_Sent from raajstudios.com_');
+    return lines.join('\n');
+  },
+
+  /* ============================================
+     OPEN WHATSAPP
+  ============================================ */
+  openWhatsApp(message) {
+    const encoded = encodeURIComponent(message);
+    const url     = `https://wa.me/${this.WHATSAPP_NUMBER}?text=${encoded}`;
+    window.open(url, '_blank');
+  },
+
+  /* ============================================
+     SET BUTTON LOADING STATE
+  ============================================ */
+  setLoading(btn, loading) {
+    if (loading) {
+      btn.dataset.originalText = btn.textContent;
+      btn.textContent          = 'Submitting Application...';
+      btn.disabled             = true;
+    } else {
+      btn.textContent = btn.dataset.originalText || 'Submit Application';
+      btn.disabled    = false;
+    }
+  },
+
+  /* ============================================
+     HANDLE CONTACT FORM
+  ============================================ */
+  handleContact(form) {
+    if (!this.validateForm(form)) return;
+
+    const data = {
+      name:    form.querySelector('[data-validate="name"]')?.value.trim(),
+      email:   form.querySelector('[data-validate="email"]')?.value.trim(),
+      phone:   form.querySelector('[data-validate="phone"]')?.value.trim(),
+      message: form.querySelector('[data-validate="message"]')?.value.trim(),
+    };
+
+    const message = this.buildWhatsAppMessage(data, 'New Contact Message');
+    const btn     = form.querySelector('[type="submit"]');
+
+    this.setLoading(btn, true);
+
+    setTimeout(() => {
+      this.openWhatsApp(message);
+      this.setLoading(btn, false);
+      form.reset();
+      form.querySelectorAll('.field-success').forEach(f => f.classList.remove('field-success'));
+
+      if (window.Toast) Toast.show('Message sent! We\'ll be in touch soon.', 'success');
+    }, 1000);
+  },
+
+  /* ============================================
+     HANDLE RECRUITMENT FORM (Task 14)
+  ============================================ */
+  handleRecruitment(form) {
+    if (!this.validateForm(form)) return;
+
+    const specialties = Array.from(form.querySelectorAll('input[name="specialty"]:checked')).map(cb => cb.value).join(', ');
+
+    const data = {
+      name:        form.querySelector('[name="name"]')?.value.trim(),
+      email:       form.querySelector('[name="email"]')?.value.trim(),
+      portfolio:   form.querySelector('[name="portfolio"]')?.value.trim(),
+      specialties: specialties,
+      experience:  form.querySelector('[name="experience"]')?.value,
+      bio:         form.querySelector('[name="bio"]')?.value.trim(),
+    };
+
+    const message = this.buildWhatsAppMessage(data, 'Designer Recruitment Application');
+    const btn     = form.querySelector('[type="submit"]');
+
+    this.setLoading(btn, true);
+
+    setTimeout(() => {
+      this.openWhatsApp(message);
+      this.setLoading(btn, false);
+      form.reset();
+      form.querySelectorAll('.field-success').forEach(f => f.classList.remove('field-success'));
+
+      if (window.Toast) Toast.show('Application submitted! We will review your portfolio shortly.', 'success');
+    }, 1000);
+  },
+
+  /* ============================================
+     INIT ALL FORMS
+  ============================================ */
+  init() {
+    /* Contact form */
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        this.handleContact(contactForm);
+      });
+    }
+
+    /* Recruitment form */
+    const recruitForm = document.querySelector('.recruitment-form, #recruitment-form');
+    if (recruitForm) {
+      recruitForm.addEventListener('submit', e => {
+        e.preventDefault();
+        this.handleRecruitment(recruitForm);
+      });
+    }
+
+    /* Auto-initialize containers marked data-component="recruitment-form" */
+    const containers = document.querySelectorAll('[data-component="recruitment-form"]');
+    containers.forEach(c => {
+      c.innerHTML = createRecruitmentForm();
+      const createdForm = c.querySelector('form');
+      if (createdForm) {
+        createdForm.addEventListener('submit', e => {
+          e.preventDefault();
+          this.handleRecruitment(createdForm);
+        });
+      }
+    });
+
+    /* Live validation */
+    document.querySelectorAll('[data-validate]').forEach(field => {
+      field.addEventListener('input', () => {
+        const result = this.validateField(field.dataset.validate, field.value);
+        if (result.valid) this.clearError(field);
+      });
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => Forms.init());
+
+window.Forms = Forms;
+window.createRecruitmentForm = createRecruitmentForm;
+window.initForms = () => Forms.init();

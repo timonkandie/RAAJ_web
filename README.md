@@ -153,7 +153,7 @@ RAAJ_web/
 | 11 | Pricing Card component | inside `components.css` + `components.js` | ✅ Done |
 | 12 | Blog Card component | inside `components.css` + `components.js` | ✅ Done |
 | 13 | Contact Form component | inside `components.css` + `forms.js` | ✅ Done |
-| 14 | Recruitment Form component | inside `components.css` + `forms.js` | 🔴 To Do |
+| 14 | Recruitment Form component | inside `components.css` + `forms.js` | ✅ Done |
 | 15 | Footer component | `components/footer.html` | 🔴 To Do |
 | 16 | Modal Window | `js/modal.js` + `css/components.css` | 🔴 To Do |
 | 17 | Image Gallery + Lightbox | `js/gallery.js` + `css/components.css` | 🔴 To Do |
