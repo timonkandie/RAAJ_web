@@ -118,6 +118,82 @@ function initServiceCardComponents() {
 }
 
 /**
+ * Portfolio Card Component Generator (Task 9)
+ * @param {Object} project - Project object from Portfolio.js
+ * @returns {string} Generated HTML string for Portfolio Card
+ */
+function createPortfolioCard(project = {}) {
+  const {
+    title = 'Untitled Project',
+    client = 'RAAJ Studios',
+    category = 'Design',
+    slug = '',
+    images = {},
+    tags = []
+  } = project;
+
+  const heroImage = images.hero || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop';
+  const targetUrl = slug ? `portfolio.html?project=${slug}` : 'portfolio.html';
+
+  const tagsHTML = tags.length > 0
+    ? `<div class="tag-group">${tags.slice(0, 3).map(tag => `<span class="tag tag-light">${tag}</span>`).join('')}</div>`
+    : '';
+
+  return `
+    <div class="card portfolio-card" data-slug="${slug}">
+      <div class="portfolio-card-media">
+        <img src="${heroImage}" alt="${title}" loading="lazy">
+        <div class="portfolio-card-overlay">
+          <span class="portfolio-card-badge">${category}</span>
+          <div class="portfolio-card-body">
+            <h3 class="portfolio-card-title">${title}</h3>
+            <p class="portfolio-card-client">${client}</p>
+            ${tagsHTML}
+          </div>
+        </div>
+      </div>
+    </div>
+  `.trim();
+}
+
+/**
+ * Portfolio Grid Component Generator (Task 9)
+ * @param {Array<Object>} projectsList - Array of project objects
+ * @returns {string} Generated HTML grid string
+ */
+function createPortfolioGrid(projectsList = []) {
+  if (!Array.isArray(projectsList) || projectsList.length === 0) return '';
+  const cardsHTML = projectsList.map(project => createPortfolioCard(project)).join('');
+  return `<div class="grid grid-3-col portfolio-grid">${cardsHTML}</div>`;
+}
+
+/**
+ * Auto-initialize Portfolio Card components present in DOM
+ */
+function initPortfolioCardComponents() {
+  const cardContainers = document.querySelectorAll('[data-component="portfolio-card"]');
+  cardContainers.forEach(container => {
+    const title = container.dataset.title || '';
+    const client = container.dataset.client || '';
+    const category = container.dataset.category || 'Design';
+    const slug = container.dataset.slug || '';
+    const image = container.dataset.image || '';
+    const tags = container.dataset.tags ? container.dataset.tags.split(',').map(t => t.trim()) : [];
+
+    if (title) {
+      container.innerHTML = createPortfolioCard({
+        title,
+        client,
+        category,
+        slug,
+        images: { hero: image },
+        tags
+      });
+    }
+  });
+}
+
+/**
  * Dynamic Component Fetch Loader
  */
 async function loadComponent(id, file) {
@@ -143,6 +219,7 @@ async function initializePageComponents() {
 
   initSectionHeaderComponents();
   initServiceCardComponents();
+  initPortfolioCardComponents();
 
   if (typeof initializeNavigation === 'function') {
     initializeNavigation();
@@ -160,3 +237,6 @@ window.initSectionHeaderComponents = initSectionHeaderComponents;
 window.createServiceCard = createServiceCard;
 window.createServiceGrid = createServiceGrid;
 window.initServiceCardComponents = initServiceCardComponents;
+window.createPortfolioCard = createPortfolioCard;
+window.createPortfolioGrid = createPortfolioGrid;
+window.initPortfolioCardComponents = initPortfolioCardComponents;

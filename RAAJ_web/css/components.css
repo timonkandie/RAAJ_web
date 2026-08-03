@@ -227,10 +227,22 @@
   color: var(--white);
 }
 
-.portfolio-card-title {
-  font-size: var(--fs-xl);
-  color: var(--white);
+.portfolio-card-client {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--space-xs);
+}
+
+.tag-light {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  backdrop-filter: blur(4px);
+}
+
+.grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-xl);
 }
 
 .portfolio-card-client {

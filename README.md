@@ -148,7 +148,7 @@ RAAJ_web/
 | 6 | Component styles | `css/components.css` | ✅ Done |
 | 7 | Section Title component | inside `components.css` + `components.js` | ✅ Done |
 | 8 | Service Card component | inside `components.css` + `components.js` | ✅ Done |
-| 9 | Portfolio Card component | inside `components.css` + `components.js` | 🔴 To Do |
+| 9 | Portfolio Card component | inside `components.css` + `components.js` | ✅ Done |
 | 10 | Testimonial Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 11 | Pricing Card component | inside `components.css` + `components.js` | 🔴 To Do |
 | 12 | Blog Card component | inside `components.css` + `components.js` | 🔴 To Do |
