@@ -616,6 +616,54 @@ textarea.form-control {
   box-shadow: var(--shadow-lg);
   transform: scale(0.95);
   transition: transform var(--transition-normal);
+  position: relative;
+}
+
+.modal-dialog.modal-sm {
+  max-width: 440px;
+}
+
+.modal-dialog.modal-md {
+  max-width: 640px;
+}
+
+.modal-dialog.modal-lg {
+  max-width: 900px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--surface);
+}
+
+.modal-title {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.modal-body {
+  padding: var(--space-xl);
 }
 
 .modal-backdrop.active .modal-dialog {

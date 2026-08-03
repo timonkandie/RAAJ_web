@@ -11,11 +11,13 @@ const PRECACHE_ASSETS = [
   './css/skeleton.css',
   './css/components.css',
   './js/components.js',
+  './js/modal.js',
   './js/navigation.js',
   './js/hero.js',
   './js/skeleton.js',
   './components/navbar.html',
   './components/hero.html',
+  './components/footer.html',
   './manifest.json'
 ];
 
