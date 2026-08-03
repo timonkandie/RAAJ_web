@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RAAJ Studios - Premium creative design agency specializing in logo design, brand identity, posters, flyers, packaging, and business cards.">
+  <meta name="description" content="RAAJ Studios - Premium creative design agency in Nairobi specializing in logo design, brand identity, posters, flyers, packaging, and business cards.">
   <meta name="theme-color" content="#33B8FF">
 
   <title>RAAJ Studios | Creative Design Agency</title>
@@ -35,6 +35,7 @@
   <script src="js/data/Portfolio.js" defer></script>
   <script src="js/hero.js" defer></script>
   <script src="js/components.js" defer></script>
+  <script src="js/forms.js" defer></script>
   <script src="js/modal.js" defer></script>
   <script src="js/gallery.js" defer></script>
 
@@ -43,7 +44,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('[PWA] Service Worker registered successfully scope:', reg.scope))
+          .then(reg => console.log('[PWA] Service Worker registered scope:', reg.scope))
           .catch(err => console.error('[PWA] Service Worker registration failed:', err));
       });
     }
@@ -73,7 +74,234 @@
 
   <!-- Main Content Container -->
   <main id="main-content">
+    
+    <!-- Hero Section -->
     <div id="hero-component"></div>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="OUR EXPERTISE"
+             data-title="Transformative Design Services"
+             data-highlight="Design Services"
+             data-subtitle="From iconic brand identities to high-converting marketing collateral, we craft visuals that stand out.">
+        </div>
+        
+        <div class="grid grid-3-col">
+          <div data-component="service-card"
+               data-icon="🎨"
+               data-title="Logo Design & Branding"
+               data-description="Custom vector logos, visual guidelines, color palettes, and typography hierarchy that define your brand."
+               data-software="Illustrator, Photoshop, Figma"
+               data-url="services.html#logo"
+               data-cta="Explore Branding">
+          </div>
+
+          <div data-component="service-card"
+               data-icon="🖼️"
+               data-title="Poster Design"
+               data-description="High-impact event posters, promotional artwork, and creative digital displays designed to capture attention."
+               data-software="Photoshop, Illustrator"
+               data-url="services.html#posters"
+               data-cta="View Posters">
+          </div>
+
+          <div data-component="service-card"
+               data-icon="📄"
+               data-title="Flyer Design"
+               data-description="Sleek single or multi-page marketing flyers for business promotions, product launches, and corporate events."
+               data-software="InDesign, Illustrator"
+               data-url="services.html#flyers"
+               data-cta="View Flyers">
+          </div>
+
+          <div data-component="service-card"
+               data-icon="📦"
+               data-title="Packaging Design"
+               data-description="Product labels, box packaging, and die-line artwork engineered for retail shelves and unboxing experiences."
+               data-software="3D Mockup, Illustrator"
+               data-url="services.html#packaging"
+               data-cta="Explore Packaging">
+          </div>
+
+          <div data-component="service-card"
+               data-icon="📇"
+               data-title="Business Cards"
+               data-description="Premium luxury business cards, foil stamping accents, and embossed print-ready brand collateral."
+               data-software="Illustrator, Photoshop"
+               data-url="services.html#businessCards"
+               data-cta="View Cards">
+          </div>
+
+          <div data-component="service-card"
+               data-icon="✨"
+               data-title="Social Media Art"
+               data-description="Engaging Instagram posts, carousel templates, YouTube banners, and digital marketing banners."
+               data-software="Figma, Canva, Photoshop"
+               data-url="services.html#social"
+               data-cta="Explore Social Art">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Portfolio Section -->
+    <section class="section portfolio-section" id="portfolio">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="OUR WORK"
+             data-title="Featured Creative Portfolio"
+             data-highlight="Creative Portfolio"
+             data-subtitle="Explore recent branding, packaging, and graphic artwork crafted for leading brands in Kenya and beyond.">
+        </div>
+
+        <div class="grid grid-3-col">
+          <div data-component="portfolio-card"
+               data-title="Sawa Organics Rebrand"
+               data-client="Sawa Organics Ltd."
+               data-category="Branding & Packaging"
+               data-slug="sawa-organics"
+               data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
+               data-tags="Logo, Label, Box Design">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Nairobi Music Fest Artwork"
+               data-client="Nairobi Fest"
+               data-category="Poster & Event"
+               data-slug="nairobi-fest"
+               data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
+               data-tags="Posters, Digital Art, Motion">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Apex Capital Identity"
+               data-client="Apex Capital Kenya"
+               data-category="Corporate Branding"
+               data-slug="apex-capital"
+               data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
+               data-tags="Logo, Stationery, Cards">
+          </div>
+        </div>
+
+        <div class="text-center margin-top-lg">
+          <a href="portfolio.html" class="btn btn-secondary">View All Projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="CLIENT REVIEWS"
+             data-title="What Our Clients Say"
+             data-highlight="Clients Say"
+             data-subtitle="Trusted by startups, event organizers, and established businesses across Kenya.">
+        </div>
+
+        <div class="grid grid-3-col">
+          <div data-component="testimonial-card"
+               data-quote="RAAJ Studios completely transformed our brand identity. The logo and packaging design helped us gain national retail distribution!"
+               data-name="Mercy Wanjiku"
+               data-role="Founder"
+               data-company="Sawa Organics"
+               data-rating="5">
+          </div>
+
+          <div data-component="testimonial-card"
+               data-quote="Fast turnaround, incredible attention to detail, and top-tier vector precision. Our event posters generated record ticket sales."
+               data-name="David Ochieng"
+               data-role="Creative Director"
+               data-company="Nairobi Fest"
+               data-rating="5">
+          </div>
+
+          <div data-component="testimonial-card"
+               data-quote="The most professional design agency in Nairobi. Their pricing packages are transparent and the output is world-class."
+               data-name="Sarah Amina"
+               data-role="Marketing Lead"
+               data-company="Apex Capital"
+               data-rating="5">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="TRANSPARENT PRICING"
+             data-title="Simple & Flexible Packages"
+             data-highlight="Flexible Packages"
+             data-subtitle="Clear, upfront pricing with no hidden costs. Tailored packages for every business stage.">
+        </div>
+
+        <div class="grid grid-3-col">
+          <div data-component="pricing-card"
+               data-title="Starter Identity"
+               data-price="KES 15,000"
+               data-period="/ project"
+               data-description="Ideal for new startups and small businesses needing a professional brand foundation."
+               data-features="Primary Vector Logo, Secondary Mark, Color Palette, Typography Hierarchy, High-Res PNG/SVG Files"
+               data-popular="false"
+               data-cta="Choose Starter"
+               data-url="hire.html?package=starter">
+          </div>
+
+          <div data-component="pricing-card"
+               data-title="Pro Brand Identity"
+               data-price="KES 35,000"
+               data-period="/ project"
+               data-description="Complete brand suite with packaging, stationery, and social media artwork templates."
+               data-features="Everything in Starter, Brand Style Guide PDF, Business Card Artwork, Packaging / Label Art, 3D Rendered Mockups, Source Files (AI/PSD)"
+               data-popular="true"
+               data-cta="Choose Pro"
+               data-url="hire.html?package=pro">
+          </div>
+
+          <div data-component="pricing-card"
+               data-title="Custom Studio Retainer"
+               data-price="KES 60,000"
+               data-period="/ month"
+               data-description="Dedicated monthly creative team for ongoing marketing collateral, posters, and collateral."
+               data-features="Unlimited Graphic Requests, Priority 24-48h Delivery, Posters / Flyers / Banners, Social Media Campaigns, Dedicated Account Lead"
+               data-popular="false"
+               data-cta="Contact for Retainer"
+               data-url="contact.html">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="grid grid-2-col">
+          <div>
+            <div data-component="section-title"
+                 data-align="left"
+                 data-badge="GET IN TOUCH"
+                 data-title="Let's Build Something Great Together"
+                 data-highlight="Build Something Great"
+                 data-subtitle="Ready to elevate your visual identity? Send us your brief or message us directly on WhatsApp.">
+            </div>
+            <ul class="contact-info-list" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; font-size: 1.1rem;">
+              <li>📍 <strong>Studio Address:</strong> Nairobi, Kenya</li>
+              <li>💬 <strong>WhatsApp Direct:</strong> <a href="https://wa.me/254754748388" target="_blank" rel="noopener">+254 754 748 388</a></li>
+              <li>⏰ <strong>Studio Hours:</strong> Monday – Saturday: 8:00 AM – 6:00 PM</li>
+            </ul>
+          </div>
+
+          <div>
+            <div data-component="contact-form"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer Container -->

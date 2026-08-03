@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Showcase | RAAJ Studios</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/navigation.js" defer></script>
+  <script src="js/data/Portfolio.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+</head>
+<body>
+  <div id="navbar"></div>
+  <main class="container section" style="padding-top: 140px;">
+    <div data-component="section-title"
+         data-badge="OUR PORTFOLIO"
+         data-title="Featured Creative Works"
+         data-highlight="Creative Works"
+         data-subtitle="Browse our recent design projects across logo branding, poster design, flyer artwork, and packaging.">
+    </div>
+
+    <div class="grid grid-3-col" style="margin-top: 3rem;">
+      <div data-component="portfolio-card"
+           data-title="Sawa Organics Rebrand"
+           data-client="Sawa Organics Ltd."
+           data-category="Branding & Packaging"
+           data-slug="sawa-organics"
+           data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
+           data-tags="Logo, Label, Box Design">
+      </div>
+
+      <div data-component="portfolio-card"
+           data-title="Nairobi Music Fest Artwork"
+           data-client="Nairobi Fest"
+           data-category="Poster & Event"
+           data-slug="nairobi-fest"
+           data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
+           data-tags="Posters, Digital Art, Motion">
+      </div>
+
+      <div data-component="portfolio-card"
+           data-title="Apex Capital Identity"
+           data-client="Apex Capital Kenya"
+           data-category="Corporate Branding"
+           data-slug="apex-capital"
+           data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
+           data-tags="Logo, Stationery, Cards">
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+</body>
+</html>
