@@ -1,0 +1,115 @@
+/**
+ * RAAJ Studios — Page Transitions Engine
+ * Task 22: Native View Transitions & Cross-Page Interception
+ */
+
+const PageTransitions = {
+  overlayEl: null,
+  isNavigating: false,
+
+  init() {
+    this.createOverlay();
+    this.bindLinkInterception();
+    this.handleEntranceTransition();
+  },
+
+  createOverlay() {
+    if (document.getElementById('page-transition-overlay')) return;
+
+    this.overlayEl = document.createElement('div');
+    this.overlayEl.id = 'page-transition-overlay';
+    this.overlayEl.className = 'page-transition-overlay';
+    this.overlayEl.innerHTML = `<div class="page-transition-brand">RAAJ<span style="color: var(--white);">.</span></div>`;
+    document.body.appendChild(this.overlayEl);
+  },
+
+  bindLinkInterception() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      const target = link.getAttribute('target');
+
+      // Skip invalid, external, anchor, or special protocol links
+      if (
+        !href ||
+        href.startsWith('#') ||
+        href.startsWith('javascript:') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
+        href.includes('wa.me') ||
+        target === '_blank' ||
+        link.hasAttribute('download')
+      ) {
+        return;
+      }
+
+      // Check if same origin and HTML page
+      const targetUrl = new URL(href, window.location.href);
+      if (targetUrl.origin !== window.location.origin) return;
+
+      // Don't transition if navigating to identical page URL
+      if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search) {
+        return;
+      }
+
+      // Prevent default instant navigation and perform transition
+      e.preventDefault();
+      this.navigate(targetUrl.href);
+    });
+  },
+
+  navigate(url) {
+    if (this.isNavigating) return;
+    this.isNavigating = true;
+
+    // Check reduced motion accessibility
+    const prefersReducedMotion = 
+      (window.PerformanceMonitor && PerformanceMonitor.metrics.prefersReducedMotion) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      window.location.href = url;
+      return;
+    }
+
+    // Modern browsers with Native View Transitions API
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        window.location.href = url;
+      });
+      return;
+    }
+
+    // Fallback Overlay Curtain Wipe Transition
+    if (this.overlayEl) {
+      this.overlayEl.classList.remove('exit');
+      this.overlayEl.classList.add('active');
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    } else {
+      window.location.href = url;
+    }
+  },
+
+  handleEntranceTransition() {
+    // If returning from fallback overlay transition, slide out curtain
+    if (this.overlayEl) {
+      this.overlayEl.classList.remove('active');
+      this.overlayEl.classList.add('exit');
+      setTimeout(() => {
+        this.overlayEl.classList.remove('exit');
+        this.isNavigating = false;
+      }, 350);
+    }
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  PageTransitions.init();
+});
+
+window.PageTransitions = PageTransitions;

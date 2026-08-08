@@ -1,4 +1,4 @@
-const CACHE_NAME = 'raaj-studios-v5';
+const CACHE_NAME = 'raaj-studios-v6';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -19,6 +19,7 @@ const PRECACHE_ASSETS = [
   './css/responsive.css',
   './css/fluid-typography.css',
   './css/reduced-motion.css',
+  './css/transitions.css',
   './css/skeleton.css',
   './css/components.css',
   './js/components.js',
@@ -27,6 +28,7 @@ const PRECACHE_ASSETS = [
   './js/gallery.js',
   './js/toast.js',
   './js/performance.js',
+  './js/transitions.js',
   './js/navigation.js',
   './js/hero.js',
   './js/skeleton.js',
