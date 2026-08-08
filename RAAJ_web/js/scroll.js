@@ -1,0 +1,90 @@
+/**
+ * RAAJ Studios — Advanced Scroll Animations & Parallax Controller
+ * Task 23: IntersectionObserver Reveal Triggers & Parallax Loop
+ */
+
+const ScrollObserver = {
+  observer: null,
+  parallaxElements: [],
+  ticking: false,
+
+  init() {
+    this.initIntersectionObserver();
+    this.initParallax();
+    this.bindEvents();
+  },
+
+  initIntersectionObserver() {
+    const revealElements = document.querySelectorAll('.card, .section-header, [data-scroll], [data-reveal]');
+    if (revealElements.length === 0) return;
+
+    const options = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.15
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay || '0ms';
+
+          setTimeout(() => {
+            el.classList.add('is-visible', 'animated');
+          }, parseInt(delay, 10) || 0);
+
+          // Unobserve once revealed for performance
+          this.observer.unobserve(el);
+        }
+      });
+    }, options);
+
+    revealElements.forEach((el, index) => {
+      // Automatically add staggered delay if not explicitly set
+      if (!el.dataset.delay && el.classList.contains('card')) {
+        el.dataset.delay = `${(index % 3) * 120}ms`;
+      }
+      el.classList.add('reveal-on-scroll');
+      this.observer.observe(el);
+    });
+  },
+
+  initParallax() {
+    this.parallaxElements = Array.from(document.querySelectorAll('.hero-blob, .ambient-gradient, [data-parallax]'));
+  },
+
+  bindEvents() {
+    window.addEventListener('scroll', () => {
+      if (!this.ticking) {
+        window.requestAnimationFrame(() => {
+          this.updateParallax();
+          this.ticking = false;
+        });
+        this.ticking = true;
+      }
+    }, { passive: true });
+  },
+
+  updateParallax() {
+    // Safety check: Skip parallax calculations on low-power devices or reduced motion
+    const isLowPower = window.PerformanceMonitor && PerformanceMonitor.isLowPowerDevice();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isLowPower || prefersReducedMotion || this.parallaxElements.length === 0) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    this.parallaxElements.forEach(el => {
+      const speed = parseFloat(el.dataset.parallaxSpeed) || 0.15;
+      const offset = scrollY * speed;
+      el.style.transform = `translate3d(0, ${offset}px, 0)`;
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  ScrollObserver.init();
+});
+
+window.ScrollObserver = ScrollObserver;
