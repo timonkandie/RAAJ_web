@@ -192,7 +192,7 @@ RAAJ_web/
 |---|------|------|--------|
 | 22 | Scroll reveal triggers | `js/scroll.js` | ✅ Done |
 | 23 | Animated stats counter | `js/counter.js` | ✅ Done |
-| 24 | Page loading screen | `js/loader.js` + `css/loader.css` | 🔴 To Do |
+| 24 | Page loading screen | `js/loader.js` + `css/loader.css` | ✅ Done |
 | 25 | Form feedback toasts | `js/toast.js` | ✅ Done |
 | 26 | Page transitions | `js/transitions.js` + `css/transitions.css` | ✅ Done |
 | 27 | Hero background animation | inside `css/hero.css` | 🔴 To Do |
