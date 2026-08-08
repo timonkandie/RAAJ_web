@@ -49,16 +49,7 @@
   <script src="js/cursor.js" defer></script>
   <script src="js/loader.js"></script>
 
-  <!-- Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('[PWA] Service Worker registered scope:', reg.scope))
-          .catch(err => console.error('[PWA] Service Worker registration failed:', err));
-      });
-    }
-  </script>
+  <script src="js/app.js" defer></script>
 </head>
 
 <body>
