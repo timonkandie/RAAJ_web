@@ -1021,3 +1021,36 @@ textarea.form-control {
   width: 0%;
   transition: width 0.1s linear;
 }
+
+/* ==========================================
+   15. PERFORMANCE & DATA SAVER ADAPTATIONS
+========================================== */
+html.low-power-device .card,
+html.slow-connection .card,
+html.save-data-active .card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.15s ease, border-color 0.15s ease !important;
+}
+
+html.low-power-device .hero-blob,
+html.slow-connection .hero-blob,
+html.save-data-active .hero-blob {
+  animation: none !important;
+  opacity: 0.3 !important;
+  filter: blur(40px) !important;
+}
+
+html.slow-connection img,
+html.save-data-active img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+html.prefers-reduced-motion *,
+html.prefers-reduced-motion *::before,
+html.prefers-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+

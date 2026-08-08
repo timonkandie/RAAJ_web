@@ -22,6 +22,7 @@ const PerformanceMonitor = {
     this.detectNetwork();
     this.detectPreferences();
     this.applyOptimizationClasses();
+    this.optimizeImagesForNetwork();
     this.listenForChanges();
     console.log('[PerformanceMonitor] Device & Network Metrics:', this.metrics);
   },
@@ -86,12 +87,27 @@ const PerformanceMonitor = {
     }
   },
 
+  optimizeImagesForNetwork() {
+    if (!this.metrics.isSlowConnection && !this.metrics.saveData) return;
+
+    // Downsample Unsplash images on slow mobile connections to save user data
+    const images = document.querySelectorAll('img[src*="unsplash.com"]');
+    images.forEach(img => {
+      let src = img.getAttribute('src');
+      if (src && !src.includes('q=60')) {
+        src = src.replace(/w=\d+/, 'w=480').replace(/fit=crop/, 'fit=crop&q=60');
+        img.setAttribute('src', src);
+      }
+    });
+  },
+
   listenForChanges() {
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (conn) {
       conn.addEventListener('change', () => {
         this.detectNetwork();
         this.applyOptimizationClasses();
+        this.optimizeImagesForNetwork();
         if (window.Toast && this.metrics.isSlowConnection) {
           Toast.show('Low bandwidth detected. Optimized asset loading activated.', 'info', 4000);
         }
