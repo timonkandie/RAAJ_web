@@ -15,7 +15,7 @@ const ScrollObserver = {
   },
 
   initIntersectionObserver() {
-    const revealElements = document.querySelectorAll('.card, .section-header, [data-scroll], [data-reveal]');
+    const revealElements = document.querySelectorAll('.reveal, .card, .section-header, [data-scroll], [data-reveal]');
     if (revealElements.length === 0) return;
 
     const options = {
@@ -31,7 +31,7 @@ const ScrollObserver = {
           const delay = el.dataset.delay || '0ms';
 
           setTimeout(() => {
-            el.classList.add('is-visible', 'animated');
+            el.classList.add('is-visible', 'animated', 'active');
           }, parseInt(delay, 10) || 0);
 
           // Unobserve once revealed for performance
