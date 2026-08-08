@@ -78,60 +78,97 @@
       <div class="container">
         
         <div class="page-grid-2">
-          <!-- Intro Text -->
+          <!-- Intro Text & Roles -->
           <div>
             <h3 style="margin-bottom: 1.5rem;">Why Work With Us?</h3>
-            <ul style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary); margin-bottom: 2rem;">
-              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🚀</span> <div><strong>Creative Freedom:</strong> We believe in pushing boundaries, not restricting ideas.</div></li>
-              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🌍</span> <div><strong>Global Impact:</strong> Work with exciting brands and startups across Africa and beyond.</div></li>
-              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🤝</span> <div><strong>Collaborative Culture:</strong> A supportive environment where you can learn and grow alongside top talent.</div></li>
+            <ul style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary); margin-bottom: 3rem;">
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🚀</span> <div><strong>Creative Freedom:</strong> We believe in pushing boundaries, not restricting ideas. You will have the autonomy to direct visual campaigns from scratch.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🌍</span> <div><strong>Global Impact:</strong> Work with exciting brands and startups across Africa and beyond. Your designs will be seen by millions of consumers.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🤝</span> <div><strong>Collaborative Culture:</strong> A supportive environment where you can learn and grow alongside top talent. Regular design crits and upskilling workshops.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">💻</span> <div><strong>Flexible Working:</strong> Hybrid and fully remote options available for the right candidates. We care about output, not timesheets.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🏥</span> <div><strong>Comprehensive Benefits:</strong> Top-tier health insurance, equipment allowance, and generous paid time off for full-time staff.</div></li>
             </ul>
 
-            <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.1); border-color: rgba(var(--primary-color-rgb), 0.2);">
-              <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Current Openings</h4>
-              <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
-                <li>Senior Brand Designer (Remote)</li>
-                <li>Motion Graphics Animator (Freelance)</li>
-                <li>Packaging Design Specialist (Contract)</li>
-              </ul>
+            <h3 style="margin-bottom: 1.5rem;">Current Openings</h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Senior Brand Designer (Remote)</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Lead comprehensive identity projects from conceptualization to final guideline delivery. Requires 5+ years of agency experience and a mastery of typography and layout.</p>
+                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Full-time</span>
+              </div>
+              
+              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Motion Graphics Animator</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Bring static assets to life for social media and digital ad campaigns. Proficiency in After Effects and Premiere Pro is mandatory. 3D skills are a huge plus.</p>
+                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Contract / Freelance</span>
+              </div>
+
+              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Packaging Design Specialist</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Focus exclusively on physical product packaging, dielines, and print production prep for FMCG clients. Must understand print materials and finishes.</p>
+                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Part-time</span>
+              </div>
             </div>
           </div>
 
           <!-- Application Form -->
-          <div class="card">
-            <h3 style="margin-bottom: 1.5rem;">Submit Your Portfolio</h3>
+          <div class="card" style="height: fit-content; position: sticky; top: 120px;">
+            <h3 style="margin-bottom: 1.5rem;">Submit Your Details</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 2rem;">Please fill out the form below comprehensively. We review all applications and will get back to shortlisted candidates within 5 business days.</p>
+            
             <form id="recruitment-form" onsubmit="event.preventDefault(); showToast('Application submitted successfully! We will review your portfolio.', 'success'); this.reset();">
               
               <div class="form-grid">
                 <div class="form-group">
-                  <label for="r-name">Full Name</label>
+                  <label for="r-name">Full Name *</label>
                   <input type="text" id="r-name" class="form-control" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                  <label for="r-email">Email Address</label>
+                  <label for="r-email">Email Address *</label>
                   <input type="email" id="r-email" class="form-control" required placeholder="john@example.com">
                 </div>
               </div>
 
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="r-phone">Phone Number</label>
+                  <input type="tel" id="r-phone" class="form-control" placeholder="+254 700 000000">
+                </div>
+                <div class="form-group">
+                  <label for="r-experience">Years of Experience *</label>
+                  <select id="r-experience" class="form-control" required>
+                    <option value="" disabled selected>Select...</option>
+                    <option value="entry">0-2 years (Junior)</option>
+                    <option value="mid">3-5 years (Mid-Level)</option>
+                    <option value="senior">5+ years (Senior)</option>
+                  </select>
+                </div>
+              </div>
+
               <div class="form-group">
-                <label for="r-role">Role of Interest</label>
+                <label for="r-role">Role of Interest *</label>
                 <select id="r-role" class="form-control" required>
                   <option value="" disabled selected>Select a role...</option>
-                  <option value="brand_designer">Brand / Logo Designer</option>
-                  <option value="motion_designer">Motion Graphics Designer</option>
-                  <option value="illustrator">Illustrator</option>
-                  <option value="other">Other / Freelance Collaborator</option>
+                  <option value="brand_designer">Senior Brand Designer</option>
+                  <option value="motion_designer">Motion Graphics Animator</option>
+                  <option value="packaging_designer">Packaging Design Specialist</option>
+                  <option value="other">Other / General Application</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="r-portfolio">Portfolio Link (Behance, Dribbble, Website)</label>
+                <label for="r-portfolio">Portfolio Link (Behance, Dribbble, Website) *</label>
                 <input type="url" id="r-portfolio" class="form-control" required placeholder="https://behance.net/yourprofile">
+              </div>
+              
+              <div class="form-group">
+                <label for="r-cv">Resume/CV Link (Google Drive, Dropbox) *</label>
+                <input type="url" id="r-cv" class="form-control" required placeholder="Paste shareable link here">
               </div>
 
               <div class="form-group">
-                <label for="r-message">Tell us about yourself</label>
-                <textarea id="r-message" class="form-control" placeholder="A brief intro about your experience and why you'd like to join us..."></textarea>
+                <label for="r-message">Why RAAJ Studios? *</label>
+                <textarea id="r-message" class="form-control" required placeholder="Briefly explain why you think you'd be a great fit for our team..." rows="4"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>

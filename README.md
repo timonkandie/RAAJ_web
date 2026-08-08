@@ -207,15 +207,15 @@ RAAJ_web/
 ### PHASE 5 — Build the Pages
 | # | Task | File | Status |
 |---|------|------|--------|
-| 31 | Hire Us page | `hire.html` | 🔴 To Do |
-| 32 | Services page | `services.html` | 🔴 To Do |
+| 31 | Hire Us page | `hire.html` | ✅ Done |
+| 32 | Services page | `services.html` | ✅ Done |
 | 33 | About page | `about.html` | ✅ Done |
-| 34 | Contact page | `contact.html` | 🔴 To Do |
-| 35 | Portfolio page | `portfolio.html` | 🔴 To Do |
-| 36 | Pricing page | `pricing.html` | 🔴 To Do |
-| 37 | Testimonials page | `testimonials.html` | 🔴 To Do |
-| 38 | Recruitment page | `recruitment.html` | 🔴 To Do |
-| 39 | Blog page | `blog.html` | 🔴 To Do |
+| 34 | Contact page | `contact.html` | ✅ Done |
+| 35 | Portfolio page | `portfolio.html` | ✅ Done |
+| 36 | Pricing page | `pricing.html` | ✅ Done |
+| 37 | Testimonials page | `testimonials.html` | ✅ Done |
+| 38 | Recruitment page | `recruitment.html` | ✅ Done |
+| 39 | Blog page | `blog.html` | ✅ Done |
 
 ### PHASE 6 — Polish & Launch Prep
 | # | Task | File | Status |
