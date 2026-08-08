@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/fluid-typography.css">
   <link rel="stylesheet" href="css/reduced-motion.css">
   <link rel="stylesheet" href="css/transitions.css">
+  <link rel="stylesheet" href="css/about.css">
 
   <script src="js/skeleton.js" defer></script>
   <script src="js/navigation.js" defer></script>
@@ -61,20 +62,113 @@
     <a href="hire.html" class="btn btn-primary">Hire Us</a>
   </div>
 
-  <main class="container section" style="padding-top: 140px;">
-    <div data-component="section-title"
-         data-badge="ABOUT OUR STUDIO"
-         data-title="Crafting Brands That Stand Out in Kenya & Beyond"
-         data-highlight="Stand Out"
-         data-subtitle="RAAJ Studios is a premium creative agency based in Nairobi, Kenya specializing in visual identity, logo design, packaging, and high-impact marketing art.">
-    </div>
+  <main id="main-content">
     
-    <div class="card" style="margin-top: 2rem;">
-      <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Our Mission</h3>
-      <p style="color: var(--text-secondary); line-height: 1.8;">
-        We believe that exceptional graphic design is not just aesthetic decoration — it's strategic communication. Our team combines artistic mastery with brand strategy to deliver logos, posters, packaging, and marketing collateral that drive real business growth.
-      </p>
-    </div>
+    <!-- Hero Header -->
+    <section class="section about-hero" style="padding-top: 140px; padding-bottom: 40px;">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="ABOUT RAAJ STUDIOS"
+             data-title="Crafting Brands That Stand Out in Kenya & Beyond"
+             data-highlight="Stand Out"
+             data-subtitle="RAAJ Studios is a premium creative agency based in Nairobi, Kenya specializing in visual identity, logo design, packaging, and high-impact marketing art.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section about-story reveal">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-text">
+            <h2>Our Story</h2>
+            <p>Founded in the vibrant heart of Nairobi, RAAJ Studios was born out of a simple conviction: <strong>exceptional graphic design is strategic communication.</strong></p>
+            <p>We saw too many amazing local businesses struggling to communicate their value because their visual identity didn't reflect their quality. We set out to change that. Today, we combine artistic mastery with deep brand strategy to deliver logos, posters, packaging, and marketing collateral that drive real business growth.</p>
+            <p>Our team is passionate about color, typography, and visual storytelling. We don't just make things look pretty; we solve business problems through design.</p>
+          </div>
+          <div class="story-image card">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Creative Design Workspace at RAAJ Studios" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section about-values bg-surface reveal">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Why Choose <span class="text-gradient">Us</span></h2>
+          <p class="section-subtitle">The core pillars that define our work ethic and creative process.</p>
+        </div>
+        
+        <div class="values-grid">
+          <div class="card service-card">
+            <div class="service-icon">🎯</div>
+            <h3 class="service-title">Strategic Thinking</h3>
+            <p class="service-desc">Every design decision is rooted in your business goals and target audience.</p>
+          </div>
+          <div class="card service-card">
+            <div class="service-icon">✨</div>
+            <h3 class="service-title">Creative Excellence</h3>
+            <p class="service-desc">We push boundaries to deliver pixel-perfect, highly original artwork.</p>
+          </div>
+          <div class="card service-card">
+            <div class="service-icon">🤝</div>
+            <h3 class="service-title">True Partnership</h3>
+            <p class="service-desc">We work closely with you. Your feedback and vision are central to our process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet The Team Section -->
+    <section class="section about-team reveal">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Meet The <span class="text-gradient">Team</span></h2>
+          <p class="section-subtitle">The creative minds behind the pixels.</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="card team-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Alex Kimani" class="team-photo" loading="lazy">
+            <div class="team-info">
+              <h3>Alex Kimani</h3>
+              <p class="team-role">Creative Director & Founder</p>
+            </div>
+          </div>
+          <div class="card team-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sarah Omondi" class="team-photo" loading="lazy">
+            <div class="team-info">
+              <h3>Sarah Omondi</h3>
+              <p class="team-role">Lead Brand Designer</p>
+            </div>
+          </div>
+          <div class="card team-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="David Muriithi" class="team-photo" loading="lazy">
+            <div class="team-info">
+              <h3>David Muriithi</h3>
+              <p class="team-role">Motion & 3D Artist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section about-cta reveal">
+      <div class="container">
+        <div class="card cta-card text-center">
+          <h2>Ready to elevate your brand?</h2>
+          <p>Let's collaborate on your next design project and create something extraordinary.</p>
+          <div style="margin-top: 30px;">
+            <a href="hire.html" class="btn btn-primary">Start a Project</a>
+            <a href="portfolio.html" class="btn btn-secondary">View Our Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer"></div>

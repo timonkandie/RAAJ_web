@@ -209,7 +209,7 @@ RAAJ_web/
 |---|------|------|--------|
 | 31 | Hire Us page | `hire.html` | 🔴 To Do |
 | 32 | Services page | `services.html` | 🔴 To Do |
-| 33 | About page | `about.html` | 🔴 To Do |
+| 33 | About page | `about.html` | ✅ Done |
 | 34 | Contact page | `contact.html` | 🔴 To Do |
 | 35 | Portfolio page | `portfolio.html` | 🔴 To Do |
 | 36 | Pricing page | `pricing.html` | 🔴 To Do |
