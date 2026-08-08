@@ -40,6 +40,7 @@
   <script src="js/cursor.js" defer></script>
   <link rel="stylesheet" href="css/loader.css">
   <script src="js/loader.js"></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
   <!-- Preloader -->
@@ -90,24 +91,55 @@
             </ul>
 
             <h3 style="margin-bottom: 1.5rem;">Current Openings</h3>
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
-                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Senior Brand Designer (Remote)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Lead comprehensive identity projects from conceptualization to final guideline delivery. Requires 5+ years of agency experience and a mastery of typography and layout.</p>
-                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Full-time</span>
-              </div>
-              
-              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
-                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Motion Graphics Animator</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Bring static assets to life for social media and digital ad campaigns. Proficiency in After Effects and Premiere Pro is mandatory. 3D skills are a huge plus.</p>
-                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Contract / Freelance</span>
-              </div>
-
-              <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.05); border-left: 3px solid var(--primary-color); padding: 1.5rem;">
-                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Packaging Design Specialist</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem;">Focus exclusively on physical product packaging, dielines, and print production prep for FMCG clients. Must understand print materials and finishes.</p>
-                <span style="font-size: 0.8rem; background: var(--bg-color); padding: 4px 8px; border-radius: 4px;">Part-time</span>
-              </div>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 2rem; background: var(--bg-surface); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <thead style="background: var(--primary-color); color: #fff;">
+                  <tr>
+                    <th style="padding: 1rem;">Role</th>
+                    <th style="padding: 1rem;">Department</th>
+                    <th style="padding: 1rem;">Location</th>
+                    <th style="padding: 1rem;">Type</th>
+                    <th style="padding: 1rem;">Experience</th>
+                  </tr>
+                </thead>
+                <tbody style="color: var(--text-secondary);">
+                  <tr style="border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.1);">
+                    <td style="padding: 1rem; font-weight: 600; color: var(--text-color);">Senior Brand Designer</td>
+                    <td style="padding: 1rem;">Design</td>
+                    <td style="padding: 1rem;">Remote / Nairobi</td>
+                    <td style="padding: 1rem;"><span style="background: rgba(var(--primary-color-rgb), 0.1); color: var(--primary-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Full-time</span></td>
+                    <td style="padding: 1rem;">5+ Years</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.1);">
+                    <td style="padding: 1rem; font-weight: 600; color: var(--text-color);">Motion Graphics Animator</td>
+                    <td style="padding: 1rem;">Video Production</td>
+                    <td style="padding: 1rem;">Remote</td>
+                    <td style="padding: 1rem;"><span style="background: rgba(var(--secondary-color-rgb), 0.1); color: var(--secondary-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Contract</span></td>
+                    <td style="padding: 1rem;">3+ Years</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.1);">
+                    <td style="padding: 1rem; font-weight: 600; color: var(--text-color);">Packaging Design Specialist</td>
+                    <td style="padding: 1rem;">Design</td>
+                    <td style="padding: 1rem;">On-site (Nairobi)</td>
+                    <td style="padding: 1rem;"><span style="background: rgba(var(--primary-color-rgb), 0.1); color: var(--primary-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Part-time</span></td>
+                    <td style="padding: 1rem;">2-4 Years</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.1);">
+                    <td style="padding: 1rem; font-weight: 600; color: var(--text-color);">UX/UI Designer</td>
+                    <td style="padding: 1rem;">Product</td>
+                    <td style="padding: 1rem;">Remote / Nairobi</td>
+                    <td style="padding: 1rem;"><span style="background: rgba(var(--primary-color-rgb), 0.1); color: var(--primary-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Full-time</span></td>
+                    <td style="padding: 1rem;">3+ Years</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 1rem; font-weight: 600; color: var(--text-color);">Creative Copywriter</td>
+                    <td style="padding: 1rem;">Marketing</td>
+                    <td style="padding: 1rem;">Remote</td>
+                    <td style="padding: 1rem;"><span style="background: rgba(var(--secondary-color-rgb), 0.1); color: var(--secondary-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Freelance</span></td>
+                    <td style="padding: 1rem;">Portfolio-based</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 

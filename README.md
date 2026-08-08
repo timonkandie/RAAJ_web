@@ -120,7 +120,6 @@ RAAJ_web/
 │   ├── components.js       ← Loads navbar + footer HTML
 │   ├── navigation.js       ← Hamburger menu + scroll effects
 │   ├── app.js              ← Main app initialiser [DONE]
-│   ├── animations.js       ← Scroll animation triggers [DONE]
 │   ├── forms.js            ← Form validation + submission [DONE]
 │   ├── portfolio.js        ← Portfolio page filter logic [DONE]
 │   ├── scroll.js           ← Intersection Observer reveals [TO BUILD]
@@ -165,7 +164,7 @@ RAAJ_web/
 | 2 | Fix animation engine | `js/engine/animationengine.js` | ✅ Done |
 | 3 | Fix hero controller | `js/hero.js` | ✅ Done |
 | 4 | Fill portfolio data | `js/data/Portfolio.js` | ✅ Done |
-| 5 | Create missing JS files | `animations.js`, `forms.js`, `portfolio.js`, `app.js` | ✅ Done |
+| 5 | Create missing JS files | `forms.js`, `portfolio.js`, `app.js` | ✅ Done |
 
 ### PHASE 2 — Build the Component Library
 | # | Task | File | Status |
