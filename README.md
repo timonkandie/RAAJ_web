@@ -182,23 +182,23 @@ RAAJ_web/
 ### PHASE 3 — Performance & Responsiveness
 | # | Task | File | Status |
 |---|------|------|--------|
-| 18 | Device/connection detection | `js/performance.js` | 🔴 To Do |
-| 19 | Responsive breakpoints | `css/responsive.css` | 🔴 To Do |
-| 20 | Fluid typography | `css/fluid-typography.css` | 🔴 To Do |
-| 21 | Reduced motion fallbacks | `css/reduced-motion.css` | 🔴 To Do |
+| 18 | Device/connection detection | `js/performance.js` | ✅ Done |
+| 19 | Responsive breakpoints | `css/responsive.css` | ✅ Done |
+| 20 | Fluid typography | `css/fluid-typography.css` | ✅ Done |
+| 21 | Reduced motion fallbacks | `css/reduced-motion.css` | ✅ Done |
 
 ### PHASE 4 — Professional Enhancements
 | # | Task | File | Status |
 |---|------|------|--------|
-| 22 | Scroll reveal triggers | `js/scroll.js` | 🔴 To Do |
-| 23 | Animated stats counter | `js/counter.js` | 🔴 To Do |
+| 22 | Scroll reveal triggers | `js/scroll.js` | ✅ Done |
+| 23 | Animated stats counter | `js/counter.js` | ✅ Done |
 | 24 | Page loading screen | `js/loader.js` + `css/loader.css` | 🔴 To Do |
-| 25 | Form feedback toasts | `js/toast.js` | 🔴 To Do |
-| 26 | Page transitions | `js/transitions.js` + `css/transitions.css` | 🔴 To Do |
+| 25 | Form feedback toasts | `js/toast.js` | ✅ Done |
+| 26 | Page transitions | `js/transitions.js` + `css/transitions.css` | ✅ Done |
 | 27 | Hero background animation | inside `css/hero.css` | 🔴 To Do |
 | 28 | VanillaTilt on workspace card | inside `js/hero.js` | 🔴 To Do |
 | 29 | Typewriter hero heading | inside `js/hero.js` | 🔴 To Do |
-| 30 | Custom cursor | `js/cursor.js` | 🔴 To Do |
+| 30 | Custom cursor | `js/cursor.js` | ✅ Done |
 
 ### PHASE 5 — Build the Pages
 | # | Task | File | Status |

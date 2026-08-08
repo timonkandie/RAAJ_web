@@ -1069,4 +1069,83 @@ html.prefers-reduced-motion *::after {
   transform: translateY(0);
 }
 
+/* ==========================================
+   17. CUSTOM CURSOR
+========================================== */
+.cursor-dot,
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-100px, -100px, 0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
 
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  margin: -4px 0 0 -4px;
+}
+
+.cursor-follower {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(51, 184, 255, 0.4);
+  border-radius: 50%;
+  margin: -18px 0 0 -18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              margin 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              border-color 0.25s ease,
+              opacity 0.3s ease;
+}
+
+.cursor-follower.cursor-hover {
+  width: 54px;
+  height: 54px;
+  margin: -27px 0 0 -27px;
+  background-color: rgba(51, 184, 255, 0.1);
+  border-color: rgba(51, 184, 255, 0.8);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.cursor-follower.cursor-has-badge {
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(51, 184, 255, 0.3);
+}
+
+.cursor-badge {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cursor-follower.cursor-has-badge .cursor-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+html.is-touch-device .cursor-dot,
+html.is-touch-device .cursor-follower {
+  display: none !important;
+}
