@@ -43,7 +43,7 @@
   - **Task 28**: VanillaTilt 3D effect (`js/hero.js`) — `✅ Completed`
   - **Task 29**: Typewriter hero heading (`js/hero.js`) — `✅ Completed`
   - **Task 30**: Custom cursor (`js/cursor.js`) — `✅ Completed`
-- **Phase 5: Build the Pages** — `⏳ Pending`
+- **Phase 5: Build the Pages** — `✅ Completed` (Tagged `phase-5-complete`)
 
 ---
 
