@@ -1,0 +1,57 @@
+/* ==========================================================================
+   RAAJ Studios — Reduced Motion Accessibility Engine
+   Task 21: WCAG 2.1 AAA Motion Sensitivity Overrides
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable Floating Blobs & Parallax Effects */
+  .hero-blob,
+  .ambient-gradient,
+  .blob {
+    animation: none !important;
+    opacity: 0.25 !important;
+    filter: blur(30px) !important;
+    transform: none !important;
+  }
+
+  /* Disable 3D Card Hover Tilts */
+  .card,
+  .service-card,
+  .portfolio-card,
+  .pricing-card,
+  .testimonial-card {
+    transform: none !important;
+    transition: border-color 0.1s ease, background 0.1s ease !important;
+  }
+
+  /* Disable Infinite Marquee Scrolling */
+  .marquee-track,
+  .client-logo-track {
+    animation: none !important;
+  }
+}
+
+/* Explicit class override for performance mode toggle */
+html.prefers-reduced-motion *,
+html.prefers-reduced-motion *::before,
+html.prefers-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html.prefers-reduced-motion .hero-blob,
+html.prefers-reduced-motion .card {
+  animation: none !important;
+  transform: none !important;
+}
