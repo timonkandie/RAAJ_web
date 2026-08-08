@@ -104,7 +104,7 @@ html.low-power-device .hero-background,
 
 }
 
-.workspace-header, .workspace-body, .workspace-footer {
+.workspace-header, .workspace-body {
     transform: translateZ(30px); /* Creates the 3D popout effect */
 }
 

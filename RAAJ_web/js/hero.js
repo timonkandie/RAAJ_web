@@ -190,7 +190,7 @@ function initializeHero() {
   }
 
   // Initialize VanillaTilt Native
-  const workspace = document.querySelector('.workspace-body');
+  const workspace = document.querySelector('.creative-workspace');
   if (workspace) {
     new VanillaTiltNative(workspace);
   }
