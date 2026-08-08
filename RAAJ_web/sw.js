@@ -1,4 +1,4 @@
-const CACHE_NAME = 'raaj-studios-v3';
+const CACHE_NAME = 'raaj-studios-v4';
 const PRECACHE_ASSETS = [
   './',
   './index.html',

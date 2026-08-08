@@ -1,71 +1,214 @@
+/* ==========================================================================
+   RAAJ Studios — Responsive Breakpoints & Fluid Grid System
+   Task 19: Comprehensive Multi-Device Layout System
+   ========================================================================== */
+
 /* ==========================================
-   RAAJ Studios
-   Responsive Styles
-   Version 1.0
+   1. GLOBAL RESPONSIVE MEDIA & CONTAINERS
 ========================================== */
-
-/* ==========================
-   TABLETS
-========================== */
-
-@media (min-width:768px){
-
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* ==========================
-   LAPTOPS
-========================== */
-
-@media (min-width:992px){
-
+.container {
+  width: 100%;
+  max-width: var(--container-width, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding, 1.5rem);
+  padding-right: var(--container-padding, 1.5rem);
 }
 
-/* ==========================
-   DESKTOP
-========================== */
+/* ==========================================
+   2. MOBILE EXTRA SMALL (< 480px)
+========================================== */
+@media (max-width: 479px) {
+  :root {
+    --container-padding: 1rem;
+    --section-padding: 2.5rem 0;
+  }
 
-@media (min-width:1200px){
+  body {
+    padding-top: 70px;
+  }
 
-  .menu-toggle{
+  /* Typography Adjustments */
+  .section-title {
+    font-size: 1.6rem !important;
+  }
 
-    display:none;
+  .section-subtitle {
+    font-size: 0.95rem !important;
+  }
 
+  /* Hero Section Mobile */
+  .hero {
+    padding: 2rem 0 3rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Touch Targets */
+  .btn, .nav-link, input, select, textarea, button {
+    min-height: 44px;
+  }
+
+  /* Grids collapse to single column */
+  .grid, 
+  .grid-2-col, 
+  .grid-3-col, 
+  .grid-4-col,
+  .portfolio-grid,
+  .service-grid,
+  .testimonial-grid,
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Footer Mobile */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
   }
 }
 
-@media (max-width:991px){
+/* ==========================================
+   3. MOBILE & SMALL TABLET (< 768px)
+========================================== */
+@media (max-width: 767px) {
+  /* Navigation Bar */
+  .nav-links {
+    display: none !important;
+  }
 
-    .nav-links{
+  .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
 
-        display:none;
+  /* Section Padding */
+  .section {
+    padding: 3rem 0;
+  }
 
-    }
+  /* Grids Collapse */
+  .grid-2-col,
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
-    .menu-toggle{
+  /* Hero workspace stack */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
 
-        display:block;
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
 
-    }
-
+  /* Card paddings */
+  .card {
+    padding: 1.25rem;
+  }
 }
 
+/* ==========================================
+   4. TABLET PORTRAIT & LANDSCAPE (768px – 991px)
+========================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+  :root {
+    --container-padding: 2rem;
+  }
 
-/* ==========================
-   LARGE DESKTOPS
-========================== */
+  .nav-links {
+    display: none !important;
+  }
 
-@media (min-width:1400px){
+  .menu-toggle {
+    display: flex !important;
+  }
 
+  .grid-3-col,
+  .grid-4-col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem;
+  }
 }
 
-/*============================
-  IMAGES
-=========================*/
-img{
+/* ==========================================
+   5. LAPTOP & DESKTOP (992px+)
+========================================== */
+@media (min-width: 992px) {
+  .menu-toggle {
+    display: none !important;
+  }
 
-    max-width:100%;
+  .nav-links {
+    display: flex !important;
+  }
 
-    height:auto;
+  .grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .grid-3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
+/* ==========================================
+   6. LARGE DESKTOP & ULTRA-WIDE (1200px+)
+========================================== */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
