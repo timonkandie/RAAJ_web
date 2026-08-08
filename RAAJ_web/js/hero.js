@@ -1,6 +1,90 @@
 /**
  * Hero Section Controller
+ * Includes Typewriter, VanillaTilt, and Carousel logic
  */
+class Typewriter {
+  constructor(element, words, wait = 3000) {
+    this.element = element;
+    this.words = words;
+    this.txt = '';
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.isDeleting = false;
+    this.type();
+  }
+
+  type() {
+    const current = this.wordIndex % this.words.length;
+    const fullTxt = this.words[current];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.element.innerHTML = `<span class="txt">${this.txt}</span><span class="cursor">|</span>`;
+
+    let typeSpeed = 100;
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      typeSpeed = this.wait;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.wordIndex++;
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+class VanillaTiltNative {
+  constructor(element) {
+    this.element = element;
+    this.maxTilt = 15;
+    this.speed = 400;
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    this.element.addEventListener('mousemove', (e) => this.onMouseMove(e));
+    this.element.addEventListener('mouseleave', () => this.onMouseLeave());
+    this.element.addEventListener('mouseenter', () => this.onMouseEnter());
+  }
+
+  onMouseEnter() {
+    this.element.style.transition = `transform 0.1s ease-out`;
+  }
+
+  onMouseMove(e) {
+    if (document.documentElement.classList.contains('low-power-device')) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 768) return; // Disable on touch devices usually
+
+    const rect = this.element.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const tiltX = ((y - centerY) / centerY) * -this.maxTilt;
+    const tiltY = ((x - centerX) / centerX) * this.maxTilt;
+
+    this.element.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  }
+
+  onMouseLeave() {
+    this.element.style.transition = `transform ${this.speed}ms ease-out`;
+    this.element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+  }
+}
+
 const heroState = {
   currentService: 'logoDesign',
   currentProject: 0,
@@ -97,6 +181,19 @@ function initializeHero() {
 
   loadService(heroState.currentService);
   startAutoplay();
+
+  // Initialize Typewriter
+  const typewriterElement = document.querySelector('.typewriter-text');
+  if (typewriterElement) {
+    const words = ["Inspiration.", "Innovation.", "Excellence.", "Impact."];
+    new Typewriter(typewriterElement, words, 3000);
+  }
+
+  // Initialize VanillaTilt Native
+  const workspace = document.querySelector('.creative-workspace');
+  if (workspace) {
+    new VanillaTiltNative(workspace);
+  }
 }
 
 window.initializeHero = initializeHero;

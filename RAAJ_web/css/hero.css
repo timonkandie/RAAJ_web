@@ -18,14 +18,27 @@
 
 }
 
-.hero-background{
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(-45deg, var(--gray-50), #f0f8ff, var(--gray-50), #e6f7ff);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
 
-    position:absolute;
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    inset:0;
-
-    z-index:0;
-
+html.low-power-device .hero-background,
+@media (prefers-reduced-motion: reduce) {
+  .hero-background {
+    animation: none;
+    background-size: 100% 100%;
+  }
 }
 
 .hero-content{
@@ -84,6 +97,15 @@
 
     box-shadow:var(--shadow-lg);
 
+    /* VanillaTilt 3D styles */
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    will-change: transform;
+
+}
+
+.workspace-header, .workspace-body, .workspace-footer {
+    transform: translateZ(30px); /* Creates the 3D popout effect */
 }
 
 .workspace-header{
@@ -234,6 +256,25 @@
 
     font-size:1.05rem;
 
+}
+
+/* Typewriter CSS */
+.typewriter-text {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.typewriter-text .cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--primary-color);
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-buttons{

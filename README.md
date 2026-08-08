@@ -195,9 +195,9 @@ RAAJ_web/
 | 24 | Page loading screen | `js/loader.js` + `css/loader.css` | ✅ Done |
 | 25 | Form feedback toasts | `js/toast.js` | ✅ Done |
 | 26 | Page transitions | `js/transitions.js` + `css/transitions.css` | ✅ Done |
-| 27 | Hero background animation | inside `css/hero.css` | 🔴 To Do |
-| 28 | VanillaTilt on workspace card | inside `js/hero.js` | 🔴 To Do |
-| 29 | Typewriter hero heading | inside `js/hero.js` | 🔴 To Do |
+| 27 | Hero background animation | inside `css/hero.css` | ✅ Done |
+| 28 | VanillaTilt 3D effect | inside `js/hero.js` | ✅ Done |
+| 29 | Typewriter hero heading | inside `js/hero.js` | ✅ Done |
 | 30 | Custom cursor | `js/cursor.js` | ✅ Done |
 
 ### PHASE 5 — Build the Pages
