@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/fluid-typography.css">
   <link rel="stylesheet" href="css/reduced-motion.css">
   <link rel="stylesheet" href="css/transitions.css">
+  <link rel="stylesheet" href="css/forms.css">
 
   <script src="js/skeleton.js" defer></script>
   <script src="js/navigation.js" defer></script>
@@ -61,27 +62,110 @@
     <a href="hire.html" class="btn btn-primary">Hire Us</a>
   </div>
 
-  <main class="container section" style="padding-top: 140px;">
-    <div class="grid grid-2-col">
-      <div>
+  <main id="main-content">
+    <section class="section" style="padding-top: 140px; padding-bottom: 40px;">
+      <div class="container">
         <div data-component="section-title"
-             data-align="left"
              data-badge="CONTACT US"
-             data-title="Get in Touch with RAAJ Studios"
-             data-highlight="Get in Touch"
-             data-subtitle="Have a creative project in mind or need custom graphic design work? We'd love to hear from you.">
+             data-title="Let's Start a Conversation"
+             data-highlight="Conversation"
+             data-subtitle="Reach out to discuss your next project, ask a question, or simply say hello. We are always ready to collaborate.">
         </div>
-        <ul style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; font-size: 1.1rem; color: var(--text-secondary);">
-          <li>📍 <strong>Studio Location:</strong> Nairobi, Kenya</li>
-          <li>📞 <strong>WhatsApp Direct:</strong> <a href="https://wa.me/254754748388" target="_blank" rel="noopener">+254 754 748 388</a></li>
-          <li>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/raaj_studios" target="_blank" rel="noopener">@raaj_studios</a></li>
-        </ul>
       </div>
+    </section>
 
-      <div>
-        <div data-component="contact-form"></div>
+    <section class="section reveal">
+      <div class="container">
+        <div class="page-grid-2">
+          
+          <!-- Contact Info -->
+          <div>
+            <div class="info-box" style="margin-bottom: 2rem;">
+              <h3>Direct Contact</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">For general inquiries, partnerships, or immediate assistance, reach us via phone or email.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.5rem;">📍</div>
+                  <div>
+                    <h4 style="margin: 0; font-size: 1rem;">Studio Address</h4>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">CBD, Nairobi, Kenya</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.5rem;">📞</div>
+                  <div>
+                    <h4 style="margin: 0; font-size: 1rem;">Phone / WhatsApp</h4>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><a href="https://wa.me/254754748388" target="_blank" rel="noopener">+254 754 748 388</a></p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="font-size: 1.5rem;">✉️</div>
+                  <div>
+                    <h4 style="margin: 0; font-size: 1rem;">Email Address</h4>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><a href="mailto:hello@raajstudios.com">hello@raajstudios.com</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <h3>Follow Us</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">Stay updated with our latest works and behind-the-scenes on social media.</p>
+              <div style="display: flex; gap: 1rem;">
+                <a href="https://instagram.com/raaj_studios" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Instagram</a>
+                <a href="#" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Behance</a>
+                <a href="#" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem;">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card">
+            <h3 style="margin-bottom: 1.5rem;">Send us a Message</h3>
+            <form id="contact-form" onsubmit="event.preventDefault(); showToast('Message sent successfully! We will reply within 24 hours.', 'success'); this.reset();">
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="c-name">Full Name</label>
+                  <input type="text" id="c-name" class="form-control" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                  <label for="c-email">Email Address</label>
+                  <input type="email" id="c-email" class="form-control" required placeholder="jane@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="c-subject">Subject</label>
+                <input type="text" id="c-subject" class="form-control" required placeholder="How can we help?">
+              </div>
+
+              <div class="form-group">
+                <label for="c-message">Your Message</label>
+                <textarea id="c-message" class="form-control" required placeholder="Type your message here..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </section>
+    
+    <!-- Location Map Placeholder -->
+    <section class="reveal" style="margin-bottom: -10px;">
+      <div style="width: 100%; height: 400px; background: url('https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; display: flex; align-items: center; justify-content: center; position: relative;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4);"></div>
+        <div class="card" style="position: relative; z-index: 10; max-width: 400px; text-align: center;">
+          <h3 style="margin-bottom: 0.5rem;">Nairobi, Kenya</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Proudly operating from the vibrant capital of creativity.</p>
+          <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View on Map</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer"></div>

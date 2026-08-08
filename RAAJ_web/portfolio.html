@@ -61,42 +61,99 @@
     <a href="hire.html" class="btn btn-primary">Hire Us</a>
   </div>
 
-  <main class="container section" style="padding-top: 140px;">
-    <div data-component="section-title"
-         data-badge="OUR PORTFOLIO"
-         data-title="Featured Creative Works"
-         data-highlight="Creative Works"
-         data-subtitle="Browse our recent design projects across logo branding, poster design, flyer artwork, and packaging.">
-    </div>
-
-    <div class="grid grid-3-col" style="margin-top: 3rem;">
-      <div data-component="portfolio-card"
-           data-title="Sawa Organics Rebrand"
-           data-client="Sawa Organics Ltd."
-           data-category="Branding & Packaging"
-           data-slug="sawa-organics"
-           data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
-           data-tags="Logo, Label, Box Design">
+  <main id="main-content">
+    <section class="section" style="padding-top: 140px; padding-bottom: 40px;">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="OUR PORTFOLIO"
+             data-title="Featured Creative Works"
+             data-highlight="Creative Works"
+             data-subtitle="Browse our recent design projects across logo branding, poster design, flyer artwork, and packaging.">
+        </div>
       </div>
+    </section>
 
-      <div data-component="portfolio-card"
-           data-title="Nairobi Music Fest Artwork"
-           data-client="Nairobi Fest"
-           data-category="Poster & Event"
-           data-slug="nairobi-fest"
-           data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
-           data-tags="Posters, Digital Art, Motion">
+    <!-- Filter (Visual only for now) -->
+    <section class="reveal" style="padding-bottom: 2rem;">
+      <div class="container" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <button class="btn btn-primary">All Works</button>
+        <button class="btn btn-secondary">Branding</button>
+        <button class="btn btn-secondary">Packaging</button>
+        <button class="btn btn-secondary">Print</button>
+        <button class="btn btn-secondary">Digital</button>
       </div>
+    </section>
 
-      <div data-component="portfolio-card"
-           data-title="Apex Capital Identity"
-           data-client="Apex Capital Kenya"
-           data-category="Corporate Branding"
-           data-slug="apex-capital"
-           data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
-           data-tags="Logo, Stationery, Cards">
+    <!-- Portfolio Grid -->
+    <section class="section reveal" style="padding-top: 0;">
+      <div class="container">
+        <div class="grid grid-3-col">
+          <div data-component="portfolio-card"
+               data-title="Sawa Organics Rebrand"
+               data-client="Sawa Organics Ltd."
+               data-category="Branding & Packaging"
+               data-slug="sawa-organics"
+               data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
+               data-tags="Logo, Label, Box Design">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Nairobi Music Fest Artwork"
+               data-client="Nairobi Fest"
+               data-category="Poster & Event"
+               data-slug="nairobi-fest"
+               data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
+               data-tags="Posters, Digital Art, Motion">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Apex Capital Identity"
+               data-client="Apex Capital Kenya"
+               data-category="Corporate Branding"
+               data-slug="apex-capital"
+               data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
+               data-tags="Logo, Stationery, Cards">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Zenith Coffee Roasters"
+               data-client="Zenith Cafe"
+               data-category="Packaging"
+               data-slug="zenith-coffee"
+               data-image="https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=800&auto=format&fit=crop"
+               data-tags="Packaging, Labels, Merchandise">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Urban Style Mag"
+               data-client="Urban Style"
+               data-category="Editorial Print"
+               data-slug="urban-style"
+               data-image="https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?w=800&auto=format&fit=crop"
+               data-tags="Magazine, Layout, Typography">
+          </div>
+
+          <div data-component="portfolio-card"
+               data-title="Lumiere Tech Launch"
+               data-client="Lumiere Tech"
+               data-category="Digital & Social"
+               data-slug="lumiere-tech"
+               data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
+               data-tags="Social Media, UI Mockups">
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section bg-surface reveal text-center" style="margin-bottom: -10px;">
+      <div class="container">
+        <h2>Like what you see?</h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto 2rem;">We are currently taking on new projects. Let's collaborate to build something extraordinary together.</p>
+        <a href="hire.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Start a Project</a>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer"></div>

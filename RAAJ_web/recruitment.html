@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/fluid-typography.css">
   <link rel="stylesheet" href="css/reduced-motion.css">
   <link rel="stylesheet" href="css/transitions.css">
+  <link rel="stylesheet" href="css/forms.css">
 
   <script src="js/skeleton.js" defer></script>
   <script src="js/navigation.js" defer></script>
@@ -61,17 +62,86 @@
     <a href="hire.html" class="btn btn-primary">Hire Us</a>
   </div>
 
-  <main class="container section" style="padding-top: 140px;">
-    <div data-component="section-title"
-         data-badge="CAREERS & COLLABORATION"
-         data-title="Join the RAAJ Studios Creative Network"
-         data-highlight="Creative Network"
-         data-subtitle="We are constantly seeking passionate graphic designers, illustrators, 3D artists, and brand strategists.">
-    </div>
+  <main id="main-content">
+    <section class="section" style="padding-top: 140px; padding-bottom: 40px;">
+      <div class="container">
+        <div data-component="section-title"
+             data-badge="CAREERS & COLLABORATION"
+             data-title="Join the RAAJ Studios Creative Network"
+             data-highlight="Creative Network"
+             data-subtitle="We are constantly seeking passionate graphic designers, illustrators, 3D artists, and brand strategists to join our growing remote and on-site teams.">
+        </div>
+      </div>
+    </section>
 
-    <div style="max-width: 800px; margin: 3rem auto 0;">
-      <div data-component="recruitment-form"></div>
-    </div>
+    <section class="section reveal" style="padding-top: 0;">
+      <div class="container">
+        
+        <div class="page-grid-2">
+          <!-- Intro Text -->
+          <div>
+            <h3 style="margin-bottom: 1.5rem;">Why Work With Us?</h3>
+            <ul style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🚀</span> <div><strong>Creative Freedom:</strong> We believe in pushing boundaries, not restricting ideas.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🌍</span> <div><strong>Global Impact:</strong> Work with exciting brands and startups across Africa and beyond.</div></li>
+              <li style="display: flex; gap: 1rem;"><span style="font-size: 1.2rem;">🤝</span> <div><strong>Collaborative Culture:</strong> A supportive environment where you can learn and grow alongside top talent.</div></li>
+            </ul>
+
+            <div class="info-box" style="background: rgba(var(--primary-color-rgb), 0.1); border-color: rgba(var(--primary-color-rgb), 0.2);">
+              <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Current Openings</h4>
+              <ul style="padding-left: 1.2rem; color: var(--text-secondary);">
+                <li>Senior Brand Designer (Remote)</li>
+                <li>Motion Graphics Animator (Freelance)</li>
+                <li>Packaging Design Specialist (Contract)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Application Form -->
+          <div class="card">
+            <h3 style="margin-bottom: 1.5rem;">Submit Your Portfolio</h3>
+            <form id="recruitment-form" onsubmit="event.preventDefault(); showToast('Application submitted successfully! We will review your portfolio.', 'success'); this.reset();">
+              
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="r-name">Full Name</label>
+                  <input type="text" id="r-name" class="form-control" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                  <label for="r-email">Email Address</label>
+                  <input type="email" id="r-email" class="form-control" required placeholder="john@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="r-role">Role of Interest</label>
+                <select id="r-role" class="form-control" required>
+                  <option value="" disabled selected>Select a role...</option>
+                  <option value="brand_designer">Brand / Logo Designer</option>
+                  <option value="motion_designer">Motion Graphics Designer</option>
+                  <option value="illustrator">Illustrator</option>
+                  <option value="other">Other / Freelance Collaborator</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="r-portfolio">Portfolio Link (Behance, Dribbble, Website)</label>
+                <input type="url" id="r-portfolio" class="form-control" required placeholder="https://behance.net/yourprofile">
+              </div>
+
+              <div class="form-group">
+                <label for="r-message">Tell us about yourself</label>
+                <textarea id="r-message" class="form-control" placeholder="A brief intro about your experience and why you'd like to join us..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <div id="footer"></div>
