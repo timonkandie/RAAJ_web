@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/fluid-typography.min.css">
   <link rel="stylesheet" href="css/reduced-motion.min.css">
   <link rel="stylesheet" href="css/transitions.min.css">
+  <link rel="stylesheet" href="css/antigravity.min.css">
 
   <!-- Scripts (Deferred for non-blocking rendering) -->
   <script src="js/skeleton.min.js" defer></script>
@@ -50,9 +51,11 @@
   <script src="js/loader.min.js"></script>
 
   <script src="js/app.min.js" defer></script>
+  <script src="js/spiderweb.min.js" defer></script>
 </head>
 
 <body>
+  <canvas id="spiderweb-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></canvas>
   <!-- Preloader -->
   <div id="raaj-preloader"><div class="spinner"></div></div>
 
@@ -164,7 +167,7 @@
                data-client="Sawa Organics Ltd."
                data-category="Branding & Packaging"
                data-slug="sawa-organics"
-               data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
+               data-image="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80"
                data-tags="Logo, Label, Box Design">
           </div>
 
@@ -173,7 +176,7 @@
                data-client="Nairobi Fest"
                data-category="Poster & Event"
                data-slug="nairobi-fest"
-               data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
+               data-image="https://images.unsplash.com/photo-1616628188467-8af29c4138ed?auto=format&fit=crop&w=800&q=80"
                data-tags="Posters, Digital Art, Motion">
           </div>
 
@@ -182,7 +185,7 @@
                data-client="Apex Capital Kenya"
                data-category="Corporate Branding"
                data-slug="apex-capital"
-               data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
+               data-image="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=800&q=80"
                data-tags="Logo, Stationery, Cards">
           </div>
         </div>
@@ -308,3 +311,5 @@
 </body>
 
 </html>
+
+

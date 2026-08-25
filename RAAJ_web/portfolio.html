@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/fluid-typography.min.css">
   <link rel="stylesheet" href="css/reduced-motion.min.css">
   <link rel="stylesheet" href="css/transitions.min.css">
+  <link rel="stylesheet" href="css/antigravity.min.css">
 
   <script src="js/skeleton.min.js" defer></script>
   <script src="js/navigation.min.js" defer></script>
@@ -40,8 +41,10 @@
   <link rel="stylesheet" href="css/loader.min.css">
   <script src="js/loader.min.js"></script>
   <script src="js/app.min.js" defer></script>
+  <script src="js/spiderweb.min.js" defer></script>
 </head>
 <body>
+  <canvas id="spiderweb-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></canvas>
   <!-- Preloader -->
   <div id="raaj-preloader"><div class="spinner"></div></div>
 
@@ -263,3 +266,4 @@
   <div id="footer"></div>
 </body>
 </html>
+
