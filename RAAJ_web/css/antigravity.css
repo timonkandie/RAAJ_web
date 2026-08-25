@@ -1,0 +1,238 @@
+/* Antigravity Design System Customizations */
+html { background-color: var(--background); transition: background-color 0.3s ease; }
+
+/* Light Mode (Executive Clean) */
+:root {
+  --primary-color: #AA8B2C;
+  --primary-dark: #8C7324;
+  --primary-light: rgba(170, 139, 44, 0.15);
+  --accent-opposite: #0B0F19;
+  --accent-opposite-light: rgba(11, 15, 25, 0.15);
+
+  --white: #ffffff;
+  --background: #FDFCF8; /* Warm Ivory / Cream */
+  --surface: #F4F1E9;
+  --surface-card: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(170, 139, 44, 0.2);
+
+  --text-primary: #0B0F19;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --navbar-bg: rgba(253, 252, 248, 0.9);
+  --glass-bg: rgba(244, 241, 233, 0.8);
+
+  --shadow-sm: 0 4px 12px rgba(170, 139, 44, 0.1);
+  --shadow-md: 0 8px 24px rgba(170, 139, 44, 0.15);
+  --shadow-lg: 0 16px 40px rgba(170, 139, 44, 0.2);
+  
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+/* Dark Mode (Executive Royal) */
+[data-theme="dark"] {
+  --primary-color: #D4AF37;
+  --primary-dark: #AA8B2C;
+  --primary-light: var(--primary-light);
+  --accent-opposite: #F5F5DC;
+  --accent-opposite-light: var(--accent-opposite-light);
+
+  --white: #ffffff;
+  --background: #0B0F19; /* Executive Deep Navy/Obsidian */
+  --surface: #111827; /* Gray 900 */
+  --surface-card: rgba(255, 255, 255, 0.04); /* Glassmorphism base */
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --text-inverse: #0B0F19;
+
+  --navbar-bg: rgba(11, 15, 25, 0.85);
+  --glass-bg: rgba(17, 24, 39, 0.7);
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px var(--surface);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  z-index: 1;
+  background-color: transparent;
+  color: var(--text-primary);
+  /* The interactive spiderweb canvas will act as the background */
+  position: relative;
+}
+
+/* Glassmorphism Cards */
+.card, .service-card, .portfolio-card, .testimonial-card, .pricing-card, .blog-card {
+  background: var(--surface-card) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-md);
+}
+
+.card:hover, .service-card:hover, .portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-card) !important;
+}
+
+/* Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-opposite) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  color: var(--background);
+  border: none;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: var(--radius-full);
+}
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Navigation */
+.navbar, #navbar > div {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Section Title Fixes */
+.section-badge {
+  background: rgba(212, 175, 55, 0.1) !important;
+  color: var(--primary-color) !important;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Floating animation */
+@keyframes float-antigravity {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.service-card-icon {
+  animation: float-antigravity 4s ease-in-out infinite;
+}
+
+/* Overriding quote banner gradient */
+.quote-banner-section {
+  background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%) !important;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+.quote-banner-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* Hero Section Enhancements */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-background {
+  background: 
+    radial-gradient(circle at 10% 20%, var(--primary-light) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, var(--accent-opposite-light) 0%, transparent 40%);
+  filter: blur(40px);
+}
+.creative-workspace {
+  background: var(--surface-card) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.workspace-header {
+  background: var(--glass-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+.service-tab {
+  background: var(--border-color);
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+.service-tab.active {
+  background: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+.project-display {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+.hero-badge {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+/* Footer & Links */
+.footer {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 50%;
+  background: radial-gradient(circle at bottom center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.nav-link:hover, .footer a:hover {
+  color: var(--primary-color) !important;
+  text-shadow: 0 0 10px var(--primary-color);
+}
+
+
+
+
