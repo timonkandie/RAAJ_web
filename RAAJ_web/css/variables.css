@@ -1,102 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* =======RAAJ studios Design Tokens v1.0 ======*/
-:root{
-/*Brand colors*/
---primary-color:#33B8FF;
-    --primary-dark:#0F6EA9;
-    --primary-light:#EAF8FF;
+/* ======= RAAJ Studios Design Tokens v2.0 (Adaptive Theme System) ====== */
+:root {
+  /* Brand colors (Light Mode Defaults) */
+  --primary-color: #33B8FF;
+  --primary-dark: #0F6EA9;
+  --primary-light: #EAF8FF;
+  --accent-opposite: #FF7A33;
+  --accent-opposite-light: #FFF0E8;
 
-    --white:#FFFFFF;
+  --white: #FFFFFF;
+  --background: #F8FCFF;
+  --surface: #F3F5F7;
+  --surface-card: #FFFFFF;
+  --border-color: rgba(0, 0, 0, 0.08);
 
-    --background:#F8FCFF;
+  --text-primary: #222222;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --text-inverse: #FFFFFF;
 
-    --surface:#F3F5F7;
+  --navbar-bg: rgba(248, 252, 255, 0.92);
+  --glass-bg: rgba(255, 255, 255, 0.85);
 
-    --text-primary:#222222;
-    --text-secondary:#666666;
-    --text-muted:#999999;
+  --success: #28C76F;
+  --warning: #FFB020;
+  --danger: #EA5455;
 
-    --success:#28C76F;
-    --warning:#FFB020;
-    --danger:#EA5455;
+  /* Fonts */
+  --heading-font: "Orbitron", sans-serif;
+  --body-font: "Poppins", sans-serif;
 
-/*Fonts*/
+  /* Font Sizes */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 24px;
+  --fs-2xl: 32px;
+  --fs-3xl: 48px;
+  --fs-4xl: 64px;
+  --fs-5xl: 80px;
 
---heading-font:"Orbitron", sans-serif;
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
 
---body-font:"Poppins", sans-serif;
-
-/*Font Sizes*/
-
---fs-xs:12px;
---fs-sm:14px;
---fs-md:16px;
---fs-lg:18px;
---fs-xl:24px;
---fs-2xl:32px;
---fs-3xl:48px;
---fs-4xl:64px;
---fs-5xl:80px;
-
-  /*Font Weights*/
-
-  --fw-light:300;
---fw-regular:400;
---fw-medium:500;
---fw-semibold:600;
---fw-bold:700;
---fw-black:900;
-
-/* Spacing */
-
---space-xs:4px;
---space-sm:8px;
---space-md:16px;
---space-lg:24px;
---space-xl:32px;
---space-2xl:48px;
---space-3xl:64px;
---space-4xl:96px;
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
 
   /* Rounded Corners */
-
---radius-sm:6px;
---radius-md:10px;
---radius-lg:18px;
---radius-xl:24px;
---radius-full:999px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
 
   /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.10);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.15);
 
---shadow-sm:0 2px 8px rgba(0,0,0,.08);
+  /* Animation */
+  --transition-fast: .2s ease;
+  --transition-normal: .3s ease;
+  --transition-slow: .5s ease;
 
---shadow-md:0 8px 20px rgba(0,0,0,.10);
-
---shadow-lg:0 18px 40px rgba(0,0,0,.15);
-
- /* Animation */
-
---transition-fast:.2s ease;
-
---transition-normal:.3s ease;
-
---transition-slow:.5s ease;
-
- /* Containers */
-
---container-width:1200px;
-
---container-padding:24px;
+  /* Containers */
+  --container-width: 1200px;
+  --container-padding: 24px;
 
   /* Layers */
+  --z-dropdown: 100;
+  --z-navbar: 500;
+  --z-modal: 900;
+  --z-loader: 1000;
+}
 
---z-dropdown:100;
+/* ======= Dark Theme Overrides (Opposite Palette) ====== */
+[data-theme="dark"] {
+  /* Opposite / Complementary Dark Theme Accent & Deep Obsidian Surfaces */
+  --primary-color: #FF7A33;                 /* Electric Coral / Amber (Complementary to Sky Blue) */
+  --primary-dark: #E05A10;                  /* Deep Sunset Amber */
+  --primary-light: rgba(255, 122, 51, 0.15); /* Glowing Amber Tint */
+  --accent-opposite: #33B8FF;               /* Sky Blue as secondary/opposite accent */
+  --accent-opposite-light: rgba(51, 184, 255, 0.15);
 
---z-navbar:500;
+  --white: #162032;                         /* Dark surface replacement for hardcoded white */
+  --background: #0B0F17;                    /* Deep Obsidian Dark */
+  --surface: #141C2B;                       /* Midnight Surface */
+  --surface-card: #1C2638;                  /* Slate Card Surface */
+  --border-color: rgba(255, 255, 255, 0.12);
 
---z-modal:900;
+  --text-primary: #F8FAFC;                  /* Crisp Bright Silver-White */
+  --text-secondary: #94A3B8;                /* Cool Slate Silver */
+  --text-muted: #64748B;                   /* Dark Slate Muted */
+  --text-inverse: #0B0F17;
 
---z-loader:1000;
-  
+  --navbar-bg: rgba(11, 15, 23, 0.92);
+  --glass-bg: rgba(28, 38, 56, 0.85);
+
+  --shadow-sm: 0 2px 10px rgba(0,0,0,.40);
+  --shadow-md: 0 8px 25px rgba(0,0,0,.50);
+  --shadow-lg: 0 18px 50px rgba(0,0,0,.65);
 }
