@@ -74,6 +74,8 @@ html.low-power-device .hero-background,
 .hero-right{
 
     display:flex;
+    
+    flex-direction: column;
 
     justify-content:center;
 
@@ -89,7 +91,7 @@ html.low-power-device .hero-background,
 
     width:100%;
 
-    max-width:650px;
+    max-width:750px;
 
     border-radius:var(--radius-lg);
 
@@ -185,13 +187,19 @@ html.low-power-device .hero-background,
 
 .workspace-footer{
 
+    width: 100%;
+    
+    max-width: 750px;
+    
+    margin-top: 20px;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:20px 24px;
+    padding:0 24px;
 
 }
 
