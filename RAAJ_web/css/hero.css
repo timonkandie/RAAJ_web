@@ -153,9 +153,9 @@ html.low-power-device .hero-background,
 /*=====project dispaly===*/
 .project-display{
 
-    display:grid;
-
-    grid-template-columns:1.3fr .7fr;
+    display:flex;
+    
+    flex-direction: column;
 
     gap:24px;
 
@@ -171,6 +171,13 @@ html.low-power-device .hero-background,
 
     overflow:hidden;
 
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .project-information{
