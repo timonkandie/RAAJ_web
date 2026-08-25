@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio Showcase - RAAJ Studios Nairobi.">
-  <title>Portfolio Showcase | RAAJ Studios</title>
+  <title>Portfolio | RAAJ Studios</title>
 
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,27 +26,22 @@
   <script src="js/navigation.min.js" defer></script>
   <script src="js/engine/animationengine.min.js" defer></script>
   <script src="js/engine/renderPipeline.min.js" defer></script>
-  <script src="js/data/Portfolio.min.js" defer></script>
-  <script src="js/hero.min.js" defer></script>
   <script src="js/components.min.js" defer></script>
   <script src="js/forms.min.js" defer></script>
   <script src="js/modal.min.js" defer></script>
-  <script src="js/gallery.min.js" defer></script>
   <script src="js/toast.min.js" defer></script>
   <script src="js/performance.min.js" defer></script>
   <script src="js/transitions.min.js" defer></script>
   <script src="js/scroll.min.js" defer></script>
-  <script src="js/counter.min.js" defer></script>
   <script src="js/cursor.min.js" defer></script>
   <link rel="stylesheet" href="css/loader.min.css">
   <script src="js/loader.min.js"></script>
   <script src="js/theme.min.js"></script>
-    <script src="js/app.min.js" defer></script>
+  <script src="js/app.min.js" defer></script>
   <script src="js/spiderweb.min.js" defer></script>
 </head>
 <body>
   <canvas id="spiderweb-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></canvas>
-  <!-- Preloader -->
   <div id="raaj-preloader"><div class="spinner"></div></div>
 
   <div id="navbar"></div>
@@ -67,205 +62,21 @@
   </div>
 
   <main id="main-content">
-    <section class="section" style="padding-top: 140px; padding-bottom: 40px;">
+    <section class="section reveal" style="padding-top: 200px; padding-bottom: 200px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh;">
       <div class="container">
-        <div data-component="section-title"
-             data-badge="OUR PORTFOLIO"
-             data-title="Featured Creative Works"
-             data-highlight="Creative Works"
-             data-subtitle="Browse our recent design projects across logo branding, poster design, flyer artwork, and packaging.">
+        <div class="section-badge" style="background: rgba(51, 184, 255, 0.15); color: var(--primary-color); display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem;">
+          <span class="section-badge-dot" style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%;"></span>
+          COMING SOON
         </div>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem;">Our Portfolio is Brewing</h1>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; line-height: 1.6;">
+          We are currently crafting some amazing projects behind the scenes. Check back soon to see our latest creative work!
+        </p>
+        <a href="hire.html" class="btn btn-primary">Become Our First Client</a>
       </div>
     </section>
-
-    <!-- Filter (Visual only for now) -->
-    <section class="reveal" style="padding-bottom: 2rem;">
-      <div class="container" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <button class="btn btn-primary">All Works</button>
-        <button class="btn btn-secondary">Branding</button>
-        <button class="btn btn-secondary">Packaging</button>
-        <button class="btn btn-secondary">Print</button>
-        <button class="btn btn-secondary">Digital</button>
-      </div>
-    </section>
-
-    <!-- Portfolio Grid -->
-    <section class="section reveal" style="padding-top: 0;">
-      <div class="container">
-        <div class="grid grid-2-col">
-          <!-- Project 1 -->
-          <div class="card portfolio-card" style="display: flex; flex-direction: column; overflow: hidden;">
-            <div style="height: 300px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop" alt="[Project Image]" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-            </div>
-            <div style="padding: 2rem;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                <div>
-                  <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">[Project Title]</h3>
-                  <p style="color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">Branding & Packaging</p>
-                </div>
-                <span class="tag" style="background: var(--bg-color);">[Tag]</span>
-              </div>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Challenge</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">[Insert Challenge Description]</p>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Solution</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">[Insert Solution Description]</p>
-              
-              <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">View Full Gallery</a>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="card portfolio-card" style="display: flex; flex-direction: column; overflow: hidden;">
-            <div style="height: 300px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop" alt="[Project Image]" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-            </div>
-            <div style="padding: 2rem;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                <div>
-                  <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">[Client Name]</h3>
-                  <p style="color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">Event Branding & Posters</p>
-                </div>
-                <span class="tag" style="background: var(--bg-color);">[Tag]</span>
-              </div>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Challenge</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">[Insert Challenge Description]</p>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Solution</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">[Insert Solution Description]</p>
-              
-              <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">View Full Gallery</a>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="card portfolio-card" style="display: flex; flex-direction: column; overflow: hidden;">
-            <div style="height: 300px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop" alt="[Project Image]" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-            </div>
-            <div style="padding: 2rem;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                <div>
-                  <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">[Project Title]</h3>
-                  <p style="color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">Packaging & Merchandise</p>
-                </div>
-                <span class="tag" style="background: var(--bg-color);">F&B</span>
-              </div>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Challenge</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">[Insert Challenge Description]</p>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Solution</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">[Insert Solution Description]</p>
-              
-              <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">View Full Gallery</a>
-            </div>
-          </div>
-          
-          <!-- Project 4 -->
-          <div class="card portfolio-card" style="display: flex; flex-direction: column; overflow: hidden;">
-            <div style="height: 300px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop" alt="[Project Image]" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-            </div>
-            <div style="padding: 2rem;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                <div>
-                  <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">[Project Title]</h3>
-                  <p style="color: var(--primary-color); font-weight: 500; font-size: 0.9rem;">UI/UX & App Graphics</p>
-                </div>
-                <span class="tag" style="background: var(--bg-color);">[Tag]</span>
-              </div>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Challenge</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">[Insert Challenge Description]</p>
-              
-              <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">The Solution</h4>
-              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">[Insert Solution Description]</p>
-              
-              <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">View Full Gallery</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Past Clients Table -->
-    <section class="section reveal" style="padding-top: 0;">
-      <div class="container">
-        <div class="section-header text-center" style="margin-bottom: 2rem;">
-          <h2 class="section-title">Notable <span class="text-gradient">Clients & Projects</span></h2>
-          <p class="section-subtitle">A quick look at some of the brands we've partnered with over the years.</p>
-        </div>
-        
-        <div class="table-responsive">
-          <table class="data-table reveal">
-            <thead >
-              <tr>
-                <th >Client Name</th>
-                <th >Industry</th>
-                <th >Services Provided</th>
-                <th >Year</th>
-              </tr>
-            </thead>
-            <tbody >
-              <tr >
-                <td >[Project Title]</td>
-                <td >Health & Beauty</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-              <tr >
-                <td >[Client Name]</td>
-                <td >Events & Tech</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-              <tr >
-                <td >[Client Name]</td>
-                <td >Food & Beverage</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-              <tr >
-                <td >[Client Name]</td>
-                <td >[Tag]</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-              <tr >
-                <td >[Client Name]</td>
-                <td >[Industry]</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-              <tr>
-                <td >[Client Name]</td>
-                <td >[Industry]</td>
-                <td >[Services Provided]</td>
-                <td >[Year]</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section bg-surface reveal text-center" style="margin-bottom: -10px;">
-      <div class="container">
-        <h2>Like what you see?</h2>
-        <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto 2rem;">We are currently taking on new projects. Let's collaborate to build something extraordinary together.</p>
-        <a href="hire.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Start a Project</a>
-      </div>
-    </section>
-
   </main>
 
   <div id="footer"></div>
 </body>
 </html>
-
-

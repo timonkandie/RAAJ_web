@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Design Insights & Articles - RAAJ Studios Nairobi.">
-  <title>Design Blog & Insights | RAAJ Studios</title>
+  <meta name="description" content="Blog & Events - RAAJ Studios">
+  <title>Insights & Events | RAAJ Studios</title>
 
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,27 +26,22 @@
   <script src="js/navigation.min.js" defer></script>
   <script src="js/engine/animationengine.min.js" defer></script>
   <script src="js/engine/renderPipeline.min.js" defer></script>
-  <script src="js/data/Portfolio.min.js" defer></script>
-  <script src="js/hero.min.js" defer></script>
   <script src="js/components.min.js" defer></script>
   <script src="js/forms.min.js" defer></script>
   <script src="js/modal.min.js" defer></script>
-  <script src="js/gallery.min.js" defer></script>
   <script src="js/toast.min.js" defer></script>
   <script src="js/performance.min.js" defer></script>
   <script src="js/transitions.min.js" defer></script>
   <script src="js/scroll.min.js" defer></script>
-  <script src="js/counter.min.js" defer></script>
   <script src="js/cursor.min.js" defer></script>
   <link rel="stylesheet" href="css/loader.min.css">
   <script src="js/loader.min.js"></script>
   <script src="js/theme.min.js"></script>
-    <script src="js/app.min.js" defer></script>
+  <script src="js/app.min.js" defer></script>
   <script src="js/spiderweb.min.js" defer></script>
 </head>
 <body>
   <canvas id="spiderweb-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;"></canvas>
-  <!-- Preloader -->
   <div id="raaj-preloader"><div class="spinner"></div></div>
 
   <div id="navbar"></div>
@@ -67,170 +62,17 @@
   </div>
 
   <main id="main-content">
-    <section class="section" style="padding-top: 140px; padding-bottom: 40px;">
+    <section class="section reveal" style="padding-top: 200px; padding-bottom: 200px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh;">
       <div class="container">
-        <div data-component="section-title"
-             data-badge="DESIGN INSIGHTS"
-             data-title="Latest Articles & Design Trends"
-             data-highlight="Design Trends"
-             data-subtitle="Tips on visual branding, logo design principles, packaging trends, and marketing artwork.">
+        <div class="section-badge" style="background: rgba(51, 184, 255, 0.15); color: var(--primary-color); display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem;">
+          <span class="section-badge-dot" style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%;"></span>
+          LAUNCHING SOON
         </div>
-      </div>
-    </section>
-
-    <!-- Category Filter (Visual) -->
-    <section class="reveal" style="padding-bottom: 2rem;">
-      <div class="container" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <button class="btn btn-primary">Latest</button>
-        <button class="btn btn-secondary">Branding</button>
-        <button class="btn btn-secondary">Packaging</button>
-        <button class="btn btn-secondary">Tutorials</button>
-      </div>
-    </section>
-
-
-    <!-- Featured Article Deep-Dive -->
-    <section class="section reveal" style="padding-top: 0; padding-bottom: 2rem;">
-      <div class="container">
-        <div class="card" style="display: flex; flex-direction: row; gap: 2rem; overflow: hidden; padding: 0;">
-          <div style="flex: 1; min-height: 400px;">
-            <img src="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=1200&auto=format&fit=crop" alt="Featured Article" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div style="flex: 1; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-              <span class="tag" >Featured</span>
-              <span style="color: var(--text-secondary); font-size: 0.9rem;">August 2026</span>
-              <span style="color: var(--text-secondary); font-size: 0.9rem;">10 min read</span>
-            </div>
-            <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.2;">The Future of African Branding: Identity in a Digital-First World</h2>
-            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
-              As the digital landscape evolves rapidly across the continent, how are heritage brands adapting without losing their roots? We dive deep into case studies of 5 local giants who successfully refreshed their visual identities for the web3 era, balancing tradition with modern UX principles.
-            </p>
-            <a href="#" class="btn btn-primary" style="align-self: flex-start;">Read Full Article</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" style="padding-top: 0;">
-      <div class="container">
-        <div class="grid grid-3-col">
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-07-28"
-               data-category="Branding"
-               data-image="https://images.unsplash.com/photo-1542744094-3a3172720a8a?w=800&auto=format&fit=crop"
-               data-readtime="4 min read">
-          </div>
-
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-07-20"
-               data-category="Posters"
-               data-image="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&auto=format&fit=crop"
-               data-readtime="6 min read">
-          </div>
-
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-07-15"
-               data-category="Packaging"
-               data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
-               data-readtime="5 min read">
-          </div>
-          
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-07-05"
-               data-category="Editorial"
-               data-image="https://images.unsplash.com/photo-1572949645841-094f3a9c4c94?w=800&auto=format&fit=crop"
-               data-readtime="7 min read">
-          </div>
-
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-06-28"
-               data-category="Digital"
-               data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
-               data-readtime="4 min read">
-          </div>
-
-          <div data-component="blog-card"
-               data-title="[Blog Post Title]"
-               data-excerpt="[Short summary of the blog post]"
-               data-date="2026-06-12"
-               data-category="Tutorials"
-               data-image="https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=800&auto=format&fit=crop"
-               data-readtime="8 min read">
-          </div>
-        </div>
-        
-        <!-- Pagination -->
-        <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem;">
-          <button class="btn btn-primary" style="padding: 0.5rem 1rem;">1</button>
-          <button class="btn btn-secondary" style="padding: 0.5rem 1rem;">2</button>
-          <button class="btn btn-secondary" style="padding: 0.5rem 1rem;">Next &rarr;</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Upcoming Events & Webinars -->
-    <section class="section reveal bg-surface">
-      <div class="container">
-        <div class="section-header text-center" style="margin-bottom: 2rem;">
-          <h2 class="section-title">Upcoming <span class="text-gradient">Events & Webinars</span></h2>
-          <p class="section-subtitle">Join us for live sessions on design, branding, and industry trends.</p>
-        </div>
-        
-        <div class="table-responsive">
-          <table class="data-table reveal">
-            <thead >
-              <tr>
-                <th >Event Name</th>
-                <th >Date & Time</th>
-                <th >Format</th>
-                <th >Registration</th>
-              </tr>
-            </thead>
-            <tbody >
-              <tr >
-                <td >[Event Name]</td>
-                <td >[Date &amp; Time]</td>
-                <td >[Format]</td>
-                <td ><a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Register Free</a></td>
-              </tr>
-              <tr >
-                <td >[Event Name]</td>
-                <td >[Date &amp; Time]</td>
-                <td >[Format]</td>
-                <td ><a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Get Tickets</a></td>
-              </tr>
-              <tr>
-                <td >[Event Name]</td>
-                <td >[Date &amp; Time]</td>
-                <td >[Format]</td>
-                <td ><a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Apply Now</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter CTA -->
-    <section class="section bg-surface reveal text-center" style="margin-bottom: -10px;">
-      <div class="container" style="max-width: 600px;">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p style="color: var(--text-secondary); margin: 1rem 0 2rem;">Get the latest design trends, agency news, and creative tips delivered directly to your inbox every month.</p>
-        <form style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;" onsubmit="event.preventDefault(); showToast('Subscribed successfully!', 'success'); this.reset();">
-          <input type="email" placeholder="Your email address" required style="padding: 1rem 1.5rem; border-radius: 50px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-primary); flex: 1; min-width: 250px;">
-          <button type="submit" class="btn btn-primary" style="border-radius: 50px;">Subscribe</button>
-        </form>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem;">Our Blog & Insights</h1>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem; line-height: 1.6;">
+          We're preparing deep dives into design strategy, branding trends, and creative resources. Stay tuned for our very first post!
+        </p>
+        <a href="contact.html" class="btn btn-primary">Subscribe for Updates</a>
       </div>
     </section>
   </main>
@@ -238,5 +80,3 @@
   <div id="footer"></div>
 </body>
 </html>
-
-
