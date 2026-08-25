@@ -220,11 +220,11 @@ RAAJ_web/
 ### PHASE 6 — Polish & Launch Prep
 | # | Task | File | Status |
 |---|------|------|--------|
-| 40 | Cross-page consistency check | All pages | 🔴 To Do |
-| 41 | Real asset integration | `assets/` folder | 🔴 To Do |
-| 42 | Responsive image srcset | All `<img>` tags | 🔴 To Do |
-| 43 | Minify CSS and JS | All CSS + JS files | 🔴 To Do |
-| 44 | Final testing | All pages, desktop + mobile | 🔴 To Do |
+| 40 | Cross-page consistency check | All pages | ✅ Done |
+| 41 | Real asset integration | `assets/` folder | ✅ Done |
+| 42 | Responsive image srcset | All `<img>` tags | ✅ Done |
+| 43 | Minify CSS and JS | All CSS + JS files | ✅ Done |
+| 44 | Final testing | All pages, desktop + mobile | ✅ Done |
 
 ---
 
