@@ -33,7 +33,18 @@ if (Test-Path $cssFile) {
     }
 }
 
+
+# 3. Restore Favicon Logic in theme.min.js
+$jsFile = Join-Path $dir "js\theme.min.js"
+if (Test-Path $jsFile) {
+    $jsContent = Get-Content -Raw $jsFile
+    if ($jsContent -notmatch 'favicon.cloneNode') {
+        $jsContent = $jsContent -replace 'updateToggleUI\(effectiveTheme, storedTheme\) \{', "updateToggleUI(effectiveTheme, storedTheme) {`nconst favicon = document.querySelector('link[rel=`"icon`"]');`nif (favicon) {`n  const newFavicon = favicon.cloneNode(true);`n  newFavicon.href = effectiveTheme === 'dark' ? 'assets/my-image-inverted.jpeg' : 'assets/my-image.jpeg';`n  favicon.parentNode.replaceChild(newFavicon, favicon);`n}"
+        Set-Content -Path $jsFile -Value $jsContent
+    }
+}
 Write-Host "Restoration Complete"
+
 
 
 
