@@ -8,7 +8,10 @@ foreach ($file in $htmlFiles) {
     # Remove hardcoded dark mode
     $content = $content -replace '<html lang="en" data-theme="dark">', '<html lang="en">'
     
-    # Inject theme.min.js
+    # Inject favicon and theme.min.js
+    if ($content -notmatch '<link rel="icon"') {
+        $content = $content -replace '<head>', "<head>`n  <link rel=`"icon`" type=`"image/jpeg`" href=`"assets/my-image.jpeg`">"
+    }
     if ($content -notmatch 'theme\.min\.js') {
         $content = $content -replace '<script src="js/app\.min\.js"', "<script src=`"js/theme.min.js`"></script>`n  <script src=`"js/app.min.js`""
     }
@@ -31,5 +34,6 @@ if (Test-Path $cssFile) {
 }
 
 Write-Host "Restoration Complete"
+
 
 
