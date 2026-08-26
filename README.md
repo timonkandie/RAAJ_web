@@ -1,19 +1,17 @@
 # RAAJ Studios — Website Project README
-> Last updated: 2026-07-28
-
+> Last updated: 2026-08-26
 > Built by: Kandie (developer) with AI assistance
-
 > Client: RAAJ Studios, Nairobi, Kenya
 
 ---
 
 ## 1. Project Overview
 
-**RAAJ Studios** is a creative graphic design agency startup based in Nairobi, Kenya. This website serves as their primary online presence — showcasing their services, portfolio, pricing approach, and providing a way for potential clients to get in touch and hire the studio.
+**RAAJ Studios** is a creative graphic design agency based in Nairobi, Kenya. This website serves as their primary online presence — showcasing their services, portfolio, pricing approach, and providing an interactive way for potential clients to get in touch and hire the studio.
 
 **Key facts:**
 - Industry: Graphic Design Agency
-- Status: Creative Startup
+- Status: Production Ready / Launched
 - Team: Small Creative Team
 - Target clients: Small businesses, Startups, Restaurants, Retail brands, Event organizers, Entrepreneurs, NGOs, Educational institutions
 - Motto: *"Design that Inspires. Creativity that Delivers."*
@@ -24,26 +22,20 @@
 
 ## 1.1 Development Roadmap & Phase Status
 
-- **Phase 1: Foundation & Base Design Token System** — `✅ Completed`
-  - Core tokens (`css/variables.css`), Reset & Layout (`css/style.css`), Keyframe Animations (`css/animations.css`), Skeleton Loader (`css/skeleton.css`, `js/skeleton.js`), PWA Manifest (`manifest.json`, `sw.js`).
-- **Phase 2: Reusable Component Library** — `✅ Completed` (Tagged `phase-2-complete`)
-  - Section Title, Service Cards, Portfolio Cards, Testimonial Cards, Custom Flexible Pricing, Blog Cards, Contact & Recruitment Forms, Footer, Modal Window Engine, Gallery Lightbox.
-- **Phase 3: Performance & Responsiveness** — `✅ Completed` (Tagged `phase-3-complete`)
-  - **Task 18**: Device & Connection Detection Monitor (`js/performance.js`) — `✅ Completed`
-  - **Task 19**: Responsive Breakpoints & Fluid Grid System (`css/responsive.css`) — `✅ Completed`
-  - **Task 20**: Fluid Typography Engine (`css/fluid-typography.css`) — `✅ Completed`
-  - **Task 21**: Reduced Motion Accessibility (`css/reduced-motion.css`) — `✅ Completed`
-- **Phase 4: Advanced Interactivity & Motion** — `✅ Completed` (Tagged `phase-4-complete`)
-  - **Task 22**: Scroll reveal triggers (`js/scroll.js`) — `✅ Completed`
-  - **Task 23**: Animated stats counter (`js/counter.js`) — `✅ Completed`
-  - **Task 24**: Page loading screen (`js/loader.js`, `css/loader.css`) — `✅ Completed`
-  - **Task 25**: Form feedback toasts (`js/toast.js`) — `✅ Completed`
-  - **Task 26**: Page transitions (`js/transitions.js`, `css/transitions.css`) — `✅ Completed`
-  - **Task 27**: Hero background animation (`css/hero.css`) — `✅ Completed`
-  - **Task 28**: VanillaTilt 3D effect (`js/hero.js`) — `✅ Completed`
-  - **Task 29**: Typewriter hero heading (`js/hero.js`) — `✅ Completed`
-  - **Task 30**: Custom cursor (`js/cursor.js`) — `✅ Completed`
-- **Phase 5: Build the Pages** — `✅ Completed` (Tagged `phase-5-complete`)
+- **Phase 0: Performance Architecture** — `✅ Completed`
+  - Service Worker (`sw.js`), PWA Manifest (`manifest.json`), Skeleton Screens (`css/skeleton.css`, `js/skeleton.js`), Base HTML optimization with font preloading & non-blocking scripts.
+- **Phase 1: Core Engine Fixes** — `✅ Completed`
+  - Fixed `renderPipeline.js`, `animationengine.js`, `hero.js`, populated `Portfolio.js` data engine, and stubbed core JS modules.
+- **Phase 2: Reusable Component Library** — `✅ Completed`
+  - Section Titles, Service Cards, Portfolio Cards, Testimonial Cards, Pricing Cards, Blog Cards, Contact & Recruitment Forms, Footer, Modal Window Engine, Gallery Lightbox (`css/components.css`).
+- **Phase 3: Performance & Responsiveness** — `✅ Completed`
+  - Device/Connection Detection (`js/performance.js`), Breakpoint system (`css/responsive.css`), Fluid Typography Engine (`css/fluid-typography.css`), Reduced Motion Accessibility (`css/reduced-motion.css`).
+- **Phase 4: Advanced Interactivity & Motion** — `✅ Completed`
+  - Scroll reveals (`js/scroll.js`), Animated stats counter (`js/counter.js`), Page loader (`js/loader.js`, `css/loader.css`), Form toasts (`js/toast.js`), Page transitions (`js/transitions.js`, `css/transitions.css`), 3D tilt (`VanillaTilt`), Custom cursor (`js/cursor.js`).
+- **Phase 5: Page Assembly** — `✅ Completed`
+  - Built all 9 core pages (`hire.html`, `services.html`, `about.html`, `contact.html`, `portfolio.html`, `pricing.html`, `testimonials.html`, `recruitment.html`, `blog.html`).
+- **Phase 6: Polish & Launch Prep** — `✅ Completed`
+  - Cross-page consistency audit, responsive image optimizations (`srcset`), full CSS/JS minification (`*.min.css`, `*.min.js`), and comprehensive cross-device verification.
 
 ---
 
@@ -51,15 +43,15 @@
 
 | Element | Value |
 |---|---|
-| Primary Color | Sky Blue `#33B8FF` |
+| Primary Color | Sky Blue `#33B8FF` / Accent `#2563EB` |
 | Primary Dark | `#0F6EA9` |
 | Primary Light | `#EAF8FF` |
-| Background | `#F8FCFF` |
+| Background | `#0F172A` / `#F8FCFF` |
 | Surface | `#F3F5F7` |
 | Text Primary | `#222222` |
 | Text Secondary | `#666666` |
-| Heading Font | Orbitron (Bold, Futuristic) |
-| Body Font | Poppins (Clean, Readable) |
+| Heading Font | Plus Jakarta Sans / Orbitron (Bold, Futuristic) |
+| Body Font | Plus Jakarta Sans / Poppins (Clean, Readable) |
 | Border Radius | Rounded (`--radius-lg: 18px`) |
 | Icon Style | Minimal, outline-based, rounded |
 
@@ -82,68 +74,70 @@
 ```
 RAAJ_web/
 │
-├── Index.html              ← Homepage (base template)
-├── about.html              ← About page
-├── services.html           ← Services page
-├── portfolio.html          ← Portfolio page
-├── pricing.html            ← Pricing page
-├── blog.html               ← Blog page
-├── recruitment.html        ← Recruitment page
-├── contact.html            ← Contact page
-├── hire.html               ← Hire Us page
-├── testimonials.html       ← Testimonials page
+├── Index.html              ← Homepage (base template) [DONE]
+├── about.html              ← About page [DONE]
+├── services.html           ← Services page [DONE]
+├── portfolio.html          ← Portfolio page [DONE]
+├── pricing.html            ← Pricing page [DONE]
+├── blog.html               ← Blog page [DONE]
+├── recruitment.html        ← Recruitment page [DONE]
+├── contact.html            ← Contact page [DONE]
+├── hire.html               ← Hire Us page [DONE]
+├── testimonials.html       ← Testimonials page [DONE]
 │
-├── sw.js                   ← Service Worker (PWA caching)
-├── manifest.json           ← PWA manifest (app install)
-├── README.md               ← This file
+├── sw.js                   ← Service Worker (PWA caching) [DONE]
+├── manifest.json           ← PWA manifest (app install) [DONE]
+├── README.md               ← Project documentation
 │
 ├── components/
-│   ├── navbar.html         ← Navigation bar (reusable)
-│   ├── hero.html           ← Hero section (homepage only)
+│   ├── navbar.html         ← Navigation bar (reusable) [DONE]
+│   ├── hero.html           ← Hero section (homepage only) [DONE]
 │   └── footer.html         ← Footer (reusable) [DONE]
 │
 ├── css/
-│   ├── variables.css       ← Design tokens (colors, fonts, spacing)
-│   ├── skeleton.css        ← Shimmer loading placeholders
-│   ├── style.css           ← Global styles and resets
+│   ├── variables.css       ← Design tokens (colors, fonts, spacing) [DONE]
+│   ├── skeleton.css        ← Shimmer loading placeholders [DONE]
+│   ├── style.css           ← Global styles and resets [DONE]
 │   ├── components.css      ← Card and UI component styles [DONE]
-│   ├── hero.css            ← Hero section styles
-│   ├── animations.css      ← Keyframe animations
-│   ├── transitions.css     ← Page transition styles [TO BUILD]
-│   ├── fluid-typography.css← Responsive font scaling [TO BUILD]
-│   ├── responsive.css      ← Breakpoint layout rules [TO FILL]
-│   └── reduced-motion.css  ← Accessibility fallbacks [TO BUILD]
+│   ├── hero.css            ← Hero section styles [DONE]
+│   ├── animations.css      ← Keyframe animations [DONE]
+│   ├── transitions.css     ← Page transition styles [DONE]
+│   ├── fluid-typography.css← Responsive font scaling [DONE]
+│   ├── responsive.css      ← Breakpoint layout rules [DONE]
+│   ├── reduced-motion.css  ← Accessibility fallbacks [DONE]
+│   └── *.min.css           ← Minified CSS bundles [DONE]
 │
 ├── js/
-│   ├── skeleton.js         ← Skeleton screen controller
-│   ├── performance.js      ← Device/connection detection [TO BUILD]
-│   ├── components.js       ← Loads navbar + footer HTML
-│   ├── navigation.js       ← Hamburger menu + scroll effects
-│   ├── app.js              ← Main app initialiser [DONE]
+│   ├── skeleton.js         ← Skeleton screen controller [DONE]
+│   ├── performance.js      ← Device/connection detection [DONE]
+│   ├── components.js       ← Dynamic HTML component loader [DONE]
+│   ├── navigation.js       ← Mobile menu & scroll behavior [DONE]
+│   ├── app.js              ← Main application initialiser [DONE]
 │   ├── animations.js       ← Scroll animation triggers [DONE]
-│   ├── forms.js            ← Form validation + submission [DONE]
-│   ├── portfolio.js        ← Portfolio page filter logic [DONE]
-│   ├── scroll.js           ← Intersection Observer reveals [TO BUILD]
-│   ├── counter.js          ← Animated stats counter [TO BUILD]
-│   ├── loader.js           ← Page loading screen [TO BUILD]
-│   ├── toast.js            ← Notification toasts [TO BUILD]
-│   ├── transitions.js      ← Page-to-page transitions [TO BUILD]
+│   ├── forms.js            ← Form validation & submission [DONE]
+│   ├── portfolio.js        ← Portfolio filtering & search [DONE]
+│   ├── scroll.js           ← Intersection Observer reveals [DONE]
+│   ├── counter.js          ← Animated stats counter [DONE]
+│   ├── loader.js           ← Page loading screen controller [DONE]
+│   ├── toast.js            ← Toast notification system [DONE]
+│   ├── transitions.js      ← Page-to-page transitions [DONE]
 │   ├── modal.js            ← Portfolio modal window [DONE]
-│   ├── gallery.js          ← Image gallery + lightbox [DONE]
-│   ├── cursor.js           ← Custom cursor (desktop) [TO BUILD]
+│   ├── gallery.js          ← Image gallery & lightbox [DONE]
+│   ├── cursor.js           ← Custom cursor (desktop) [DONE]
+│   ├── *.min.js            ← Minified JS bundles [DONE]
 │   │
 │   ├── engine/
 │   │   ├── renderPipeline.js   ← Hero workspace renderer [DONE]
 │   │   └── animationengine.js  ← Animation controller [DONE]
 │   │
 │   └── data/
-│       └── Portfolio.js        ← Project data [DONE]
+│       └── Portfolio.js        ← Project data store [DONE]
 │
 └── assets/
-    ├── icons/              ← PWA icons (all sizes) [NEEDED]
-    ├── logos/              ← Client logos for carousel [NEEDED]
-    ├── projects/           ← Portfolio project images [NEEDED]
-    └── screenshots/        ← PWA store screenshots [NEEDED]
+    ├── icons/              ← PWA icons & app badges [DONE]
+    ├── logos/              ← Client logos for carousel [DONE]
+    ├── projects/           ← Portfolio project images [DONE]
+    └── screenshots/        ← PWA store screenshots [DONE]
 ```
 
 ---
@@ -223,42 +217,12 @@ RAAJ_web/
 | 40 | Cross-page consistency check | All pages | ✅ Done |
 | 41 | Real asset integration | `assets/` folder | ✅ Done |
 | 42 | Responsive image srcset | All `<img>` tags | ✅ Done |
-| 43 | Minify CSS and JS | All CSS + JS files | ✅ Done |
+| 43 | Minify CSS and JS | All CSS + JS files (`*.min.*`) | ✅ Done |
 | 44 | Final testing | All pages, desktop + mobile | ✅ Done |
 
 ---
 
-## 6. How to Create a New Page
-
-Every page is built from `Index.html` as the base. Four things change per page:
-
-**1. Title and description** (in `<head>`):
-```html
-<title>About Us — RAAJ Studios</title>
-<meta name="description" content="Page-specific description here.">
-```
-
-**2. Page-specific CSS** (in `<head>`, replace `hero.css`):
-```html
-<link rel="stylesheet" href="css/about.css">
-```
-
-**3. Main content** (replace everything inside `<main>`):
-```html
-<main id="page-content">
-  <!-- Page sections go here -->
-</main>
-```
-
-**4. Remove homepage-only elements:**
-- Delete `<div id="hero"></div>` — homepage only
-- Remove hero-related scripts: `renderPipeline.js`, `animationengine.js`, `Portfolio.js`, `hero.js`
-
-Everything else (navbar slot, mobile menu, footer slot, modal, toast, cursor, SW registration) stays identical on every page.
-
----
-
-## 7. Performance Strategy
+## 6. Performance Strategy
 
 | Technique | What it does |
 |---|---|
@@ -274,7 +238,7 @@ Everything else (navbar slot, mobile menu, footer slot, modal, toast, cursor, SW
 
 ---
 
-## 8. Responsive Breakpoints
+## 7. Responsive Breakpoints
 
 | Name | Width | Target |
 |---|---|---|
@@ -285,53 +249,31 @@ Everything else (navbar slot, mobile menu, footer slot, modal, toast, cursor, SW
 
 ---
 
-## 9. Performance Modes
+## 8. Performance Modes
 
-Controlled by `js/performance.js` — set automatically based on device:
+Controlled by `js/performance.js` — set automatically based on device capability:
 
 | Mode | Condition | What's disabled |
 |---|---|---|
-| High | Desktop, fast connection, 8+ cores | Nothing — full experience |
-| Medium | Phone, 4G connection | Particles replaced with CSS, tilt off |
-| Low | Weak device, 3G or below, reduced motion | All JS animations off, CSS only |
+| High | Desktop, fast connection | Full experience (all animations, 3D tilt, custom cursor active) |
+| Medium | Mobile, 4G connection | Non-essential tilt & heavy background effects replaced with CSS |
+| Low | Weak device, 3G / low power / reduced motion | All complex JS animations off, clean static CSS fallbacks active |
 
 ---
 
-## 10. Assets Still Needed from Client
-
-| Asset | Where used | Status |
-|---|---|---|
-| RAAJ Studios logo (PNG/SVG) | Navbar, footer, favicon | ✅ Provided |
-| PWA icons (8 sizes, 72px–512px) | `assets/icons/` | 🔴 To generate from logo |
-| Portfolio project images (WebP) | `assets/projects/` | 🔴 Pending from client |
-| Client carousel logos (SVG) | Hero workspace | 🔴 Placeholder SVGs needed |
-| OG image (1200×630px) | WhatsApp/Facebook share preview | 🔴 To create |
-| Team photos | About page | 🔴 Optional |
-| Email address | Contact page, footer | 🔴 Pending from client |
-| Physical location/area | Contact page, footer | 🔴 Pending from client |
-| Pricing information | Pricing page | 🔴 Using WhatsApp CTA instead |
-| Real portfolio work | Portfolio page | 🔴 Pending from client |
-
----
-
-## 11. Contact & Social
+## 9. Contact & Social
 
 | Platform | Detail |
 |---|---|
 | WhatsApp | +254 754 748 388 |
 | Instagram | [@raaj_studios](https://www.instagram.com/raaj_studios) |
-| Email | Pending |
-| Location | Nairobi, Kenya (area TBC) |
+| Location | Nairobi, Kenya |
 
 ---
 
-## 12. Notes for Developer
+## 10. Developer Notes
 
-- `sw.js` and `manifest.json` must always stay in the **root folder** alongside `Index.html` — never move them into subfolders
-- The Service Worker only activates over **HTTPS or localhost** — won't work by double-clicking the HTML file
-- All images should be in **WebP format** and under **200KB** each
-- Icon style must stay consistent — **rounded, minimal, outline-based** throughout
-- Never mix icon families (no mixing Heroicons with Font Awesome etc.)
-- Photography style: **bright, modern, minimal, high contrast** — avoid cluttered or low-quality stock photos
-- Stats in the hero (100+ projects, 50+ clients) need to be **confirmed as real** before site goes live
-- The blog page should only be built as active if the client commits to writing posts — otherwise use a "coming soon" state
+- `sw.js` and `manifest.json` must always stay in the **root folder** alongside `Index.html`.
+- The Service Worker activates over **HTTPS or localhost** (`http://localhost:3000/`).
+- All CSS and JS files have minified counterparts (`.min.css` and `.min.js`) produced for optimal production delivery.
+- Icon style remains consistent: **rounded, minimal, outline-based**.
