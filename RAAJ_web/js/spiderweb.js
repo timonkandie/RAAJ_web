@@ -39,9 +39,16 @@
     animate();
   }
 
+  let resizeTimeout;
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+    
+    // Debounce the particle recreation to avoid performance hits while resizing
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      createParticles();
+    }, 200);
   }
 
   class Particle {

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
+  <link rel="icon" type="image/jpeg" href="assets/my-image.jpeg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="RAAJ Studios - Premium creative design agency in Nairobi specializing in logo design, brand identity, posters, flyers, packaging, and business cards.">
@@ -50,6 +51,7 @@
   <script src="js/cursor.min.js" defer></script>
   <script src="js/loader.min.js"></script>
 
+  <script src="js/theme.min.js"></script>
   <script src="js/app.min.js" defer></script>
   <script src="js/spiderweb.min.js" defer></script>
 </head>
@@ -172,8 +174,8 @@
       </div>
     </section>
 
-    <!-- Contact & Form Section -->
-    <section class="section contact-section" id="contact">
+    <!-- Contact & Form Section --><style>#contact * { color: var(--text-primary) !important; }</style>
+    <section class="section contact-section" id="contact" style="color: var(--text-primary) !important;">
       <div class="container">
         <div class="grid grid-2-col">
           <div>
@@ -184,7 +186,7 @@
                  data-highlight="Build Something Great"
                  data-subtitle="Ready to elevate your visual identity? Send us your brief or message us directly on WhatsApp.">
             </div>
-            <ul class="contact-info-list" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; font-size: 1.1rem;">
+            <ul class="contact-info-list" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; font-size: 1.1rem; color: var(--text-primary) !important;">
               <li>📍 <strong>Studio Address:</strong> Nairobi, Kenya</li>
               <li>💬 <strong>WhatsApp Direct:</strong> <a href="https://wa.me/254754748388" target="_blank" rel="noopener">[Phone/Email]</a></li>
               <li>⏰ <strong>Studio Hours:</strong> Monday – Saturday: 8:00 AM – 6:00 PM</li>
@@ -206,5 +208,9 @@
 </body>
 
 </html>
+
+
+
+
 
 
