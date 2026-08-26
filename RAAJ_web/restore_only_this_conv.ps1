@@ -53,7 +53,18 @@ if (Test-Path $swFile) {
         Set-Content -Path $swFile -Value $swContent
     }
 }
+
+# 5. Fix components.min.js async navbar theme state
+$cmpFile = Join-Path $dir "js\components.min.js"
+if (Test-Path $cmpFile) {
+    $cmpContent = Get-Content -Raw $cmpFile -Encoding UTF8
+    if ($cmpContent -notmatch 'ThemeManager.updateToggleUI') {
+        $cmpContent = $cmpContent -replace "initializeNavigation\(\);`n\} ", "initializeNavigation();`n}`nif (window.ThemeManager) { window.ThemeManager.updateToggleUI(window.ThemeManager.getEffectiveTheme(), window.ThemeManager.getStoredTheme()); }"
+        Set-Content -Path $cmpFile -Value $cmpContent -Encoding UTF8
+    }
+}
 Write-Host "Restoration Complete"
+
 
 
 
