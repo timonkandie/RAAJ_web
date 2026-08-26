@@ -43,7 +43,18 @@ if (Test-Path $jsFile) {
         Set-Content -Path $jsFile -Value $jsContent
     }
 }
+
+# 4. Disable Spiderweb on Mobile
+$swFile = Join-Path $dir "js\spiderweb.min.js"
+if (Test-Path $swFile) {
+    $swContent = Get-Content -Raw $swFile
+    if ($swContent -notmatch 'pointer: coarse') {
+        $swContent = $swContent -replace '// removed check', 'if(window.innerWidth<768||(window.matchMedia&&window.matchMedia(''(pointer: coarse)'').matches))return;'
+        Set-Content -Path $swFile -Value $swContent
+    }
+}
 Write-Host "Restoration Complete"
+
 
 
 

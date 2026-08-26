@@ -5,9 +5,10 @@
  */
 
 (function () {
-  // Check if device uses a fine pointer (mouse) and is not a mobile/tablet (width >= 768px)
-  // removed check
-   // Do not initialize on mobile or touch devices
+  // Check if device is a mobile or touch device (e.g. width < 768px or touch pointer)
+  if (window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)) {
+    return;
+  }
 
   const canvas = document.getElementById('spiderweb-canvas');
   if (!canvas) return;
