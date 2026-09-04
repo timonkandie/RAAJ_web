@@ -1,112 +1,66 @@
 /**
- * RAAJ Studios — Adaptive Theme Engine (Light / Dark / Auto)
- * Handles auto-detection, persistence, opposite color modes, and FOUC prevention.
+ * RAAJ Studios — Adaptive Theme Engine (System Default)
+ * Automatically detects the system's preferred color scheme.
+ * Swaps the favicon for contrast in dark mode.
  */
 (function () {
-  const STORAGE_KEY = 'raaj-theme';
-
   const ThemeManager = {
-    getStoredTheme() {
-      return localStorage.getItem(STORAGE_KEY) || 'auto';
-    },
-
-    setStoredTheme(theme) {
-      localStorage.setItem(STORAGE_KEY, theme);
-    },
-
     getSystemTheme() {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     },
 
-    getEffectiveTheme() {
-      const stored = this.getStoredTheme();
-      if (stored === 'dark' || stored === 'light') {
-        return stored;
+    updateFavicon(theme) {
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/jpeg';
+        document.head.appendChild(link);
       }
-      return this.getSystemTheme();
+      
+      if (theme === 'dark') {
+        link.href = 'images/my-image-inverted.jpeg';
+      } else {
+        link.href = 'logos/my-image.jpeg';
+      }
     },
 
     applyTheme(theme) {
-      const effectiveTheme = theme === 'auto' ? this.getSystemTheme() : theme;
-      document.documentElement.setAttribute('data-theme', effectiveTheme);
-      document.documentElement.setAttribute('data-user-theme', theme);
-      
-      this.updateToggleUI(effectiveTheme, theme);
-    },
-
-    updateToggleUI(effectiveTheme, storedTheme) {
-      const toggleButtons = document.querySelectorAll('.theme-toggle, .mobile-theme-toggle');
-      toggleButtons.forEach(btn => {
-        const iconEl = btn.querySelector('.theme-toggle-icon');
-        const textEl = btn.querySelector('.theme-toggle-text');
-        
-        if (effectiveTheme === 'dark') {
-          if (iconEl) iconEl.textContent = '☀️'; // Click to switch to light
-          if (textEl) textEl.textContent = 'Light Mode';
-          btn.setAttribute('aria-label', 'Switch to Light Mode');
-          btn.setAttribute('title', 'Switch to Light Mode');
-        } else {
-          if (iconEl) iconEl.textContent = '🌙'; // Click to switch to dark
-          if (textEl) textEl.textContent = 'Dark Mode';
-          btn.setAttribute('aria-label', 'Switch to Dark Mode');
-          btn.setAttribute('title', 'Switch to Dark Mode');
-        }
-      });
-    },
-
-    toggleTheme() {
-      const currentEffective = this.getEffectiveTheme();
-      const nextTheme = currentEffective === 'dark' ? 'light' : 'dark';
-      this.setStoredTheme(nextTheme);
-      this.applyTheme(nextTheme);
+      document.documentElement.setAttribute('data-theme', theme);
+      this.updateFavicon(theme);
     },
 
     init() {
-      // Apply stored/effective theme immediately
-      const initialTheme = this.getStoredTheme();
+      // Apply system theme immediately
+      const initialTheme = this.getSystemTheme();
       this.applyTheme(initialTheme);
 
       // Listen for OS system theme changes
       try {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-          if (this.getStoredTheme() === 'auto') {
-            this.applyTheme('auto');
-          }
-        });
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener('change', (e) => {
+            const newTheme = e.matches ? 'dark' : 'light';
+            this.applyTheme(newTheme);
+          });
+        } else if (mediaQuery.addListener) {
+          mediaQuery.addListener((e) => {
+            const newTheme = e.matches ? 'dark' : 'light';
+            this.applyTheme(newTheme);
+          });
+        }
       } catch (e) {
-        // Fallback for older browsers
-      }
-
-      // Bind click listeners when DOM is ready
-      const bindEvents = () => {
-        document.body.addEventListener('click', (e) => {
-          const toggleBtn = e.target.closest('.theme-toggle, .mobile-theme-toggle');
-          if (toggleBtn) {
-            e.preventDefault();
-            this.toggleTheme();
-          }
-        });
-
-        // Ensure icon state matches current theme after dynamic component loads (e.g. navbar fetch)
-        this.updateToggleUI(this.getEffectiveTheme(), this.getStoredTheme());
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bindEvents);
-      } else {
-        bindEvents();
+        console.error("Theme listener error:", e);
       }
     }
   };
 
   // Run immediate application to avoid Flash of Unstyled Content (FOUC)
-  const initialTheme = localStorage.getItem(STORAGE_KEY) || 'auto';
-  const effective = initialTheme === 'auto' 
-    ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-    : initialTheme;
+  const effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', effective);
-  document.documentElement.setAttribute('data-user-theme', initialTheme);
+  ThemeManager.updateFavicon(effective);
 
+  // Initialize listener
   ThemeManager.init();
   window.ThemeManager = ThemeManager;
 })();
