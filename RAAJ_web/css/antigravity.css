@@ -238,6 +238,7 @@ body {
 
 
 /* Fix text colors for components that originally used white text on hardcoded dark backgrounds */
-.footer, .footer-col h4.footer-heading, .footer-links a, .footer-bottom-links a, .portfolio-card-body, .portfolio-card-client, .portfolio-card h3, .service-card-desc, .card-title, .testimonial-quote, .footer p, .footer span { color: var(--text-primary) !important; }
+.footer, .footer-col h4.footer-heading, .footer-links a, .footer-bottom-links a, .portfolio-card-body, .portfolio-card-client, .portfolio-card h3, .service-card-desc, .card-title, .testimonial-quote, .footer p, .footer span, .quote-banner-section h2, .quote-banner-section p { color: var(--text-primary) !important; }
+
 
 
