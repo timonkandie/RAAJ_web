@@ -192,7 +192,7 @@ function initPortfolioCardComponents() {
  */
 function createTestimonialCard({ quote = '', name = '', role = 'Client', company = '', avatarUrl = '', rating = 5 }) {
   const starsHTML = '★'.repeat(Math.min(5, Math.max(1, rating))) + '☆'.repeat(5 - Math.min(5, Math.max(1, rating)));
-  const defaultAvatar = 'assets/default-avatar.svg';
+  const defaultAvatar = 'icons/default-avatar.svg';
   const avatar = avatarUrl || defaultAvatar;
 
   const roleCompany = company ? `${role}, ${company}` : role;

@@ -1,8 +1,7 @@
-const CACHE_NAME = 'raaj-studios-v10';
+const CACHE_NAME = 'raaj-studios-v12';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
-  './Index.html',
   './about.html',
   './services.html',
   './portfolio.html',
@@ -12,17 +11,28 @@ const PRECACHE_ASSETS = [
   './hire.html',
   './recruitment.html',
   './testimonials.html',
+  // CSS
   './css/variables.css',
+  './css/skeleton.css',
+  './css/components.css',
   './css/style.css',
   './css/hero.css',
+  './css/about.css',
   './css/animations.css',
   './css/responsive.css',
   './css/fluid-typography.css',
+  './css/forms.css',
   './css/reduced-motion.css',
   './css/transitions.css',
-  './css/skeleton.css',
-  './css/components.css',
   './css/loader.css',
+  './css/antigravity.css',
+  // JS
+  './js/skeleton.js',
+  './js/navigation.js',
+  './js/engine/animationengine.js',
+  './js/engine/renderPipeline.js',
+  './js/data/Portfolio.js',
+  './js/hero.js',
   './js/components.js',
   './js/forms.js',
   './js/modal.js',
@@ -34,12 +44,17 @@ const PRECACHE_ASSETS = [
   './js/counter.js',
   './js/cursor.js',
   './js/loader.js',
-  './js/navigation.js',
-  './js/hero.js',
-  './js/skeleton.js',
+  './js/theme.js',
+  './js/app.js',
+  './js/spiderweb.js',
+  './js/animations.js',
+  // Components
   './components/navbar.html',
   './components/hero.html',
   './components/footer.html',
+  // Assets in organized folders
+  './logos/my-image.jpeg',
+  './icons/default-avatar.svg',
   './manifest.json'
 ];
 

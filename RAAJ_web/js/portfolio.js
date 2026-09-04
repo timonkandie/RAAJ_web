@@ -1,9 +1,0 @@
-/**
- * Portfolio Page Controller
- */
-function initPortfolioPage() {
-  console.log('[Portfolio] Page initialized');
-}
-
-document.addEventListener('DOMContentLoaded', initPortfolioPage);
-window.initPortfolioPage = initPortfolioPage;
