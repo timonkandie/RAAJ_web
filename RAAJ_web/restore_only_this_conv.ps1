@@ -27,7 +27,7 @@ if (Test-Path $cssFile) {
         $content += "`n/* Fix text colors for components that originally used white text on hardcoded dark backgrounds */`n"
         $content += ".footer, .footer-col h4.footer-heading, .footer-links a, .footer-bottom-links a, "
         $content += ".portfolio-card-body, .portfolio-card-client, .portfolio-card h3, "
-        $content += ".service-card-desc, .card-title, .testimonial-quote, .footer p, .footer span "
+        $content += ".service-card-desc, .card-title, .testimonial-quote, .footer p, .footer span, .quote-banner-section h2, .quote-banner-section p "
         $content += "{ color: var(--text-primary) !important; }`n"
         Set-Content -Path $cssFile -Value $content
     }
@@ -64,6 +64,7 @@ if (Test-Path $cmpFile) {
     }
 }
 Write-Host "Restoration Complete"
+
 
 
 
