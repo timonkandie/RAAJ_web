@@ -4,7 +4,7 @@
 
 RAAJ Studios is a Nairobi-based creative design agency specializing in brand identity, packaging, print collateral, and motion graphics. We partner with businesses, startups, and organizations across East Africa to build visual identities that command attention and drive results.
 
-🌐 [raajstudios.com](https://raajstudios.com) &nbsp;·&nbsp; 📸 [@raaj_studios](https://www.instagram.com/raaj_studios) &nbsp;·&nbsp; 📍 Nairobi, Kenya
+🌐 [raajstudios.com](https://raajstudios.com) &nbsp;·&nbsp; 📸 [@raaj_studios](https://www.instagram.com/raaj_studios) &nbsp;·&nbsp; 📌 Nairobi, Kenya
 
 ---
 
