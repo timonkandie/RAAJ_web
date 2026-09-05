@@ -108,9 +108,6 @@ const PerformanceMonitor = {
         this.detectNetwork();
         this.applyOptimizationClasses();
         this.optimizeImagesForNetwork();
-        if (window.Toast && this.metrics.isSlowConnection) {
-          Toast.show('Low bandwidth detected. Optimized asset loading activated.', 'info', 4000);
-        }
       });
     }
 

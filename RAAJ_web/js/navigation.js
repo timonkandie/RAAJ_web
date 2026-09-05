@@ -42,19 +42,6 @@ function initializeNavigation() {
   });
 }
 
-// Network Offline / Online Listener
-window.addEventListener('offline', () => {
-  if (window.Toast) {
-    Toast.show('Network disconnected. You are viewing cached offline content.', 'warning', 5000);
-  }
-});
-
-window.addEventListener('online', () => {
-  if (window.Toast) {
-    Toast.show('Network reconnected! Content updated.', 'success', 4000);
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
   initializeNavigation();
 });
