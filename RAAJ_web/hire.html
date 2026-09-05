@@ -158,39 +158,39 @@
           <!-- Right Column: Form -->
           <div class="hire-form-container card" style="height: fit-content; position: sticky; top: 120px;">
             <h3 style="margin-bottom: 1.5rem;">Project Inquiry Form</h3>
-            <form id="hire-form" onsubmit="event.preventDefault(); showToast('Project request sent successfully! We will get back to you shortly.', 'success'); this.reset();">
+            <form id="hire-form" data-form-type="hire">
               
               <div class="form-grid">
                 <div class="form-group">
                   <label for="fname">First Name *</label>
-                  <input type="text" id="fname" class="form-control" required placeholder="John">
+                  <input type="text" id="fname" name="firstName" class="form-control" required placeholder="John">
                 </div>
                 <div class="form-group">
                   <label for="lname">Last Name *</label>
-                  <input type="text" id="lname" class="form-control" required placeholder="Doe">
+                  <input type="text" id="lname" name="lastName" class="form-control" required placeholder="Doe">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="company">Company/Brand Name</label>
-                <input type="text" id="company" class="form-control" placeholder="Acme Corp">
+                <input type="text" id="company" name="company" class="form-control" placeholder="Acme Corp">
               </div>
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="email">Email Address *</label>
-                  <input type="email" id="email" class="form-control" required placeholder="john@company.com">
+                  <input type="email" id="email" name="email" class="form-control" required placeholder="john@company.com">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" class="form-control" placeholder="+254 700 000000">
+                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="+254 700 000000">
                 </div>
               </div>
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="service">Primary Service Required *</label>
-                  <select id="service" class="form-control" required>
+                  <select id="service" name="service" class="form-control" required>
                     <option value="" disabled selected>Select a service...</option>
                     <option value="branding">Brand Identity & Logo Design</option>
                     <option value="packaging">Product Packaging</option>
@@ -201,7 +201,7 @@
                 </div>
                 <div class="form-group">
                   <label for="timeline">Expected Timeline *</label>
-                  <select id="timeline" class="form-control" required>
+                  <select id="timeline" name="timeline" class="form-control" required>
                     <option value="" disabled selected>Select timeline...</option>
                     <option value="rush">ASAP (Rush Job)</option>
                     <option value="1month">Within 1 Month</option>
@@ -213,7 +213,7 @@
 
               <div class="form-group">
                 <label for="budget">Estimated Budget (KES) *</label>
-                <select id="budget" class="form-control" required>
+                <select id="budget" name="budget" class="form-control" required>
                   <option value="" disabled selected>Select budget...</option>
                   <option value="under-50k">Under KES 50,000</option>
                   <option value="50k-100k">KES 50,000 - 100,000</option>
@@ -226,19 +226,19 @@
                 <label style="margin-bottom: 0.5rem; display: block;">Additional Deliverables Needed?</label>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
                   <div class="checkbox-group">
-                    <input type="checkbox" id="del-logo">
+                    <input type="checkbox" id="del-logo" name="deliverables" value="Logo / Identity">
                     <label for="del-logo" style="margin: 0; font-weight: normal; font-size: 0.9rem;">Logo / Identity</label>
                   </div>
                   <div class="checkbox-group">
-                    <input type="checkbox" id="del-print">
+                    <input type="checkbox" id="del-print" name="deliverables" value="Print Assets (Flyers, etc)">
                     <label for="del-print" style="margin: 0; font-weight: normal; font-size: 0.9rem;">Print Assets (Flyers, etc)</label>
                   </div>
                   <div class="checkbox-group">
-                    <input type="checkbox" id="del-social">
+                    <input type="checkbox" id="del-social" name="deliverables" value="Social Media Templates">
                     <label for="del-social" style="margin: 0; font-weight: normal; font-size: 0.9rem;">Social Media Templates</label>
                   </div>
                   <div class="checkbox-group">
-                    <input type="checkbox" id="del-web">
+                    <input type="checkbox" id="del-web" name="deliverables" value="Website / App UI">
                     <label for="del-web" style="margin: 0; font-weight: normal; font-size: 0.9rem;">Website / App UI</label>
                   </div>
                 </div>
@@ -246,11 +246,11 @@
 
               <div class="form-group" style="margin-top: 1.5rem;">
                 <label for="details">Project Details *</label>
-                <textarea id="details" class="form-control" required placeholder="Tell us a bit about your brand, what you're looking to achieve and any inspiration you have..." rows="4"></textarea>
+                <textarea id="details" name="details" class="form-control" required placeholder="Tell us a bit about your brand, what you're looking to achieve and any inspiration you have..." rows="4"></textarea>
               </div>
 
               <div class="form-group checkbox-group">
-                <input type="checkbox" id="newsletter" checked>
+                <input type="checkbox" id="newsletter" name="newsletter" checked>
                 <label for="newsletter" style="margin: 0; font-weight: normal; font-size: 0.9rem;">Subscribe to our monthly creative newsletter</label>
               </div>
 

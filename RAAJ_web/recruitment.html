@@ -122,27 +122,27 @@
             <h3 style="margin-bottom: 1.5rem;">Submit Your Details</h3>
             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 2rem;">Please fill out the form below comprehensively. We review all applications and will get back to shortlisted candidates within 5 business days.</p>
             
-            <form id="recruitment-form" onsubmit="event.preventDefault(); showToast('Application submitted successfully! We will review your portfolio.', 'success'); this.reset();">
+            <form id="recruitment-form" data-form-type="recruitment">
               
               <div class="form-grid">
                 <div class="form-group">
                   <label for="r-name">Full Name *</label>
-                  <input type="text" id="r-name" class="form-control" required placeholder="John Doe">
+                  <input type="text" id="r-name" name="name" class="form-control" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
                   <label for="r-email">Email Address *</label>
-                  <input type="email" id="r-email" class="form-control" required placeholder="john@example.com">
+                  <input type="email" id="r-email" name="email" class="form-control" required placeholder="john@example.com">
                 </div>
               </div>
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="r-phone">Phone Number</label>
-                  <input type="tel" id="r-phone" class="form-control" placeholder="+254 700 000000">
+                  <input type="tel" id="r-phone" name="phone" class="form-control" placeholder="+254 700 000000">
                 </div>
                 <div class="form-group">
                   <label for="r-experience">Years of Experience *</label>
-                  <select id="r-experience" class="form-control" required>
+                  <select id="r-experience" name="experience" class="form-control" required>
                     <option value="" disabled selected>Select...</option>
                     <option value="entry">0-2 years (Junior)</option>
                     <option value="mid">3-5 years (Mid-Level)</option>
@@ -153,9 +153,9 @@
 
               <div class="form-group">
                 <label for="r-role">Role of Interest *</label>
-                <select id="r-role" class="form-control" required>
+                <select id="r-role" name="role" class="form-control" required>
                   <option value="" disabled selected>Select a role...</option>
-                  <option value="brand_designer">[Role Title]</option>
+                  <option value="brand_designer">Senior Brand Designer (Remote)</option>
                   <option value="motion_designer">Motion Graphics Animator</option>
                   <option value="packaging_designer">Packaging Design Specialist</option>
                   <option value="other">Other / General Application</option>
@@ -164,17 +164,17 @@
 
               <div class="form-group">
                 <label for="r-portfolio">Portfolio Link (Behance, Dribbble, Website) *</label>
-                <input type="url" id="r-portfolio" class="form-control" required placeholder="https://behance.net/yourprofile">
+                <input type="url" id="r-portfolio" name="portfolio" class="form-control" required placeholder="https://behance.net/yourprofile">
               </div>
               
               <div class="form-group">
                 <label for="r-cv">Resume/CV Link (Google Drive, Dropbox) *</label>
-                <input type="url" id="r-cv" class="form-control" required placeholder="Paste shareable link here">
+                <input type="url" id="r-cv" name="cv" class="form-control" required placeholder="Paste shareable link here">
               </div>
 
               <div class="form-group">
                 <label for="r-message">Why RAAJ Studios? *</label>
-                <textarea id="r-message" class="form-control" required placeholder="Briefly explain why you think you'd be a great fit for our team..." rows="4"></textarea>
+                <textarea id="r-message" name="message" class="form-control" required placeholder="Briefly explain why you think you'd be a great fit for our team..." rows="4"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>

@@ -1,354 +1,175 @@
 /* ============================================
-   RAAJ Studios — Forms v1.0
-   Handles validation and submission for:
-   - Contact form
-   - Hire Us form
-   - Recruitment form
+   RAAJ Studios — Forms v2.0
+   Google Sheets Backend + WhatsApp Integration
+   
+   Every submission is:
+   1. Stored in Google Sheets (primary)
+   2. Emailed to the team (via Apps Script)
+   3. Opened in WhatsApp (secondary, for live chat)
    ============================================ */
-
-/**
- * Recruitment Form HTML Generator (Task 14)
- * @param {Object} options
- * @param {string} [options.formId='recruitment-form'] - Unique form ID
- * @param {string} [options.title='Join Our Creative Team'] - Heading title
- * @param {string} [options.subtitle='Apply to collaborate with RAAJ Studios as a designer or specialist.'] - Heading subtitle
- * @returns {string} Generated HTML string for Recruitment Form
- */
-function createRecruitmentForm({ formId = 'recruitment-form', title = 'Join Our Creative Team', subtitle = 'Apply to collaborate with RAAJ Studios as a designer, illustrator, or creative specialist.' } = {}) {
-  return `
-    <div class="card form-card">
-      ${title ? `<h3 class="form-card-title">${title}</h3>` : ''}
-      ${subtitle ? `<p class="form-card-subtitle">${subtitle}</p>` : ''}
-
-      <form id="${formId}" class="recruitment-form" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="${formId}-name" class="form-label">Full Name <span class="required">*</span></label>
-            <input type="text" id="${formId}-name" name="name" class="form-control" data-validate="name" placeholder="e.g. Alex Kimani" required>
-            <span class="field-error-msg"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="${formId}-email" class="form-label">Email Address <span class="required">*</span></label>
-            <input type="email" id="${formId}-email" name="email" class="form-control" data-validate="email" placeholder="e.g. alex@design.co.ke" required>
-            <span class="field-error-msg"></span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="${formId}-portfolio" class="form-label">Portfolio / Behance / Dribbble Link <span class="required">*</span></label>
-          <input type="url" id="${formId}-portfolio" name="portfolio" class="form-control" data-validate="portfolio" placeholder="https://behance.net/yourprofile" required>
-          <span class="field-error-msg"></span>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Primary Design Specialties (Select at least 1) <span class="required">*</span></label>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Logo Design"> Logo Design</label>
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Posters"> Posters</label>
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Flyers"> Flyers</label>
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Packaging"> Packaging</label>
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="Business Cards"> Business Cards</label>
-            <label class="checkbox-label"><input type="checkbox" name="specialty" value="3D/Motion"> 3D / Motion</label>
-          </div>
-          <span class="field-error-msg" id="${formId}-specialty-error"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="${formId}-experience" class="form-label">Experience Level <span class="required">*</span></label>
-          <select id="${formId}-experience" name="experience" class="form-control" data-validate="service" required>
-            <option value="" disabled selected>Select Experience Level</option>
-            <option value="Junior (1-2 years)">Junior (1-2 years)</option>
-            <option value="Mid-Level (3-5 years)">Mid-Level (3-5 years)</option>
-            <option value="Senior (5+ years)">Senior (5+ years)</option>
-            <option value="Freelancer / Contractor">Freelancer / Contractor</option>
-          </select>
-          <span class="field-error-msg"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="${formId}-bio" class="form-label">Tell Us About Yourself & Tools Used <span class="required">*</span></label>
-          <textarea id="${formId}-bio" name="bio" class="form-control" data-validate="message" placeholder="Share a short bio, tools you master (Photoshop, Illustrator, Figma, Blender), and notable projects..." required></textarea>
-          <span class="field-error-msg"></span>
-        </div>
-
-        <div class="form-status-message hidden" id="${formId}-status"></div>
-
-        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
-      </form>
-    </div>
-  `.trim();
-}
 
 const Forms = {
 
+  /* ── Configuration ── */
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyL2Sz-gpHjqRPb-QaUDim4P69AYrV7DgWaIAvrrEraDIZc2a8NTXbAo_96qxh0xG_a/exec',
   WHATSAPP_NUMBER: '254754748388',
 
-  /* ============================================
-     VALIDATION RULES
-  ============================================ */
-  rules: {
-    name: {
-      required: true,
-      minLength: 2,
-      message: 'Please enter your full name.',
-    },
-    email: {
-      required: true,
-      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message: 'Please enter a valid email address.',
-    },
-    phone: {
-      required: false,
-      pattern: /^[\d\s\+\-]{7,15}$/,
-      message: 'Please enter a valid phone number.',
-    },
-    portfolio: {
-      required: true,
-      pattern: /^(https?:\/\/)?([\w\d\-]+\.)+[\w\d\-]+(\/.*)?$/i,
-      message: 'Please enter a valid portfolio link (e.g. https://behance.net/yourname).',
-    },
-    message: {
-      required: true,
-      minLength: 10,
-      message: 'Please enter details (at least 10 characters).',
-    },
-    service: {
-      required: true,
-      message: 'Please select an option.',
-    },
-  },
+  /* ── Collect data from a form based on its type ── */
+  collectData(form, formType) {
+    const val = (name) => {
+      const el = form.querySelector('[name="' + name + '"]');
+      return el ? el.value.trim() : '';
+    };
+    const selectText = (name) => {
+      const el = form.querySelector('[name="' + name + '"]');
+      return (el && el.selectedIndex > 0) ? el.options[el.selectedIndex].text : '';
+    };
 
-  /* ============================================
-     VALIDATE A SINGLE FIELD
-  ============================================ */
-  validateField(name, value) {
-    const rule = this.rules[name];
-    if (!rule) return { valid: true };
+    switch (formType) {
+      case 'contact':
+        return {
+          formType: 'contact',
+          name:    val('name'),
+          email:   val('email'),
+          subject: val('subject'),
+          message: val('message')
+        };
 
-    const trimmed = value.trim();
+      case 'hire': {
+        const deliverables = Array.from(
+          form.querySelectorAll('[name="deliverables"]:checked')
+        ).map(cb => cb.value).join(', ');
 
-    if (rule.required && !trimmed) {
-      return { valid: false, message: rule.message };
-    }
-
-    if (trimmed && rule.minLength && trimmed.length < rule.minLength) {
-      return { valid: false, message: rule.message };
-    }
-
-    if (trimmed && rule.pattern && !rule.pattern.test(trimmed)) {
-      return { valid: false, message: rule.message };
-    }
-
-    return { valid: true };
-  },
-
-  /* ============================================
-     SHOW / CLEAR FIELD ERROR
-  ============================================ */
-  showError(field, message) {
-    field.classList.add('field-error');
-    field.classList.remove('field-success');
-
-    let errorEl = field.parentElement.querySelector('.field-error-msg');
-    if (!errorEl) {
-      errorEl = document.createElement('span');
-      errorEl.className = 'field-error-msg';
-      field.parentElement.appendChild(errorEl);
-    }
-    errorEl.textContent = message;
-  },
-
-  clearError(field) {
-    field.classList.remove('field-error');
-    field.classList.add('field-success');
-
-    const errorEl = field.parentElement.querySelector('.field-error-msg');
-    if (errorEl) errorEl.textContent = '';
-  },
-
-  /* ============================================
-     VALIDATE FORM
-  ============================================ */
-  validateForm(form) {
-    let isValid = true;
-    const fields = form.querySelectorAll('[data-validate]');
-
-    fields.forEach(field => {
-      const name   = field.dataset.validate;
-      const result = this.validateField(name, field.value);
-
-      if (!result.valid) {
-        this.showError(field, result.message);
-        isValid = false;
-      } else {
-        this.clearError(field);
+        return {
+          formType:     'hire',
+          firstName:    val('firstName'),
+          lastName:     val('lastName'),
+          company:      val('company'),
+          email:        val('email'),
+          phone:        val('phone'),
+          service:      selectText('service'),
+          timeline:     selectText('timeline'),
+          budget:       selectText('budget'),
+          deliverables: deliverables,
+          details:      val('details'),
+          newsletter:   form.querySelector('[name="newsletter"]')?.checked ? 'Yes' : 'No'
+        };
       }
-    });
 
-    // Checkbox check for recruitment forms
-    const checkboxes = form.querySelectorAll('input[name="specialty"]');
-    if (checkboxes.length > 0) {
-      const checked = Array.from(checkboxes).some(cb => cb.checked);
-      const specError = form.querySelector('[id*="specialty-error"]');
-      if (!checked) {
-        if (specError) specError.textContent = 'Please select at least 1 specialty.';
-        isValid = false;
-      } else {
-        if (specError) specError.textContent = '';
-      }
+      case 'recruitment':
+        return {
+          formType:   'recruitment',
+          name:       val('name'),
+          email:      val('email'),
+          phone:      val('phone'),
+          experience: selectText('experience'),
+          role:       selectText('role'),
+          portfolio:  val('portfolio'),
+          cv:         val('cv'),
+          message:    val('message')
+        };
+
+      default:
+        return { formType: formType };
     }
-
-    return isValid;
   },
 
-  /* ============================================
-     BUILD WHATSAPP MESSAGE
-  ============================================ */
-  buildWhatsAppMessage(formData, formType) {
-    const lines = [`*RAAJ Studios — ${formType}*`, ''];
+  /* ── Build a WhatsApp pre-filled message ── */
+  buildWhatsAppMessage(data, formType) {
+    const titles = {
+      contact:     'New Contact Message',
+      hire:        'New Project Inquiry',
+      recruitment: 'New Recruitment Application'
+    };
 
-    for (const [key, value] of Object.entries(formData)) {
-      if (value) {
-        const label = key.charAt(0).toUpperCase() + key.slice(1);
-        lines.push(`*${label}:* ${value}`);
-      }
+    const lines = ['*RAAJ Studios — ' + (titles[formType] || 'Form Submission') + '*', ''];
+
+    for (const [key, value] of Object.entries(data)) {
+      if (key === 'formType' || !value) continue;
+      const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+      lines.push('*' + label + ':* ' + value);
     }
 
     lines.push('', '_Sent from raajstudios.com_');
     return lines.join('\n');
   },
 
-  /* ============================================
-     OPEN WHATSAPP
-  ============================================ */
+  /* ── Open WhatsApp with a pre-filled message ── */
   openWhatsApp(message) {
-    const encoded = encodeURIComponent(message);
-    const url     = `https://wa.me/${this.WHATSAPP_NUMBER}?text=${encoded}`;
+    const url = 'https://wa.me/' + this.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
     window.open(url, '_blank');
   },
 
-  /* ============================================
-     SET BUTTON LOADING STATE
-  ============================================ */
-  setLoading(btn, loading) {
-    if (loading) {
-      btn.dataset.originalText = btn.textContent;
-      btn.textContent          = 'Submitting Application...';
-      btn.disabled             = true;
-    } else {
-      btn.textContent = btn.dataset.originalText || 'Submit Application';
-      btn.disabled    = false;
-    }
-  },
-
-  /* ============================================
-     HANDLE CONTACT FORM
-  ============================================ */
-  handleContact(form) {
-    if (!this.validateForm(form)) return;
-
-    const data = {
-      name:    form.querySelector('[data-validate="name"]')?.value.trim(),
-      email:   form.querySelector('[data-validate="email"]')?.value.trim(),
-      phone:   form.querySelector('[data-validate="phone"]')?.value.trim(),
-      message: form.querySelector('[data-validate="message"]')?.value.trim(),
-    };
-
-    const message = this.buildWhatsAppMessage(data, 'New Contact Message');
-    const btn     = form.querySelector('[type="submit"]');
-
-    this.setLoading(btn, true);
-
-    setTimeout(() => {
-      this.openWhatsApp(message);
-      this.setLoading(btn, false);
-      form.reset();
-      form.querySelectorAll('.field-success').forEach(f => f.classList.remove('field-success'));
-
-      if (window.Toast) Toast.show('Message sent! We\'ll be in touch soon.', 'success');
-    }, 1000);
-  },
-
-  /* ============================================
-     HANDLE RECRUITMENT FORM (Task 14)
-  ============================================ */
-  handleRecruitment(form) {
-    if (!this.validateForm(form)) return;
-
-    const specialties = Array.from(form.querySelectorAll('input[name="specialty"]:checked')).map(cb => cb.value).join(', ');
-
-    const data = {
-      name:        form.querySelector('[name="name"]')?.value.trim(),
-      email:       form.querySelector('[name="email"]')?.value.trim(),
-      portfolio:   form.querySelector('[name="portfolio"]')?.value.trim(),
-      specialties: specialties,
-      experience:  form.querySelector('[name="experience"]')?.value,
-      bio:         form.querySelector('[name="bio"]')?.value.trim(),
-    };
-
-    const message = this.buildWhatsAppMessage(data, 'Designer Recruitment Application');
-    const btn     = form.querySelector('[type="submit"]');
-
-    this.setLoading(btn, true);
-
-    setTimeout(() => {
-      this.openWhatsApp(message);
-      this.setLoading(btn, false);
-      form.reset();
-      form.querySelectorAll('.field-success').forEach(f => f.classList.remove('field-success'));
-
-      if (window.Toast) Toast.show('Application submitted! We will review your portfolio shortly.', 'success');
-    }, 1000);
-  },
-
-  /* ============================================
-     INIT ALL FORMS
-  ============================================ */
-  init() {
-    /* Contact form */
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', e => {
-        e.preventDefault();
-        this.handleContact(contactForm);
-      });
-    }
-
-    /* Recruitment form */
-    const recruitForm = document.querySelector('.recruitment-form, #recruitment-form');
-    if (recruitForm) {
-      recruitForm.addEventListener('submit', e => {
-        e.preventDefault();
-        this.handleRecruitment(recruitForm);
-      });
-    }
-
-    /* Auto-initialize containers marked data-component="recruitment-form" */
-    const containers = document.querySelectorAll('[data-component="recruitment-form"]');
-    containers.forEach(c => {
-      c.innerHTML = createRecruitmentForm();
-      const createdForm = c.querySelector('form');
-      if (createdForm) {
-        createdForm.addEventListener('submit', e => {
-          e.preventDefault();
-          this.handleRecruitment(createdForm);
-        });
-      }
+  /* ── Submit data to Google Sheets via Apps Script ── */
+  async submitToSheet(data) {
+    await fetch(this.SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
     });
+  },
 
-    /* Live validation */
-    document.querySelectorAll('[data-validate]').forEach(field => {
-      field.addEventListener('input', () => {
-        const result = this.validateField(field.dataset.validate, field.value);
-        if (result.valid) this.clearError(field);
+  /* ── Handle form submission ── */
+  async handleSubmit(form) {
+    const formType = form.dataset.formType;
+    if (!formType) return;
+
+    // Use native HTML5 validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const btn = form.querySelector('[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    const data = this.collectData(form, formType);
+    const whatsappMsg = this.buildWhatsAppMessage(data, formType);
+
+    try {
+      // 1. Store in Google Sheets + trigger email notifications
+      await this.submitToSheet(data);
+
+      // 2. Show success toast
+      const messages = {
+        contact:     'Message sent! We\'ll reply within 24 hours.',
+        hire:        'Project inquiry submitted! We\'ll get back to you shortly.',
+        recruitment: 'Application submitted! We\'ll review your portfolio.'
+      };
+      if (window.Toast) Toast.show(messages[formType] || 'Submitted successfully!', 'success');
+
+      // 3. Open WhatsApp for live conversation
+      this.openWhatsApp(whatsappMsg);
+
+      // 4. Reset the form
+      form.reset();
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      if (window.Toast) {
+        Toast.show('Something went wrong. Redirecting to WhatsApp...', 'error');
+      }
+      // Fallback: still open WhatsApp so the message isn't lost
+      this.openWhatsApp(whatsappMsg);
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  },
+
+  /* ── Initialize: bind submit handlers to all forms with data-form-type ── */
+  init() {
+    document.querySelectorAll('[data-form-type]').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleSubmit(form);
       });
     });
   }
 };
 
 document.addEventListener('DOMContentLoaded', () => Forms.init());
-
 window.Forms = Forms;
-window.createRecruitmentForm = createRecruitmentForm;
-window.initForms = () => Forms.init();
