@@ -2,7 +2,7 @@
   "name": "RAAJ Studios - Creative Design Agency",
   "short_name": "RAAJ Studios",
   "description": "Premium graphic design, visual identity, branding, packaging, and marketing agency.",
-  "start_url": "./Index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F8FCFF",
   "theme_color": "#33B8FF",

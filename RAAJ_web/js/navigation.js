@@ -47,7 +47,7 @@ function initializeNavigation() {
   });
 
   // Highlight Current Active Page Link in Navbar & Drawer
-  const currentPath = window.location.pathname.split('/').pop() || 'Index.html';
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-link, .mobile-links a');
 
   navLinks.forEach(link => {
