@@ -1010,19 +1010,6 @@ textarea.form-control {
   }
 }
 
-/* ==========================================
-   14. TOP SCROLL PROGRESS BAR
-========================================== */
-#scroll-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), #00F0FF);
-  z-index: 1000;
-  width: 0%;
-  transition: width 0.1s linear;
-}
 
 /* ==========================================
    15. PERFORMANCE & DATA SAVER ADAPTATIONS
@@ -1205,19 +1192,6 @@ html.prefers-reduced-motion *::after {
   }
 }
 
-/* ==========================================
-   14. TOP SCROLL PROGRESS BAR
-========================================== */
-#scroll-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), #00F0FF);
-  z-index: 1000;
-  width: 0%;
-  transition: width 0.1s linear;
-}
 
 /* ==========================================
    15. PERFORMANCE & DATA SAVER ADAPTATIONS

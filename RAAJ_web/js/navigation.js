@@ -18,15 +18,7 @@ function initializeNavigation() {
     });
   }
 
-  // Create Scroll Progress Bar if missing
-  let progressBar = document.getElementById('scroll-progress-bar');
-  if (!progressBar) {
-    progressBar = document.createElement('div');
-    progressBar.id = 'scroll-progress-bar';
-    document.body.appendChild(progressBar);
-  }
-
-  // Scroll Listener for Navbar shadow & Scroll progress
+  // Scroll Listener for Navbar shadow
   window.addEventListener("scroll", () => {
     const navbar = document.querySelector(".navbar");
     if (navbar) {
@@ -35,14 +27,6 @@ function initializeNavigation() {
       } else {
         navbar.classList.remove("scrolled");
       }
-    }
-
-    // Update scroll progress width percentage
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-    if (progressBar) {
-      progressBar.style.width = scrolled + '%';
     }
   });
 
