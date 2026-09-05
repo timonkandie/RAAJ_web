@@ -11,7 +11,7 @@
 const Forms = {
 
   /* ── Configuration ── */
-  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyL2Sz-gpHjqRPb-QaUDim4P69AYrV7DgWaIAvrrEraDIZc2a8NTXbAo_96qxh0xG_a/exec',
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyR_UDEZ-3TMWFZ1LALvcbfMjj_jSRFYB3HHSVWaqy20bkGE8rrnMvBHZlV8VbHEUPQ/exec',
   WHATSAPP_NUMBER: '254754748388',
 
   /* ── Collect data from a form based on its type ── */
